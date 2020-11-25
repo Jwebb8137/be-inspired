@@ -1,0 +1,19 @@
+.page-footer {
+  color: #fff;
+  font-size: 1.25rem;
+  text-align: center;
+  width: 100vw;
+}
+
+.footer-copyright {
+  display: block;
+}
+
+.footer-copyright a {
+  color: #fff;
+}
+
+.icon-container i {
+  font-size: 2.5rem;
+  margin: 1rem;
+}

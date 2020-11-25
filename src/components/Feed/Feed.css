@@ -1,0 +1,53 @@
+#feed-container {
+    background-image: linear-gradient( #fff 0%, rgb(170, 204, 204) 10%, rgb(170, 204, 204) 90%, #fff 100% );
+    min-height: 100vh;
+    padding: 0 25px;
+    text-align: center;
+}
+
+.feed-inner-container {
+    background: #fff;
+    border-radius: 5px;
+    font-family: 'Architects Daughter', cursive;
+    padding: 75px 35px;
+    margin: auto;
+    max-width: 800px;
+}
+
+.featured-post {
+    margin: 50px auto;
+}
+
+.featured-video {
+    border-radius: 5px 5px 0 0;
+}
+
+#feed-options {
+    display: flex;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 22px;
+    flex-direction: row;
+    list-style-type: none;
+    margin: auto;
+    justify-content: space-between;
+}
+
+#feed-options .input-field {
+    font-size: 22px;
+    margin: 0;
+}
+
+#feed-options select {
+    font-size: 18px;
+}
+
+#middle-option {
+    margin-left: 275px;
+    margin-right: 25px;
+}
+
+#feed-heading {
+    color: #000000bf;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 3rem;
+}

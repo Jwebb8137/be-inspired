@@ -1,0 +1,140 @@
+#myVideo {
+  position: fixed;
+  min-width: 100%;
+}
+
+.fade-in-login {
+  animation: fadeInEffect linear 2s;
+  }
+@keyframes fadeInEffect {
+  0% {opacity:0;}
+  50% {opacity: .5;}
+  100% {opacity:1;}
+}
+
+#profile-submit {
+  background: #17433f;
+  border: 1px solid #17433f;
+  border-radius: 1rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-family: 'Architects Daughter', cursive;
+  font-size: 1.25rem;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto 1rem;
+  padding: 8px 20px;
+  width: 200px;
+}
+
+.signup-sub-heading {
+  font-size: 1.55rem;
+  margin: 1.25rem 0 0;
+  width: 100%;
+}
+
+a.link {
+  color: #000;
+}
+
+.err-msg {
+  margin-top: 10px;
+}
+
+#sign-in {
+  background: #e2eaf3;
+  max-width: 450px;
+  padding: 2rem;
+  margin: auto;
+  border: 1px solid #17433f;
+}
+
+#login-icon {
+  font-size: 4rem;
+}
+
+.signin {
+  position: fixed;
+  top: 17vh;
+  background: rgba(0, 0, 0, 0.5);
+  color: #000;
+  width: 100%;
+  padding: 65px 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.signin-heading {
+  color: #000;
+  font-size: 2.5rem;
+}
+
+.form-container {
+  background: #f8e5e5;
+  border: 1px solid grey;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 1rem auto 0;
+  padding: .5rem 1rem;
+  max-width: 600px;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+input[type=password], input[typeOf=email], input[typeOf=text] {
+  border: 1px solid #000;
+  border-radius: 5px;
+  font-size: 20px;
+  margin: .25rem auto 0;
+  padding: 6px 5px;
+}
+
+.input-field {
+  font-size: 16px;
+  margin: .5em auto;
+}
+
+#login-row {
+  padding: .75rem 0 .25rem;
+}
+
+::placeholder {
+  color: black !important;
+}
+
+.green {
+  color: #17433f;
+}
+
+input:focus {
+  outline: #17433f auto 1px !important;
+}
+
+input:not([type=submit]):invalid {
+  background-color: #fff;
+}
+
+input:not([type=submit]):valid {
+  background-color: #fff;
+}
+
+input:not([type=submit]):invalid:required {
+  background: #fff url('https://www.developerdrive.com/wp-content/uploads/2013/08/asterisk1.png') no-repeat right top; 
+}
+
+input:not([type=submit]):valid:required {
+  background: #fff url('https://www.developerdrive.com/wp-content/uploads/2013/08/asterisk1.png') no-repeat right top; 
+}
+
+input:not([type=submit]):optional {
+  background-color: #fff;
+}
+
+@media (min-width: 768px) { 
+  .signin-heading {
+    font-size: 3.5rem;
+  }
+}

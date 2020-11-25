@@ -1,0 +1,177 @@
+.modal {
+  background-image: linear-gradient( 225deg, #808080 0%, rgb(255 255 255) 12%, rgb(255 255 255) 88%, #929292 100% );  border: 1px solid #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  transition: 1.1s ease-out;
+  box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
+  filter: blur(0);
+  padding: 0;
+  transform: scale(1);
+  visibility: visible;
+}
+
+.modal.off {
+  opacity: 0;
+  visibility: hidden;
+  filter: blur(8px);
+  transform: scale(0.33);
+  box-shadow: 1rem 0 0 rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  border-bottom: 1px solid #ccc;
+  padding: 1rem;
+  margin: 0;
+}
+
+.modal .content {
+  padding: 1rem;
+}
+
+.modal .actions {
+  border-top: 1px solid #ccc;
+  background: #fff;
+  padding: 2rem 1rem;
+}
+
+.modal .actions button {
+  display: flex;
+  border: 0;
+  background: #FA255E;
+  border-radius: 5px;
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  line-height: 1;
+  margin: auto;
+  align-items: center;
+}
+
+.modal-btn {
+  background: #FA255E;
+  color: #fff;
+  display: block;
+  font-family: 'Grandstander', cursive;
+  font-size: 1.1rem;
+  margin: 10px auto 2.5rem;
+  width: 65%;
+  padding: .55rem;
+  max-width: 300px;
+}
+
+.modal-sub-heading {
+  font-size: 1.2rem;
+  margin: 1.25rem auto .15rem;
+}
+
+.modal-icon {
+  font-size: 2.5rem;
+  margin-top: 1rem;
+}
+
+.modal-container {
+  border-radius: 4px;
+  float: left;
+  position: absolute;
+  top: 75px;
+  margin-top: 5vh;
+  width: 700px;
+}
+
+.fa-window-close {
+  float: right;
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.fa-window-close:hover {
+  cursor: pointer;
+}
+
+.color-w {
+  color: #fff;
+}
+
+.ml-1 {
+  margin-left: 3px;
+}
+
+.mb-1 {
+  margin-bottom: .25rem;
+}
+
+#modal-icon {
+  font-size: 3rem;
+  padding: 1rem 0 0;
+}
+
+.dzu-dropzone {
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 75px !important;
+  overflow: hidden !important;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+  transition: all .15s linear;
+  border: none !important;
+  border-radius: 4px;
+}
+
+#modal-img {
+  width: 100%;
+}
+
+.dzu-inputLabel {
+  border-top: 1px solid #000;
+  background: #000;
+  font-family: 'Montserrat', sans-serif !important;
+  margin-top: 20px;
+  color: #fff !important;
+}
+
+.dzu-inputLabelWithFiles {
+  background-color: #0165dc !important;
+  border-radius: 5px !important;
+  color: #fff !important;
+  font-family: 'Montserrat', sans-serif !important;
+  padding: 3px 17px !important;
+  margin: 0 0 0 1rem!important;
+  max-width: 350px;
+  min-height: 38px !important;
+  width: 100px;
+}
+
+.dzu-submitButton {
+  background-color: #0165dc !important;
+  font-family: 'Montserrat', sans-serif !important;
+  padding: 12px 20px !important;
+  width: 350px !important;
+}
+
+.dzu-previewContainer {
+  border: none !important;
+}
+
+@media (min-width: 768px) { 
+  .modal-container {
+    position: absolute;
+    top: 50%;
+    right: 28%;
+  }
+}
+
+@media (min-width: 992px) { 
+  .modal-container {
+    right: 28%;
+  }
+}
+
+@media (min-width: 1200px) { 
+  .modal-container {
+    right: 27%;
+  }
+}
