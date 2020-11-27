@@ -8,19 +8,21 @@ const Navbar = () => {
     document.getElementById("mySidenav").style.width = "250px";
   }
 
-  const closeNav = () => {
+  const closeNav = (e) => {    
+    document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'))
+    e.target.classList.add('active')
     document.getElementById("mySidenav").style.width = "0";
   }
 
   return (
     <Fragment>
       <div className='navigation fade-in'>
-        <Link to="/" onClick={closeNav}><div className="navigation-logo">BeInspired <i class="fab fa-atlassian"></i></div></Link>
+        <Link to="/" onClick={e => closeNav(e)}><div className="navigation-logo">BeInspired <i class="fab fa-atlassian"></i></div></Link>
         <div className='nav-link-container'>
           <ul>
-            <Link to='/' onClick={closeNav}><li className='nav-link active'>Inspire</li></Link>
-            <Link to='/Feed' onClick={closeNav}><li className='nav-link'>Discover</li></Link>
-            <Link to='' onClick={closeNav}><li className='nav-link'>Create</li></Link>
+            <Link to='/' onClick={e => closeNav(e)}><li className='nav-link active'>Inspire</li></Link>
+            <Link to='/Feed' onClick={e => closeNav(e)}><li className='nav-link'>Discover</li></Link>
+            <Link to='/Create' onClick={e => closeNav(e)}><li className='nav-link'>About</li></Link>
             <li id="account-bubble" onClick={openNav}><i class="fas fa-user-astronaut"></i></li>
           </ul>
         </div>

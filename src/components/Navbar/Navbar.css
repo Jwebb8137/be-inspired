@@ -47,21 +47,43 @@ li:hover {
 }
 
 .active {
-  border-bottom: 3px solid #fff;
+  border-bottom: 3px solid #479cd6;
 }
 
 #account-bubble {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: #479cd6;
   border-radius: 50%;
   color: #000;
   height: 42px;
-  margin: -5px 25px -5px 0;
+  margin: -5px 25px -5px 20px;
   width: 42px;
 }
 
 #account-bubble li i{
   margin-bottom: -10px;
+}
+
+a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  bottom: -2px;
+  left: 0;
+  background-color: #479cd6;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+
+li.active a:before,
+a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
 }

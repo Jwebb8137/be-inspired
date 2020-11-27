@@ -64,16 +64,16 @@ const UploadPost = props => {
         <div className="signup-row">
           <div className="input-field">
             <label></label>
-            <textarea typeof="text" required placeholder="Send some inspiration or words of encouragement!" onChange={e => setFirstName(e.target.value)}/>
+            <textarea typeof="text" placeholder="Send some inspiration or words of encouragement!" onChange={e => setFirstName(e.target.value)}/>
           </div>
         </div>
-        <button id="signup-submit" class="btn">Share Your Post</button>
+        <button id="signup-submit" class="btn bg-grey">Share Your Post</button>
         <button
           className="toggle-button btn modal-btn"
           id="centered-toggle-button"
           onClick={() => setShowModal(!showModal)}
         >
-          <i class="fas fa-video"></i>
+          Upload Media <i class="fas fa-video"></i>
         </button>
         <div className="modal-container">
           <UploadMedia onClose={() => setShowModal(!showModal)} show={showModal}>

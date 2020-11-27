@@ -6,8 +6,19 @@
   box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
   filter: blur(0);
   padding: 0;
+  margin: auto;
   transform: scale(1);
   visibility: visible;
+  width: 700px;
+}
+
+.full-bg {
+  background: #ccc;
+  height: 100%;
+  padding: 2rem;
+  margin-top: 150px;
+  opacity: .95;
+  width: 100vw;
 }
 
 .modal.off {
@@ -48,15 +59,11 @@
 }
 
 .modal-btn {
-  background: #FA255E;
-  color: #fff;
-  display: block;
-  font-family: 'Grandstander', cursive;
+  background: #fff;
+  color: #000;
   font-size: 1.1rem;
-  margin: 10px auto 2.5rem;
-  width: 65%;
+  margin-left: 1rem;
   padding: .55rem;
-  max-width: 300px;
 }
 
 .modal-sub-heading {
@@ -71,14 +78,14 @@
 
 .modal-container {
   border-radius: 4px;
-  float: left;
+  left: 0;
   position: absolute;
-  top: 75px;
-  margin-top: 5vh;
+  top: 0;
   width: 700px;
 }
 
-.fa-window-close {
+.modal .fa-window-close {
+  color: #000;
   float: right;
   margin: 1rem;
   font-size: 2rem;
@@ -159,7 +166,6 @@
 @media (min-width: 768px) { 
   .modal-container {
     position: absolute;
-    top: 50%;
     right: 28%;
   }
 }

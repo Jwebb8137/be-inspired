@@ -3,6 +3,7 @@ import './App.css';
 import { Route, BrowserRouter, Redirect } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
+import Create from './components/Create/Create';
 import Sidebar from './components/Sidebar/Sidebar';
 import Login from './components/Login/Login';
 import Signup from './components/Signup/Signup';
@@ -12,7 +13,6 @@ import config from './config';
 
 
 function App() {
-
   const { API_ENDPOINT } = config;
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const setAuth = (boolean) => {
@@ -20,7 +20,7 @@ function App() {
   }
 
   async function isAuth() {
-    console.log = console.warn = console.error = () => {};
+    // console.log = console.warn = console.error = () => {};
     try {
       const response = await fetch(`${API_ENDPOINT}/api/is-verified`, {
         method: "GET",
@@ -44,6 +44,7 @@ function App() {
       }/>
       <Route path="/" component={Sidebar}/>
       <Route exact path="/" component={Home}/>
+      <Route exact path="/Create" component={Create}/>
       <Route exact path="/Login" component={Login}/>
       <Route exact path="/Signup" component={Signup}/>
       <Route exact path="/Feed" component={Feed}/>

@@ -1,5 +1,5 @@
 #feed-container {
-    background-image: linear-gradient( #fff 0%, rgb(170, 204, 204) 10%, rgb(170, 204, 204) 90%, #fff 100% );
+    background-image: linear-gradient( #fff 0%,#479cd6 10%, #479cd6 90%, #fff 100% );
     min-height: 100vh;
     padding: 0 25px;
     text-align: center;

@@ -40,18 +40,21 @@ export default class UploadMedia extends React.Component {
       return null;
     }
     return (
-      <Fragment>        
-        <div className="modal" id="modal">
-          <img id="modal-img" src={ModalImg} />
-          <i id="modal-icon" class="fab fa-atlassian"></i>
-          <Dropzone
-            id="dzu-dropzone"
-            getUploadParams={getUploadParams}
-            LayoutComponent={Layout}
-            onSubmit={handleSubmit}
-            inputContent="Click Here To Upload"
-          />       
-        </div>
+      <Fragment> 
+        <div className="full-bg">
+          <div className="modal" id="modal">
+          <i className="fas fa-window-close" onClick={this.props.onClose}></i>
+            <img id="modal-img" src={ModalImg} />
+            <i id="modal-icon" class="fab fa-atlassian"></i>
+            <Dropzone
+              id="dzu-dropzone"
+              getUploadParams={getUploadParams}
+              LayoutComponent={Layout}
+              onSubmit={handleSubmit}
+              inputContent="Click Here To Upload"
+            />       
+          </div>
+        </div>       
       </Fragment>
     );
   }

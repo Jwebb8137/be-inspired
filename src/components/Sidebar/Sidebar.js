@@ -14,9 +14,9 @@ const Sidebar = (props) => {
       <p id="nav-support-text">Joshua Webb</p>
       <span className="closebtn" onClick={closeNav}><i class="far fa-window-close"></i></span>
       <Link to="/" onClick={closeNav} ><span className="side-link">Account</span></Link>
-      <Link to="/" onClick={closeNav}><span className="side-link">Browse</span></Link>
+      <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
       <Link to="/Login" onClick={closeNav}><span className="side-link">Login</span></Link>
-      <Link to="/" onClick={closeNav}><span className="side-link">About Us</span></Link>
+      <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
       <div id="responsive-nav-logo" className="navigation-logo"><i class="fab fa-atlassian"></i></div>
     </div>
   )

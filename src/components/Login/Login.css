@@ -13,8 +13,8 @@
 }
 
 #profile-submit {
-  background: #17433f;
-  border: 1px solid #17433f;
+  background: #479cd6;
+  border: 1px solid #479cd6;
   border-radius: 1rem;
   color: #fff;
   display: flex;
@@ -47,7 +47,7 @@ a.link {
   max-width: 450px;
   padding: 2rem;
   margin: auto;
-  border: 1px solid #17433f;
+  border: 1px solid #479cd6;
 }
 
 #login-icon {
@@ -106,11 +106,11 @@ input[type=password], input[typeOf=email], input[typeOf=text] {
 }
 
 .green {
-  color: #17433f;
+  color: #479cd6;
 }
 
 input:focus {
-  outline: #17433f auto 1px !important;
+  outline: #479cd6 auto 1px !important;
 }
 
 input:not([type=submit]):invalid {

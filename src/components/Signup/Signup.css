@@ -12,7 +12,7 @@
 }
 
 .signup h2 {
-  color: #393634;
+  color: #479cd6;
   font-family: 'Architects Daughter', cursive;
   font-size: 2rem;
   margin: 3rem auto 1rem;
@@ -63,12 +63,16 @@ input[type="file"] {
 .btn {
   border: 1px solid #000;
   color: #fff;
-  background-color: #393634;
+  background-color: #479cd6;
   font-family: 'Grandstander', cursive;
   padding: 8px 20px;
   border-radius: 8px;
   font-size: 18px;
   width: 200px;
+}
+
+#file:hover {
+  cursor: pointer;
 }
 
 .btn:hover {
