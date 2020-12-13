@@ -1,3 +1,35 @@
+#centered-toggle-button {
+  padding: 9px 20px;
+}
+
+#post-success {
+  height: 100%;
+  padding: 1rem;
+}
+
+#post-success-heading {
+  font-size: 1.5rem;
+  margin: 1rem 0 .5rem;
+}
+
+#img-preview-delete {
+  color: #000;
+  font-size: 1.5rem;
+  position: absolute;
+  right: -35px;
+  top: -25px;
+}
+
+#img-preview-delete:hover {
+  opacity: .8;
+  transform: scale(1.05);
+}
+
+.flex-row #upload-submit {
+  max-width: 375px;
+  width: 100%;
+} 
+
 .upload-container {
     border: 1px solid #000;
     border-radius: 5px;
@@ -8,12 +40,46 @@
     background-image: linear-gradient( #fff 0%,#8fc3e6 5%, #8fc3e6 95%, #fff 100% );
 }
 
+.img-upload-preview {
+  width: 200px;
+}
+
+.img-helper {
+  margin-top: .75rem;
+  display: block;
+}
+
 .upload-container h3 {
     margin: 0;
 }
 
-.upload-container #signup-submit {
-    margin-top: 15px;
+.flex-row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: .5rem auto 0;
+  padding: 0 0 1rem;
+}
+
+.upload-container #upload-submit {
+    margin-right: 1rem;
+}
+
+#img-preview-container {
+  background: #fff;
+  border: 1px solid #000;
+  border-radius: 5px 5px 0 0;
+  padding: .75rem .75rem 2rem;
+  position: relative;
+  margin-bottom: 1.5rem;
+  width: fit-content;
+}
+
+#post-description-container input[typeof="text"] {
+  border: 1px solid #000;
+  font-size: 1.2rem;
+  max-width: 650px;
+  width: 75vw;
 }
 
 .feed {

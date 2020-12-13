@@ -4,7 +4,7 @@ import config from '../../config';
 import videoBg from '../../images/video6.mp4';
 import './Login.css';
 
-const Login = ({ setAuth }) => {
+const Login = ({ setAuth, setUserInfo }) => {
 
   const [inputs, setInputs] = useState({
     username: "",
@@ -23,13 +23,16 @@ const Login = ({ setAuth }) => {
 
     try {
       const body = { username, passwordInput };
-      const response = await fetch(`${API_ENDPOINT}/api/login`, {
+      const response = await fetch(`${API_ENDPOINT}/login`, {
         method: "POST",
         headers: {"Content-type" : "application/json"},
         body: JSON.stringify(body)
       });
-      const parseRes = await response.json();
-      localStorage.setItem("token", parseRes.token);
+      const parseRes = await response.json()
+      console.log("Logging in")
+      console.log(parseRes)
+      localStorage.setItem("token", parseRes.token)
+      setUserInfo(parseRes.userInfo)
       setAuth(true);
     } catch (err) {
       console.error(err.message)

@@ -17,8 +17,19 @@
   height: 100%;
   padding: 2rem;
   margin-top: 150px;
-  opacity: .95;
   width: 100vw;
+}
+
+.img-upload-preview {
+  background: #000;
+  border: 1px solid black;
+  display: block;
+  width: 200px;
+}
+
+#img-upload-submit {
+  display: block;
+  margin: 1.5rem auto 1rem;
 }
 
 .modal.off {
@@ -91,6 +102,13 @@
   font-size: 2rem;
 }
 
+
+
+.block {
+  display: block;
+  width: 100%;
+}
+
 .fa-window-close:hover {
   cursor: pointer;
 }
@@ -112,55 +130,8 @@
   padding: 1rem 0 0;
 }
 
-.dzu-dropzone {
-  color: #000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  min-height: 75px !important;
-  overflow: hidden !important;
-  margin: 0 auto;
-  position: relative;
-  box-sizing: border-box;
-  transition: all .15s linear;
-  border: none !important;
-  border-radius: 4px;
-}
-
 #modal-img {
   width: 100%;
-}
-
-.dzu-inputLabel {
-  border-top: 1px solid #000;
-  background: #000;
-  font-family: 'Montserrat', sans-serif !important;
-  margin-top: 20px;
-  color: #fff !important;
-}
-
-.dzu-inputLabelWithFiles {
-  background-color: #0165dc !important;
-  border-radius: 5px !important;
-  color: #fff !important;
-  font-family: 'Montserrat', sans-serif !important;
-  padding: 3px 17px !important;
-  margin: 0 0 0 1rem!important;
-  max-width: 350px;
-  min-height: 38px !important;
-  width: 100px;
-}
-
-.dzu-submitButton {
-  background-color: #0165dc !important;
-  font-family: 'Montserrat', sans-serif !important;
-  padding: 12px 20px !important;
-  width: 350px !important;
-}
-
-.dzu-previewContainer {
-  border: none !important;
 }
 
 @media (min-width: 768px) { 

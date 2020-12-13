@@ -28,7 +28,7 @@
     font-size: 22px;
     flex-direction: row;
     list-style-type: none;
-    margin: auto;
+    margin: 2rem auto 0;
     justify-content: space-between;
 }
 

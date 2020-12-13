@@ -5,41 +5,39 @@ import Post from '../Post/Post';
 import TextPost from '../Post/TextPost';
 import FeaturedVid from '../../images/video2.mp4';
 import './Feed.css';
+import { useParams } from 'react-router-dom';
 
 const Feed = props => {
 
   const [isLoading, setIsLoading] = useState(false);
+  const [userInfo, setUserInfo] = useState({})
+  const [posts, setPosts] = useState([])
   const [err, setError] = useState("");
   const [listFilter, setListFilter] = useState("");
   const { API_ENDPOINT } = config;
-  const [showModal, setShowModal] = useState(false)
+
+  const activeUserInfo = props.activeUser
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, []);
 
-  const onSubmitForm = async (e) => {
-    e.preventDefault();
+  const getPosts = async () => {
+    try {   
+      const response = await fetch(`${API_ENDPOINT}/posts`);
+      const jsonData = await response.json();
 
-    // if(!previewSource && !previewPetSource) {
-    //   setError("* A Picture Is Required! / Check to make sure everything is filled out!")
-    //   return;
-    // }  
-    // try {
-    //   setIsLoading("true")
-    //   const body = { email, username, password, headline, first_name, last_name, age, hobbies, gender, seeking_gender, description, pet_type, pet_name, pet_description, pet_meet_description, pet_hobbies, previewSource, previewPetSource }
-    //   const response = await fetch(`${API_ENDPOINT}/api/users`, {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(body)
-    //   })
-    //   const parseRes = await response.json();
-    //   localStorage.setItem("token", parseRes.token);
-    //   setAuth(true);
-    // } catch (err) {
-    //   console.error(err.message)
-    // }
+      setPosts(jsonData);
+      setIsLoading(false)
+    } catch (err) {
+        console.error(err.message)
+    }
   }
+
+  useEffect(() => {
+    getPosts()
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Fragment>
@@ -53,6 +51,7 @@ const Feed = props => {
               Your browser does not support the video tag.
             </video>
           </div>
+          <UploadPost getPosts={getPosts} activeUser={activeUserInfo}/>
           <div id="feed-options">
               <span>Inspiration Feed</span>
               <div className='input-field'>
@@ -63,14 +62,18 @@ const Feed = props => {
                   </select>
               </div>
           </div>
-          <UploadPost />
-          <Post />
-          <TextPost />
-          <Post />
-          <TextPost />
-          <Post />
-          <TextPost />
-          <Post />
+          {posts
+            .map(post => {
+            return (
+              <Post
+                contentUrl={post.content_url}
+                postDescription={post.post_description}
+                postUploaderId={post.post_uploader_id}
+                uploadDate={post.date_created}
+                postId={post.id}
+              />
+            )
+          })}
         </div>
       </div>
     </Fragment>

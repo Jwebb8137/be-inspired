@@ -15,19 +15,26 @@ import config from './config';
 function App() {
   const { API_ENDPOINT } = config;
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [userInfo, setUserInfo]  = useState({})
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
+  }
+  const setUser = data => {
+    console.log("setting user info")
+    console.log(data)
+    setUserInfo(data)
   }
 
   async function isAuth() {
     // console.log = console.warn = console.error = () => {};
     try {
-      const response = await fetch(`${API_ENDPOINT}/api/is-verified`, {
+      const response = await fetch(`${API_ENDPOINT}/is-verified`, {
         method: "GET",
         headers: { token : localStorage.token }
       });
       const parseRes = await response.json();
       parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
+      console.log(parseRes)
     } catch (err) {
       console.error(err.message)
     }
@@ -42,58 +49,38 @@ function App() {
       <Route path="/" render={props => 
         <Navbar {...props} setAuth={setAuth} isAuth={isAuthenticated}/>
       }/>
-      <Route path="/" component={Sidebar}/>
+      <Route path="/" render={props => 
+        <Sidebar {...props} setAuth={setAuth} isAuth={isAuthenticated}/>
+      }/>
       <Route exact path="/" component={Home}/>
       <Route exact path="/Create" component={Create}/>
-      <Route exact path="/Login" component={Login}/>
-      <Route exact path="/Signup" component={Signup}/>
-      <Route exact path="/Feed" component={Feed}/>
-      {/* <Route exact path="/signup" 
+      <Route exact path="/Signup" 
         render={props => 
           !isAuthenticated ? (
-            <SignUp {...props} setAuth={setAuth} />
+            <Signup {...props} setAuth={setAuth} setUserInfo={setUser}/>
           ) : (
-            <Redirect to="/dashboard" />
-          )
-        }
-      /> */}
-      {/* <Route 
-        exact path="/Login" 
-        render={props => 
-          !isAuthenticated ? (
-            <Login {...props} setAuth={setAuth}/>
-          ) : (
-            <Redirect to="/dashboard" />
-          )
-        }
-      /> */}
-      {/* <Route 
-        exact path="/browse" 
-        render={props => 
-          <ResultsList {...props} setAuth={setAuth} isAuth={isAuthenticated}/>          
-        }
-      /> */}
-      {/* <Route exact path="/chatlist/:user" 
-        render={props => 
-          isAuthenticated ? (
-            <ChatList {...props} setAuth={setAuth} />
-          ) : (
-            <Redirect to="/signin" />
+            <Redirect to="/Feed" />
           )
         }
       />
-      <Route exact path="/dashboard" 
+      <Route exact path="/Login" 
         render={props => 
-          isAuthenticated ? (
-            <Dashboard {...props} setAuth={setAuth} />
+          !isAuthenticated ? (
+            <Login {...props} setAuth={setAuth} setUserInfo={setUser}/>
           ) : (
-            <Redirect to="/signin" />
+            <Redirect to="/Feed" />
           )
         }
-      /> */}
-      {/* <Route path="/browse" component={ResultsList}/> */}
-      {/* <Route path="/user/:userid" component={ProfileFull}/>
-      <Route exact path="/chat/:userid" component={Chat}/> */}
+      />
+      <Route exact path="/Feed" 
+        render={props => 
+          isAuthenticated ? (
+            <Feed {...props} setAuth={setAuth} activeUser={userInfo}/>
+          ) : (
+            <Redirect to="/Login" />
+          )
+        }
+      />
       <Route exact path={"/home"} component={Home}/>
       <Route exact path={["/", "/Login"]} component={Footer}/>
 

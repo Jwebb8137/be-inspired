@@ -1,88 +1,195 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, Component } from 'react';
+import ApiContext from '../../ApiContext'
 import config from '../../config';
-import UploadMedia from '../UploadMedia/UploadMedia';
 import './UploadPost.css';
 
-const UploadPost = props => {
+export default class UploadPost extends Component{
 
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [previewSource, setPreviewSource] = useState("");
-  const [fileInputState, setFileInputState] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const [err, setError] = useState("");
-  const { API_ENDPOINT } = config;
-  const [showModal, setShowModal] = useState(false)
-
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, []);
-
-  const onSubmitForm = async (e) => {
-    e.preventDefault();
-
-    // if(!previewSource && !previewPetSource) {
-    //   setError("* A Picture Is Required! / Check to make sure everything is filled out!")
-    //   return;
-    // }  
-    // try {
-    //   setIsLoading("true")
-    //   const body = { email, username, password, headline, first_name, last_name, age, hobbies, gender, seeking_gender, description, pet_type, pet_name, pet_description, pet_meet_description, pet_hobbies, previewSource, previewPetSource }
-    //   const response = await fetch(`${API_ENDPOINT}/api/users`, {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(body)
-    //   })
-    //   const parseRes = await response.json();
-    //   localStorage.setItem("token", parseRes.token);
-    //   setAuth(true);
-    // } catch (err) {
-    //   console.error(err.message)
-    // }
+  state = {
+    contentUrl: '',
+    show: true,
+    postSubmitted: false,
+    err: '',
+    postDescription: '',
+    previewFile: '',
+    userInfo: this.props.activeUser
   }
 
-  const handleFileInputChange = (e) => {
+  static defaultProps = {
+    history: {
+      push: () => { }
+    },
+  }
+
+  static contextType = ApiContext;
+
+  setShowModal = () => {
+     this.setState({
+      showModal: !this.state.showModal
+    })
+  }
+
+  setPostSubmit = () => {
+    this.setState({
+      postSubmitted: !this.state.postSubmitted
+    })
+  }
+
+  handleFileInputChange = (e) => {
     const file = e.target.files[0]
-    previewFile(file)
+    // previewFile(file)
+    this.previewFile(file)
   }
 
-  const previewFile = (file) => {
+  previewFile = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
-      setPreviewSource(reader.result);
+      this.setState({
+        previewSource: reader.result
+      });
     }
   }
 
+  getPosts = () => {
+    this.props.getPosts()
+  }
 
-  return (
-    <Fragment>
-      <form className="upload-container" onSubmit={e => onSubmitForm(e)}>
-        <h3>Got Something You Want To Share?</h3>
-        <div className="signup-row">
-          <div className="input-field">
-            <label></label>
-            <textarea typeof="text" placeholder="Send some inspiration or words of encouragement!" onChange={e => setFirstName(e.target.value)}/>
+  onSubmitForm = async (e) => {
+    e.preventDefault();
+    console.log('Form submitted')
+    const { API_ENDPOINT } = config;
+
+    try {
+        // const newPost = {
+        //   post_uploader_id: this.state.uploaderId,
+        //   post_description: e.target['post-description'].value,
+        //   content_url: this.state.previewSource
+        // } 
+        const content_url = this.state.previewFile
+        const post_uploader_id = this.state.userInfo.id
+        const post_description = this.state.postDescription
+        const body = { content_url, post_uploader_id, post_description };
+
+        console.log(body)
+        console.log(this.state)
+    
+        await fetch (`${API_ENDPOINT}/posts`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        });
+        this.setState({
+          postSubmitted: true,
+          previewFile: ""
+        })
+      } catch (err) {
+          console.error(err);
+    }
+    this.getPosts()
+  }
+
+  handleDescriptionChange = (e) => {
+    this.setState({postDescription: e.target.value});
+  }
+
+  deletePreview = () => {
+    this.setState({
+      previewFile: ""
+    })
+  }
+ 
+  openWidget = (e) => {
+    e.preventDefault()
+    const onUpload = async (url) => {
+      console.log('Form submitted')
+      this.setState({
+        previewFile: url
+      })
+    }
+    window.cloudinary.openUploadWidget({
+      cloudName: "dvkqz0fed", uploadPreset: "inspired", singleUploadAutoClose: false, cropping: true }, (error, result) => { 
+        if (!error && result && result.event === "success") { 
+          console.log('Done! Here is the image info: ', result.info.secure_url);
+          onUpload(result.info.secure_url)
+        }
+      });
+  }
+
+  render() {
+    window.cloudinary.setCloudName("dvkqz0fed");
+    if (this.state.err) {
+      return (
+        <Fragment>
+          <div className="upload-container">
+            <h3>Oops! Looks like something went wrong. Let's try again!</h3>
           </div>
-        </div>
-        <button id="signup-submit" class="btn bg-grey">Share Your Post</button>
-        <button
-          className="toggle-button btn modal-btn"
-          id="centered-toggle-button"
-          onClick={() => setShowModal(!showModal)}
-        >
-          Upload Media <i class="fas fa-video"></i>
-        </button>
-        <div className="modal-container">
-          <UploadMedia onClose={() => setShowModal(!showModal)} show={showModal}>
-            
-          </UploadMedia>
-        </div>
-      </form>
-    </Fragment>
-  )
-}
+        </Fragment>
+      )
+    }
 
-export default UploadPost;
+    if (this.state.postSubmitted) {
+      return (
+        <Fragment>
+          <div id="post-success" className="upload-container">
+            <h3 id="post-success-heading">Your Post Has Been Submitted !</h3>
+            <button
+              className="toggle-button btn modal-btn"
+              id="centered-toggle-button"
+              onClick={this.setPostSubmit}
+            >
+              Post Again <i class="fas fa-caret-right"></i>
+            </button>
+          </div>
+        </Fragment>
+      )
+    }
+
+    if (!this.state.previewFile) {
+      return (
+        <Fragment>
+          <form className="upload-container" onSubmit={e => this.onSubmitForm(e)}>
+            <h3>Got Something You Want To Share?</h3>
+            <div className="signup-row">
+              <div id="post-description-container" className="input-field">
+                <label htmlFor='post-description'></label>
+                <input typeof="text" value={this.state.value} onChange={e=> this.handleDescriptionChange(e)} name='post-description' placeholder="Send some inspiration or words of encouragement!" required/>
+              </div>
+            </div>
+            <div className="flex-row">
+              <button typeof="submit" id="upload-submit" class="btn bg-grey">Share Your Post</button>
+              <div class="upload-btn-wrapper">
+                <button class="btn" onClick={e => this.openWidget(e)}>Upload Media</button>
+              </div>
+            </div>
+          </form>
+        </Fragment>
+      )
+    }
+
+    return (
+      <Fragment>
+        <form className="upload-container" onSubmit={e => this.onSubmitForm(e)}>
+          <div id="img-preview-container" className="input-field block">
+            <i id="img-preview-delete" onClick={this.deletePreview} class="fas fa-window-close"></i>
+            <img src={this.state.previewFile ? this.state.previewFile : false} className="img-upload-preview"/>
+            <span className="img-helper">(Image Preview)</span>
+          </div>
+          <h3>Add a description and click share to post!</h3>
+          <div className="signup-row">
+            <div id="post-description-container" className="input-field">
+              <label htmlFor='post-description'></label>
+              <input typeof="text" value={this.state.value} onChange={e=> this.handleDescriptionChange(e)} name='post-description' placeholder="Tell us about your post!" required/>
+            </div>
+          </div>
+          <div className="flex-row">
+            <button typeof="submit" id="upload-submit" class="btn bg-grey">Share Your Post</button>
+            <div class="upload-btn-wrapper">
+              <button class="btn" onClick={e => this.openWidget(e)}>Change Media</button>
+            </div>
+          </div>
+        </form>
+      </Fragment>
+    )  
+  }
+}
