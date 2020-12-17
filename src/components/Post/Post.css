@@ -23,6 +23,23 @@
   text-align: left;
 }
 
+#comment-username {
+  display: block;
+  font-family: 'Architects Daughter';
+  font-size: .75rem;
+  margin: 0 0 .25rem;
+}
+
+.column-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+#comment-description {
+  display: block;
+  margin: 0;
+}
+
 #comment-container-1 {
   display: none;
 }
@@ -94,7 +111,16 @@
 }
 
 .post-image{
-  width: 100%;
+  max-height: 400px;
+  max-width: 100%;
+}
+
+.post-img-container {
+  display: flex;
+  background: #000;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
 }
 
 .post-footer {
@@ -111,6 +137,7 @@
 }
 
 #post-avatar {
+  border-radius: 50%;
   width: 40px;
 }
 
@@ -168,14 +195,14 @@
 }
 
 .post-description {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   padding: 0 15px;
   margin-bottom: 2rem;
 }
 
 .post-description-text {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   padding: 0 15px;
 }

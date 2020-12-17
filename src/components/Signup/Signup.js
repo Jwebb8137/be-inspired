@@ -65,6 +65,7 @@ export default class Signup extends Component {
       console.log("this is the info")
       console.log(parseRes)
       localStorage.setItem("token", parseRes.token);
+      localStorage.setItem('user', JSON.stringify(parseRes.userInfo));
       this.props.setUserInfo(parseRes.userInfo)
       this.props.setAuth(true);
     } catch (err) {
@@ -125,7 +126,7 @@ export default class Signup extends Component {
                 <i id="profile-placeholder" className="fas fa-user-circle"></i>
               )}
               <div class="upload-btn-wrapper">
-                <span id="signup-upload-btn" class="btn" onClick={e => this.openWidget(e)}>Upload Picture</span>
+                <span id="signup-upload-btn" class="btn" onClick={e => this.openWidget(e)}>Upload Picture <i class="fas fa-upload"></i></span>
               </div>
               <div className="err-msg">{this.state.err}</div>
             </div>
@@ -153,7 +154,7 @@ export default class Signup extends Component {
                 <input typeof="text" value={this.state.lastName} onChange={e=> this.handleLastNameChange(e)}  name='user-last-name' required />
               </div>
             </div>
-            <button typeof="submit" id="signup-submit" class="btn">Sign Up</button>
+            <button typeof="submit" id="signup-submit" class="btn">Sign Up <i class="fas fa-sign-in-alt"></i></button>
           </form>
         </div>
       </Fragment>

@@ -1,0 +1,50 @@
+#main-profile-img {
+  border-radius: 50%;
+  margin-top: 8rem;
+  width: 300px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem 4rem;
+}
+
+#profile-username {
+  font-family: 'Architects Daughter';
+  font-size: 2rem;
+  margin: .75rem 0 0;
+}
+
+#profile-name {
+  font-family: 'Montserrat';  
+  margin: 0;
+}
+
+.fa-minus {
+  font-size: 1.25rem;
+}
+
+.profile-info .fa-atlassian {
+  color: #000;
+}
+
+.profile-inner-container {
+  background: #fff;
+  border-radius: 5px;
+  font-family: 'Architects Daughter', cursive;
+  padding: 10px 0;
+  margin: auto;
+}
+
+#profile-heading {
+  font-size: 2.75rem;
+  margin: 2rem 0 -15px;
+  text-decoration: underline;
+}
+
+.max-1000 {
+  margin: auto;
+  max-width: 1000px;
+}

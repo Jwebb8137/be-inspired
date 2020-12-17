@@ -1,20 +1,22 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import './App.css';
-import { Route, BrowserRouter, Redirect } from 'react-router-dom';
-import Navbar from './components/Navbar/Navbar';
-import Home from './components/Home/Home';
-import Create from './components/Create/Create';
-import Sidebar from './components/Sidebar/Sidebar';
-import Login from './components/Login/Login';
-import Signup from './components/Signup/Signup';
-import Feed from './components/Feed/Feed';
-import Footer from './components/Footer/Footer';
-import config from './config';
-
+import React, { Fragment, useState, useEffect } from 'react'
+import './App.css'
+import { Route, BrowserRouter, Redirect, withRouter } from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
+import Home from './components/Home/Home'
+import Profile from './components/Profile/Profile'
+import Create from './components/Create/Create'
+import Sidebar from './components/Sidebar/Sidebar'
+import Loading from './components/Loading/Loading'
+import Login from './components/Login/Login'
+import Signup from './components/Signup/Signup'
+import Feed from './components/Feed/Feed'
+import Footer from './components/Footer/Footer'
+import config from './config'
 
 function App() {
   const { API_ENDPOINT } = config;
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [userInfo, setUserInfo]  = useState({})
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
@@ -38,11 +40,18 @@ function App() {
     } catch (err) {
       console.error(err.message)
     }
+    setIsLoading(false)
   }
 
   useEffect(() => {
     isAuth()
   });
+
+  if (isLoading) {
+    return (
+      <Loading />
+    )
+  }
 
   return (
     <BrowserRouter>
@@ -50,7 +59,7 @@ function App() {
         <Navbar {...props} setAuth={setAuth} isAuth={isAuthenticated}/>
       }/>
       <Route path="/" render={props => 
-        <Sidebar {...props} setAuth={setAuth} isAuth={isAuthenticated}/>
+        <Sidebar {...props} setAuth={setAuth} isAuth={isAuthenticated} activeUser={userInfo}/>
       }/>
       <Route exact path="/" component={Home}/>
       <Route exact path="/Create" component={Create}/>
@@ -63,10 +72,13 @@ function App() {
           )
         }
       />
+      <Route exact path="/User/:UserId" 
+        render={props => <Profile {...props} setAuth={setAuth} setUserInfo={setUser}/>}
+      />
       <Route exact path="/Login" 
         render={props => 
           !isAuthenticated ? (
-            <Login {...props} setAuth={setAuth} setUserInfo={setUser}/>
+            <Login {...props} setAuth={setAuth} setUserInfo={setUser} isAuth={isAuthenticated}/>
           ) : (
             <Redirect to="/Feed" />
           )

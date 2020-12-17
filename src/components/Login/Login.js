@@ -1,16 +1,18 @@
-import React, { useState, Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import config from '../../config';
-import videoBg from '../../images/video6.mp4';
-import './Login.css';
+import React, { useState, Fragment } from 'react'
+import { Link } from 'react-router-dom'
+import config from '../../config'
+import Loading from '../Loading/Loading'
+import videoBg from '../../images/video6.mp4'
+import './Login.css'
 
-const Login = ({ setAuth, setUserInfo }) => {
+const Login = ({ setAuth, setUserInfo, isAuth }) => {
 
   const [inputs, setInputs] = useState({
     username: "",
     passwordInput: ""
   });
   const [err, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(true)
   const { API_ENDPOINT } = config;
   const { username, passwordInput } = inputs;
 
@@ -32,8 +34,10 @@ const Login = ({ setAuth, setUserInfo }) => {
       console.log("Logging in")
       console.log(parseRes)
       localStorage.setItem("token", parseRes.token)
+      localStorage.setItem('user', JSON.stringify(parseRes.userInfo));
       setUserInfo(parseRes.userInfo)
       setAuth(true);
+      window.location.reload()
     } catch (err) {
       console.error(err.message)
       setError("Wrong username or password, try again!")
@@ -44,6 +48,9 @@ const Login = ({ setAuth, setUserInfo }) => {
     document.getElementById("mySidenav").style.width = "0";
   }
 
+  if (isLoading) {
+    <Loading />
+  }
   return (
     <Fragment>
       <video autoPlay muted loop id="myVideo">
@@ -66,9 +73,9 @@ const Login = ({ setAuth, setUserInfo }) => {
           <div className="err-msg">
             {err}
           </div>
-          <button id="profile-submit" className="">Sign In <i className="fas fa-caret-right"></i></button>
+          <button id="profile-submit" className="signin-btn">Sign In <i className="fas fa-caret-right"></i></button>
           <span className="mt-5"></span>
-          <Link to="/Signup" onClick={closeNav} className="green">Create Account <i className="fas fa-angle-right"></i></Link>
+          <Link to="/Signup" onClick={closeNav} className="create-link">Create Account <i className="fas fa-angle-right"></i></Link>
         </form>
       </div>
     </Fragment>

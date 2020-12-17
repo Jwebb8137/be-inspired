@@ -73,7 +73,6 @@ a:before {
   height: 4px;
   bottom: -2px;
   left: 0;
-  background-color: #479cd6;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);

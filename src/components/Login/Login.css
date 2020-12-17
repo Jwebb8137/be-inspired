@@ -65,6 +65,22 @@ a.link {
   text-align: center;
 }
 
+.signin-btn:hover {
+  background: #fff !important;
+  color: #479cd6 !important;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.create-link {
+  color: #111;
+}
+
+.create-link:hover {
+  color: #479cd6;
+  cursor: pointer;
+}
+
 .signin-heading {
   color: #000;
   font-size: 2.5rem;

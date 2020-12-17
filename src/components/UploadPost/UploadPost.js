@@ -8,11 +8,11 @@ export default class UploadPost extends Component{
   state = {
     contentUrl: '',
     show: true,
+    userInfo: {},
     postSubmitted: false,
     err: '',
     postDescription: '',
-    previewFile: '',
-    userInfo: this.props.activeUser
+    previewFile: ''
   }
 
   static defaultProps = {
@@ -26,6 +26,14 @@ export default class UploadPost extends Component{
   setShowModal = () => {
      this.setState({
       showModal: !this.state.showModal
+    })
+  }
+
+  componentDidMount() {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    console.log(userData.id)
+    this.setState({
+      userInfo: userData
     })
   }
 
@@ -108,7 +116,7 @@ export default class UploadPost extends Component{
       })
     }
     window.cloudinary.openUploadWidget({
-      cloudName: "dvkqz0fed", uploadPreset: "inspired", singleUploadAutoClose: false, cropping: true }, (error, result) => { 
+      cloudName: "dvkqz0fed", uploadPreset: "inspired-uploads", singleUploadAutoClose: false, showUploadMoreButton: false }, (error, result) => { 
         if (!error && result && result.event === "success") { 
           console.log('Done! Here is the image info: ', result.info.secure_url);
           onUpload(result.info.secure_url)
@@ -157,9 +165,9 @@ export default class UploadPost extends Component{
               </div>
             </div>
             <div className="flex-row">
-              <button typeof="submit" id="upload-submit" class="btn bg-grey">Share Your Post</button>
+              <button typeof="submit" id="upload-submit" class="btn">Share Your Post <i class="fas fa-share"></i></button>
               <div class="upload-btn-wrapper">
-                <button class="btn" onClick={e => this.openWidget(e)}>Upload Media</button>
+                <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Upload Media <i class="fas fa-upload"></i></button>
               </div>
             </div>
           </form>
@@ -170,7 +178,7 @@ export default class UploadPost extends Component{
     return (
       <Fragment>
         <form className="upload-container" onSubmit={e => this.onSubmitForm(e)}>
-          <div id="img-preview-container" className="input-field block">
+          <div id="img-preview-container-feed" className="input-field block">
             <i id="img-preview-delete" onClick={this.deletePreview} class="fas fa-window-close"></i>
             <img src={this.state.previewFile ? this.state.previewFile : false} className="img-upload-preview"/>
             <span className="img-helper">(Image Preview)</span>
@@ -185,7 +193,7 @@ export default class UploadPost extends Component{
           <div className="flex-row">
             <button typeof="submit" id="upload-submit" class="btn bg-grey">Share Your Post</button>
             <div class="upload-btn-wrapper">
-              <button class="btn" onClick={e => this.openWidget(e)}>Change Media</button>
+              <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Change Media</button>
             </div>
           </div>
         </form>
