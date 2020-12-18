@@ -86,3 +86,46 @@ a:hover:before {
   -webkit-transform: scaleX(1);
   transform: scaleX(1);
 }
+
+.sidenav-active {
+  width: 250px;
+}
+
+@media (min-width: 576px) { 
+
+}
+
+@media (max-width: 768px) {
+  .navigation {
+    justify-content: space-between;
+  }
+  .navigation-logo {
+    margin-left: 10px;
+  } 
+  .nav-link-container {
+    flex: none;
+    padding: 10px 0 0;
+  }
+  .nav-link-container ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0; 
+  }
+  #account-bubble {
+    margin: 0 1rem 0 0;
+  }
+  .nav-link {
+    display: none;
+  }
+  .nav-link-container ul a {
+    margin: 0;
+  }
+}
+
+@media (min-width: 992px) {  
+
+}
+
+@media (min-width: 1200px) {  
+
+}

@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+#root {
+  overflow: hidden;
+}
+
 #loading-screen {
   align-items: center;
   display: flex;
@@ -19,14 +23,6 @@
   50%  {transform: scale(1.1);}
   75%  {transform: scale(.9);}
   100% {transform: scale(1);}
-}
-
-.main {
-  background-image: url('./images/main.jpg');
-  background-size: cover;
-  height: 100vh;
-  font-family: 'Montserrat', sans-serif;
-  margin-top: -15vh;
 }
 
 .container {
@@ -105,14 +101,15 @@
 }
 
 .sub-heading {
-  font-size: 4rem;
+  color: #509cd1;
+  font-size: 3.5rem;
   position: absolute;
   top: 23vh;
   right: 17vw;
 }
 
 .support-heading {
-  font-size: 4rem;
+  font-size: 3.5rem;
   position: absolute;
   top: 34vh;
   right: 8vw;

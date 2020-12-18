@@ -5,7 +5,7 @@ import './Navbar.css';
 const Navbar = (props) => {
 
   const openNav = () => {
-    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("mySidenav").style.width = "100vw";
   }
 
   const closeNav = e => {    

@@ -8,6 +8,7 @@
   right: 0;
   background-color: #111; 
   overflow: hidden; 
+  max-width: 300px;
   padding-top: 60px; 
   transition: 0; 
 }
@@ -60,7 +61,7 @@ a {
   text-align: center;
 }
 
-#mySideNav .fa-atlassian {
+#mySidenav .fa-atlassian {
   font-size: 4rem !important;
 }
 
@@ -121,4 +122,20 @@ a {
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav .side-link {font-size: 18px;}
+}
+
+@media (max-width: 576px) { 
+  
+}
+
+@media (max-width: 768px) {  
+
+}
+
+@media (min-width: 992px) {  
+
+}
+
+@media (min-width: 1200px) {  
+
 }

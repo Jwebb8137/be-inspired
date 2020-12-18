@@ -28,16 +28,19 @@ const Sidebar = (props) => {
     setUserData()
   }, []);
 
-  if (props.isAuth) {
+  if (props.isAuth && userInfo.username) {
+    const userLink = userInfo ? userInfo.id : ""
+    const username = userInfo ? userInfo.username: ""
+    const userImg = userInfo ? userInfo.profile_img_url : ""
     return (
       <div id="mySidenav" className="sidenav">
         <div id="sidebar-menu-head" className="flex-row">
           <button className="logout-btn" onClick={logout}>Logout</button>
           <span className="closebtn" onClick={closeNav}><i class="far fa-window-close"></i></span>
         </div>
-        <a href={`https://be-inspired-master.vercel.app/User/${userInfo ? userInfo.id : ""}`} onClick={closeNav}><img src={userInfo ? userInfo.profile_img_url : ""} id="nav-profile"/></a>
-        <p id="nav-support-text">{userInfo ? userInfo.username : ""}</p>
-        <a href={`https://be-inspired-master.vercel.app/User/${userInfo ? userInfo.id : ""}`} onClick={closeNav}><span className="side-link">Profile</span></a>
+        <a href={`https://be-inspired-master.vercel.app/User/${userLink}`} onClick={closeNav}><img src={userImg} id="nav-profile"/></a>
+        <p id="nav-support-text">{username}</p>
+        <a href={`https://be-inspired-master.vercel.app/User/${userLink}`} onClick={closeNav}><span className="side-link">Profile</span></a>
         <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
         <Link to="/Login" onClick={closeNav}><span className="side-link">Login</span></Link>
         <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>

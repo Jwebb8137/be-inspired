@@ -1,3 +1,103 @@
 .card-title{
   color: #fff;
 }
+
+.main {
+  background-image: url('../../images/mobile-main.jpg');
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: -15vh;
+}
+
+.sub-heading {
+  color: #509cd1;
+}
+
+@media (max-width: 768px) {  
+  .main-heading, .sub-heading, .support-heading {
+    color: #fff;
+    font-size: 3.5rem;
+    text-decoration: underline;
+  }
+  .sub-heading {
+    color: #509cd1;
+  }
+  .main-heading {
+    font-size: 3.5rem;
+    position: absolute;
+    top: 12vh;
+    right: 42vw;
+  }
+  .row {
+    flex-direction: column;
+  }
+  .container {
+    padding: 0 10px;
+  }
+  .video-full {
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) { 
+  .alt-heading {
+    font-size: 1.4rem;
+  }
+  .sub-main {
+    padding: 10px 0 5px;
+  }
+  .heading-text {
+    font-size: 2rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+  #main-slider {
+    height: 200px;
+  }
+}
+
+@media (min-width: 768px) {  
+  .alt-heading {
+    font-size: 2rem;
+  }
+  .heading-text {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+  }
+  .main-heading, .sub-heading, .support-heading {
+    color: #fff;
+    text-decoration: underline;
+  }
+  .sub-heading {
+    color: #509cd1;
+  }
+  #main-slider {
+    height: 300px;
+  }
+}
+
+@media (min-width: 992px) { 
+  .alt-heading {
+    font-size: 2.5rem;
+  } 
+  .main {
+    background-image: url('../../images/main.jpg');
+    background-size: cover;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: -15vh;
+  }
+  .main-heading, .sub-heading, .support-heading {
+    color: #fff;
+    font-size: 4.5rem;
+  }
+  .sub-heading {
+    color: #509cd1;
+  }
+}
+
+@media (min-width: 1200px) {  
+
+}

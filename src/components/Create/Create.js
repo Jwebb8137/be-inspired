@@ -11,7 +11,7 @@ export default class Create extends React.Component {
         <div className="create-page">
           <div className="create-banner-container">
             <img id="create-banner" src={CreateBg} />
-            <h1 id="create-banner-heading" className="fade-in-login">"Imagination is more important than knowledge. Knowledge is limited.<br />Imagination encircles the world"</h1>
+            <h1 id="create-banner-heading" className="fade-in-login">"A journey of a thousand miles must begin with a single step"</h1>
           </div>
           <h2 id="create-page-logo">BeInspired <i class="fab fa-atlassian"></i></h2>
           <div className="create-container align-left">
