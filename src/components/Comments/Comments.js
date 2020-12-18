@@ -99,13 +99,13 @@ const Comments = props => {
       </form>
       {commentList
         .map(comment => {
-          const userProfile = `/User/${comment.user_id}`
+          const userProfile = `https://be-inspired-master.vercel.app/User/${comment.user_id}`
           return (
             <div className="comment">
               <span id="comment-date">
                 <Moment format='MMMM Do YYYY, h:mm a'>{comment.date_commented}</Moment>
               </span>
-              <Link to={userProfile}><img src={comment.user_img_url} className="comment-profile-img"/></Link>
+              <a href={userProfile}><img src={comment.user_img_url} className="comment-profile-img"/></a>
               <div className="column-flex">
                 <p id="comment-username">{comment.username}</p>
                 <p id="comment-description">{comment.comment}</p>

@@ -35,9 +35,9 @@ const Sidebar = (props) => {
           <button className="logout-btn" onClick={logout}>Logout</button>
           <span className="closebtn" onClick={closeNav}><i class="far fa-window-close"></i></span>
         </div>
-        <a href={`https://be-inspired-master.vercel.app/User/${userInfo ? userInfo.id : ""}`}><img src={userInfo ? userInfo.profile_img_url : ""} id="nav-profile"/></a>
+        <a href={`https://be-inspired-master.vercel.app/User/${userInfo ? userInfo.id : ""}`} onClick={closeNav}><img src={userInfo ? userInfo.profile_img_url : ""} id="nav-profile"/></a>
         <p id="nav-support-text">{userInfo ? userInfo.username : ""}</p>
-        <Link to="/" onClick={closeNav} ><span className="side-link">Account</span></Link>
+        <a href={`https://be-inspired-master.vercel.app/User/${userInfo ? userInfo.id : ""}`} onClick={closeNav}><span className="side-link">Profile</span></a>
         <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
         <Link to="/Login" onClick={closeNav}><span className="side-link">Login</span></Link>
         <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>

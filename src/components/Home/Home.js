@@ -1,6 +1,8 @@
-import React, { Fragment } from 'react';
-import CarouselSlide from '../Carousel/CarouselSlide';
-import Video5 from '../../images/video5.mp4';
+import React, { Fragment } from 'react'
+import {Link} from 'react-router-dom'
+import CarouselSlide from '../Carousel/CarouselSlide'
+import './Home.css'
+import Video5 from '../../images/video5.mp4'
 
 const Home = (props) => {
   return (
@@ -21,24 +23,30 @@ const Home = (props) => {
         <p className="heading-text-support">A new wave of social media change built to MOTIVATE, REJUVENATE, and INSPIRE!</p>
       </div>
       <div className="row row-main">
-        <div className="card-title bd-right-w">
-          <i class="far fa-lightbulb"></i>
-          <h3>Inspire Others</h3>
-          <p>Bring the fire you have in you and show it off to the world!</p>
-          <button className="main-btn">Start Inspiring <i class="fas fa-caret-right"></i></button>
-        </div>
-        <div className="card-title bd-right-w">
-          <i class="fas fa-heartbeat"></i>
-          <h3>Be Inspired</h3>
-          <p>With neverending content made to inspire we have all you could want!</p>
-          <button className="main-btn">Get Inspiration <i class="fas fa-caret-right"></i></button>
-        </div>
-        <div className="card-title">
-          <i class="fas fa-hiking"></i>
-          <h3>Discovery Awaits</h3>
-          <p>It all starts with a click & BeInspired will be your tour guide!</p>
-          <button className="main-btn">Explore Now <i class="fas fa-caret-right"></i></button>
-        </div>
+        <Link to="/Feed">
+          <div className="card-title bd-right-w">
+            <i class="far fa-lightbulb"></i>
+            <h3>Inspire Others</h3>
+            <p>Bring the fire you have in you and show it off to the world!</p>
+            <button className="main-btn">Start Inspiring <i class="fas fa-caret-right"></i></button>
+          </div>
+        </Link>
+        <Link to="/Feed">
+          <div className="card-title bd-right-w">
+            <i class="fas fa-heartbeat"></i>
+            <h3>Be Inspired</h3>
+            <p>With neverending content made to inspire we have all you could want!</p>
+            <button className="main-btn">Get Inspiration <i class="fas fa-caret-right"></i></button>
+          </div>
+        </Link>
+        <Link to="/Feed">
+          <div className="card-title">
+            <i class="fas fa-hiking"></i>
+            <h3>Discovery Awaits</h3>
+            <p>It all starts with a click & we will be your tour guide!</p>
+            <button className="main-btn">Explore Now <i class="fas fa-caret-right"></i></button>
+          </div>
+        </Link>
       </div>
       <div className="video-full-container">
         <video autoPlay loop muted className="video-full">
@@ -51,7 +59,9 @@ const Home = (props) => {
         <h2 className="heading-text">The time to LAUNCH is here & now</h2>
         <p className="heading-text-support">Be the change that seeks to inspire and join a community that seeks to uplift, promote, and support their users through their content!</p>
       </div>
-      <button className="main-btn-ext">Get Started <i class="fas fa-caret-right"></i></button>
+      <Link to="/Login">
+        <button className="main-btn-ext">Get Started <i class="fas fa-caret-right"></i></button>
+      </Link>
     </Fragment>
   )
 }

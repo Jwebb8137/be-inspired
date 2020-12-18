@@ -60,6 +60,10 @@ a {
   text-align: center;
 }
 
+#mySideNav .fa-atlassian {
+  font-size: 4rem !important;
+}
+
 .mb-icon {
   margin-bottom: 2rem !important;
 }
