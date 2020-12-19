@@ -63,17 +63,16 @@ export default class UploadPost extends Component{
     this.props.getPosts()
   }
 
+  resetPage = () => {
+    this.props.resetPage()
+  }
+
   onSubmitForm = async (e) => {
     e.preventDefault();
     console.log('Form submitted')
     const { API_ENDPOINT } = config;
 
     try {
-        // const newPost = {
-        //   post_uploader_id: this.state.uploaderId,
-        //   post_description: e.target['post-description'].value,
-        //   content_url: this.state.previewSource
-        // } 
         const content_url = this.state.previewFile
         const post_uploader_id = this.state.userInfo.id
         const post_description = this.state.postDescription
@@ -94,6 +93,7 @@ export default class UploadPost extends Component{
       } catch (err) {
           console.error(err);
     }
+    this.resetPage()
     this.getPosts()
   }
 

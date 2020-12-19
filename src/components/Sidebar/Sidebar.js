@@ -21,14 +21,14 @@ const Sidebar = (props) => {
     localStorage.removeItem("user");
     props.setAuth(false);
     closeNav()
-    window.location = "/";
   }
 
   useEffect(() => {
     setUserData()
+    console.log(props.isAuth)
   }, []);
 
-  if (props.isAuth && userInfo.username) {
+  if (props.isAuth) {
     const userLink = userInfo ? userInfo.id : ""
     const username = userInfo ? userInfo.username: ""
     const userImg = userInfo ? userInfo.profile_img_url : ""

@@ -1,3 +1,21 @@
 #loading-screen {
+  display: flex;
+  flex-direction: column;
   font-size: 8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+#loading-text {
+  color: #fff;
+  display: block;
+  font-family: 'Architects Daughter';
+  font-size: 3rem;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+}
+
+#loading-icon {
+  display: block;
 }

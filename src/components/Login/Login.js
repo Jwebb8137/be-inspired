@@ -12,7 +12,7 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
     passwordInput: ""
   });
   const [err, setError] = useState("");
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(false)
   const { API_ENDPOINT } = config;
   const { username, passwordInput } = inputs;
 
@@ -22,7 +22,6 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
 
   const onSubmitForm = async e => {
     e.preventDefault();
-
     try {
       const body = { username, passwordInput };
       const response = await fetch(`${API_ENDPOINT}/login`, {
@@ -31,8 +30,6 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
         body: JSON.stringify(body)
       });
       const parseRes = await response.json()
-      console.log("Logging in")
-      console.log(parseRes)
       localStorage.setItem("token", parseRes.token)
       localStorage.setItem('user', JSON.stringify(parseRes.userInfo));
       setUserInfo(parseRes.userInfo)
@@ -49,7 +46,9 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
   }
 
   if (isLoading) {
-    <Loading />
+    return (
+      <Loading />
+    )
   }
   return (
     <Fragment>

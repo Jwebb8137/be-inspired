@@ -66,7 +66,7 @@ function App() {
       <Route exact path="/Signup" 
         render={props => 
           !isAuthenticated ? (
-            <Signup {...props} setAuth={setAuth} setUserInfo={setUser}/>
+            <Signup {...props} setAuth={setAuth} setUserInfo={setUser} isAuth={isAuthenticated}/>
           ) : (
             <Redirect to="/Feed" />
           )

@@ -125,7 +125,7 @@ const Feed = props => {
               Your browser does not support the video tag.
             </video>
           </div>
-          <UploadPost getPosts={getPosts} activeUser={props.activeUserInfo}/>
+          <UploadPost resetPage={resetPage} getPosts={getPosts} activeUser={props.activeUserInfo}/>
           <div id="feed-options">
               <span>Inspiration Feed</span>
               <div className='input-field'>

@@ -1,6 +1,7 @@
 import React, { Fragment, Component } from 'react'
 import ApiContext from '../../ApiContext'
-import config from '../../config';
+import config from '../../config'
+import Loading from '../Loading/Loading'
 import './Signup.css'
 import videoBg from '../../images/video7.mp4'
 import { contains } from 'jquery';
@@ -13,7 +14,8 @@ export default class Signup extends Component {
     firstName: '',
     lastName: '',
     userPassword: '',
-    profileImgUrl: ''
+    profileImgUrl: '',
+    isLoading: true
   }
 
   static defaultProps = {
@@ -41,20 +43,25 @@ export default class Signup extends Component {
       });
   }
 
+  componentDidMount() {
+    this.setState({
+      isLoading: false
+    })
+  }
+
   onSubmitForm = async (e) => {
     e.preventDefault();
     const { API_ENDPOINT } = config;
-
     const username = this.state.username
     const first_name = this.state.firstName
     const last_name = this.state.lastName
     const user_password = this.state.userPassword
     const profile_img_url = this.state.profileImgUrl
 
-    console.log(this.state)
-    console.log(this.props)
-
     try {
+      this.setState({
+        isLoading: true
+      })
       const body = { username, user_password, first_name, last_name, profile_img_url}
       const response = await fetch(`${API_ENDPOINT}/users`, {
         method: "POST",
@@ -62,15 +69,14 @@ export default class Signup extends Component {
         body: JSON.stringify(body)
       })
       const parseRes = await response.json();
-      console.log("this is the info")
-      console.log(parseRes)
-      localStorage.setItem("token", parseRes.token);
-      localStorage.setItem('user', JSON.stringify(parseRes.userInfo));
+      localStorage.setItem("token", parseRes.token)
+      localStorage.setItem('user', JSON.stringify(parseRes.userInfo))
       this.props.setUserInfo(parseRes.userInfo)
-      this.props.setAuth(true);
+      this.props.setAuth(true)
     } catch (err) {
       console.error(err.message)
     }
+    window.location.reload()
   }
 
   handleFileInputChange = (e) => {
@@ -105,6 +111,9 @@ export default class Signup extends Component {
 
   render() {
     window.cloudinary.setCloudName("dvkqz0fed");
+    if (this.state.isLoading) {
+      <Loading />
+    }
     return (
       <Fragment>
         <video autoPlay muted loop id="mySignUpVideo">
