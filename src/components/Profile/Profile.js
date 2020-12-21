@@ -59,6 +59,28 @@ const Profile = props => {
     getUserInfo()
   }, []);
 
+  if(userPosts.length === 0) {
+    const { profile_img_url, username, first_name, last_name } = profileInfo
+    return (
+      <Fragment>
+        <div id="feed-container" className="fade-in-login">
+          <div className="max-1000">
+            <div className="profile-info">
+              <img id="main-profile-img" src={profile_img_url}/>
+              <p id="profile-username"><i class="fas fa-minus"></i> {username} <i class="fas fa-minus"></i></p>
+              <p id="profile-name">{first_name} {last_name}</p>
+            </div>
+            <div className="profile-inner-container">
+              <i id="profile-missing-icon" class="fab fa-atlassian"></i>
+              <h2 id="missing-posts-heading">No Posts Yet !</h2>
+              <p id="missing-posts-support">(Check back again later)</p>
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    )
+  }
+
   if(!isLoading) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
     return (

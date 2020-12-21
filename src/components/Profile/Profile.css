@@ -43,6 +43,21 @@
   text-decoration: underline;
 }
 
+#profile-missing-icon {
+  font-size: 5rem;
+  margin-top: 2rem;
+}
+
+#missing-posts-heading {
+  font-size: 2rem;
+  margin: 1rem auto 0;
+}
+
+#missing-posts-support {
+  font-size: 1rem;
+  margin: 0 auto 3rem;
+}
+
 .max-1000 {
   margin: auto;
   max-width: 1000px;
