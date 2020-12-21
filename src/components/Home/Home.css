@@ -1,5 +1,6 @@
 .card-title{
   color: #fff;
+  margin-top: 1.5rem;
 }
 
 .card-title .main-btn {
@@ -84,6 +85,9 @@
 @media (min-width: 768px) {  
   .alt-heading {
     font-size: 2rem;
+  }
+  .card-title {
+    margin-top: 0;
   }
   .heading-text {
     font-size: 3rem;

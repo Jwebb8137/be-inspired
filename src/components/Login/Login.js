@@ -53,33 +53,35 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
   }
   return (
     <Fragment>
-      <video autoPlay muted loop id="myVideo">
-        <source src={videoBg} type="video/mp4" />
-      </video>
-      <video autoPlay muted loop id="myVideo-mobile">
-        <source src={videoBgMobile} type="video/mp4" />
-      </video>
-      <div className='signin fade-in-login'>
-        <form id="sign-in" className="form-container" onSubmit={onSubmitForm}>
-          <div className="container">
-            <i id="login-icon" class="fab fa-atlassian"></i>
-            <h3 className="signup-sub-heading"><span className="green">Welcome</span> Back!</h3>
-            <div id="login-row" className="row flex-col">
-              <div className='input-field'>
-                <input typeof='text' value={username} onChange={e => onChange(e)} name="username" placeholder="Username" required/>
-              </div>
-              <div className='input-field'>
-                <input type='password' value={passwordInput} onChange={e => onChange(e)} name="passwordInput" placeholder="Password" required/>
+      <div className="mobile-container">
+        <video autoPlay muted loop id="myVideo">
+          <source src={videoBg} type="video/mp4" />
+        </video>
+        <video autoPlay muted loop id="myVideo-mobile">
+          <source src={videoBgMobile} type="video/mp4" />
+        </video>
+        <div className='signin fade-in-login'>
+          <form id="sign-in" className="form-container" onSubmit={onSubmitForm}>
+            <div className="container">
+              <i id="login-icon" class="fab fa-atlassian"></i>
+              <h3 className="signup-sub-heading"><span className="green">Welcome</span> Back!</h3>
+              <div id="login-row" className="row flex-col">
+                <div className='input-field'>
+                  <input typeof='text' value={username} onChange={e => onChange(e)} name="username" placeholder="Username" required/>
+                </div>
+                <div className='input-field'>
+                  <input type='password' value={passwordInput} onChange={e => onChange(e)} name="passwordInput" placeholder="Password" required/>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="err-msg">
-            {err}
-          </div>
-          <button id="profile-submit" className="signin-btn">Sign In <i className="fas fa-caret-right"></i></button>
-          <span className="mt-5"></span>
-          <Link to="/Signup" onClick={closeNav} className="create-link">Create Account <i className="fas fa-angle-right"></i></Link>
-        </form>
+            <div className="err-msg">
+              {err}
+            </div>
+            <button id="profile-submit" className="signin-btn">Sign In <i className="fas fa-caret-right"></i></button>
+            <span className="mt-5"></span>
+            <Link to="/Signup" onClick={closeNav} className="create-link">Create Account <i className="fas fa-angle-right"></i></Link>
+          </form>
+        </div>
       </div>
     </Fragment>
   )
