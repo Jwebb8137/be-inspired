@@ -5,6 +5,7 @@
 }
 
 .profile-info {
+  border-bottom: 1px solid #000;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -76,5 +77,8 @@
   }
   .profile-inner-container {
     border-radius: 5px;
+  }
+  .profile-info {
+    border-bottom: none;
   }
 }

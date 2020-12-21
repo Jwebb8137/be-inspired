@@ -12,6 +12,7 @@ const Profile = props => {
   const [isLoading, setIsLoading] = useState(true);
   const [profileInfo, setProfileInfo] = useState("")
   const [userPosts, setUserPosts] = useState([])
+  const [profileId, setProfileId] = useState("")
   const [originalPosts, setOriginalPosts] = useState([])
   const [err, setError] = useState("")
   const [listFilter, setListFilter] = useState("")
@@ -25,6 +26,7 @@ const Profile = props => {
 
   const getUserPosts = async () => {
     console.log(props.match.params.UserId)
+    setProfileId(props.match.params.UserId)
     const user = props.match.params.UserId
     try {   
       const response = await fetch(`${API_ENDPOINT}/posts/${user}`);
@@ -59,7 +61,7 @@ const Profile = props => {
     getUserInfo()
   }, []);
 
-  if(userPosts.length === 0) {
+  if(userPosts.length === 0 && profileInfo.id == profileId) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
     return (
       <Fragment>
@@ -71,6 +73,7 @@ const Profile = props => {
               <p id="profile-name">{first_name} {last_name}</p>
             </div>
             <div className="profile-inner-container">
+              <UploadPost />
               <i id="profile-missing-icon" class="fab fa-atlassian"></i>
               <h2 id="missing-posts-heading">No Posts Yet !</h2>
               <p id="missing-posts-support">(Check back again later)</p>
