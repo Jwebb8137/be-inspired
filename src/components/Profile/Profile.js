@@ -11,7 +11,9 @@ const Profile = props => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [profileInfo, setProfileInfo] = useState("")
+  const [posts, setPosts] = useState([])
   const [userPosts, setUserPosts] = useState([])
+  const [page, setPage] = useState(1)
   const [profileId, setProfileId] = useState("")
   const [originalPosts, setOriginalPosts] = useState([])
   const [err, setError] = useState("")
@@ -23,6 +25,13 @@ const Profile = props => {
     console.log(userData.id)
     setProfileInfo(userData)
   }
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+    setUserData()
+    getUserPosts()
+    getUserInfo()
+  }, []);
 
   const getUserPosts = async () => {
     console.log(props.match.params.UserId)
@@ -54,12 +63,30 @@ const Profile = props => {
     setIsLoading(false)
   }
 
-  useEffect(() => {
-    window.scrollTo(0, 0)
-    setUserData()
+  const deletePostUpdate = (id) => {
+    const updatedPostsDelete = userPosts.filter(post => post.id !== id)
+    setUserPosts(updatedPostsDelete)
+  }
+
+  const updatedFeedAdd = () => {
     getUserPosts()
-    getUserInfo()
-  }, []);
+  }
+
+  const getPosts = async () => {
+    console.log('working ... getting posts')
+    console.log(page)
+    try {   
+      const response = await fetch(`${API_ENDPOINT}/posts?page=${page}`)
+      const jsonData = await response.json();
+      setPosts(jsonData);
+    } catch (err) {
+        console.error(err.message)
+    }
+  }
+
+  const resetPage = () => {
+    setPage(1)
+  }
 
   if(userPosts.length === 0 && profileInfo.id == profileId) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
@@ -73,10 +100,46 @@ const Profile = props => {
               <p id="profile-name">{first_name} {last_name}</p>
             </div>
             <div className="profile-inner-container">
-              <UploadPost />
+              <UploadPost updatedFeedAdd={updatedFeedAdd} getPosts={getPosts} resetPage={resetPage}/>
               <i id="profile-missing-icon" class="fab fa-atlassian"></i>
               <h2 id="missing-posts-heading">No Posts Yet !</h2>
               <p id="missing-posts-support">(Check back again later)</p>
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    )
+  }
+
+  if(!isLoading && profileInfo.id == profileId) {
+    const { profile_img_url, username, first_name, last_name } = profileInfo
+    return (
+      <Fragment>
+        <div id="feed-container" className="fade-in-login">
+          <div className="max-1000">
+            <div className="profile-info">
+              <img id="main-profile-img" src={profile_img_url}/>
+              <p id="profile-username"><i class="fas fa-minus"></i> {username} <i class="fas fa-minus"></i></p>
+              <p id="profile-name">{first_name} {last_name}</p>
+            </div>
+            <div className="profile-inner-container">
+              <UploadPost updatedFeedAdd={updatedFeedAdd} getPosts={getPosts} resetPage={resetPage}/>
+              <h1 id="profile-heading">My Latest Posts</h1>
+              {userPosts
+                .map(post => {
+                  return (
+                    <Post
+                      key={post.id}
+                      contentUrl={post.content_url}
+                      postDescription={post.post_description}
+                      postUploaderId={post.post_uploader_id}
+                      uploadDate={post.date_created}
+                      postId={post.id}
+                      activeUser={props.activeUser}
+                      deletePostUpdate={deletePostUpdate}
+                    />
+                  )}
+                )}
             </div>
           </div>
         </div>
@@ -108,6 +171,7 @@ const Profile = props => {
                       uploadDate={post.date_created}
                       postId={post.id}
                       activeUser={props.activeUser}
+                      deletePostUpdate={deletePostUpdate}
                     />
                   )}
                 )}
@@ -117,6 +181,7 @@ const Profile = props => {
       </Fragment>
     )
   }
+
 
   return (
     <div id="loading-container">

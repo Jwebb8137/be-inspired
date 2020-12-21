@@ -20,7 +20,7 @@ const Navbar = (props) => {
         <Link to="/" onClick={e => closeNav(e)}><div className="navigation-logo">BeInspired <i class="fab fa-atlassian"></i></div></Link>
         <div className='nav-link-container'>
           <ul>
-            <Link to='/' onClick={e => closeNav(e)}><li className='nav-link'>Inspire</li></Link>
+            <Link to='/' onClick={e => closeNav(e)}><li className='nav-link'>Home</li></Link>
             <Link to='/Feed' onClick={e => closeNav(e)}><li className='nav-link'>Discover</li></Link>
             <Link to='/Create' onClick={e => closeNav(e)}><li className='nav-link'>About</li></Link>
             <li id="account-bubble" onClick={openNav}><i class="fas fa-user-astronaut"></i></li>

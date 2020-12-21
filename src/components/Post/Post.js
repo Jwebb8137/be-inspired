@@ -6,6 +6,7 @@ import 'moment-timezone';
 import config from '../../config';
 import Profile from '../../images/profile.jpg';
 import './Post.css';
+import { render } from '@testing-library/react';
 
 const Post = props => {
 
@@ -36,24 +37,28 @@ const Post = props => {
   }
 
   const addLike = async (e) => {
-    if (disabledButton) {
-      return
-    }
-    const { API_ENDPOINT } = config;
+    console.log(disabledButton)
 
+    const { API_ENDPOINT } = config;
     try {
-        setDisabledButton(true)
-        setFillLike("fas")
-        setLikes(likes+1)
-        const post_id = props.postId
-        const post_user_like_id = 1
-        const body = { post_id, post_user_like_id };
-    
-        await fetch (`${API_ENDPOINT}/likes`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-        });
+      if (disabledButton) {
+        setDisabledButton(false)
+        setFillLike("far")
+        setLikes(likes-1)
+        return
+      }
+      setDisabledButton(true)
+      setFillLike("fas")
+      setLikes(likes+1)
+      const post_id = props.postId
+      const post_user_like_id = userInfo.id
+      const body = { post_id, post_user_like_id };
+  
+      await fetch (`${API_ENDPOINT}/likes`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+      });
       } catch (err) {
           console.error(err);
     }
@@ -84,17 +89,24 @@ const Post = props => {
     document.getElementById(`comment-container-${props.postId}`).style.display = document.getElementById(`comment-container-${props.postId}`).style.display == 'none' ? 'block' : 'none';
   }
 
-  const deletePost = async (e) => {
+  const updateFeed = (props, id) => {
+    props.deletePostUpdate(id)
+  }
+
+  const deletePost = async () => {
+    console.log(props)
     const { API_ENDPOINT } = config;
     try {
-      await fetch (`${API_ENDPOINT}/posts/${props.postId}`, {
+      await fetch (`${API_ENDPOINT}/posts/delete/${props.postId}`, {
         method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
       });
       } catch (err) {
         console.error(err);
     }
+    props.deletePostUpdate(props.postId)
   }
+
+  const deletePostBtn = (props.postUploaderId == userInfo.id) ? <span id="post-delete" onClick={deletePost}>Delete Post <i class="fas fa-trash-alt"></i></span> : null
 
   const userProfile = `/User/${props.postUploaderId}`
 
@@ -113,7 +125,7 @@ const Post = props => {
             <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
             <div id="post-likes">
               {likes} likes 
-              <button className="like-button" disabled={disabledButton} onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+              <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
             </div>
           </div>
           <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
@@ -123,6 +135,7 @@ const Post = props => {
               postUploaderId={props.postUploaderId}
             />
           </div>
+          {deletePostBtn}
         </div>
       </Fragment>
     )
@@ -150,7 +163,7 @@ const Post = props => {
                 </div>
                 <div id="post-likes">
                   {likes} likes 
-                  <button className="like-button" disabled={disabledButton} onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+                  <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
                 </div>              
               </div>
               <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
@@ -160,7 +173,7 @@ const Post = props => {
                 postUploaderId={props.postUploaderId}
               />
               </div>
-              <span id="post-delete" onClick={deletePost}>Delete Post <i class="fas fa-trash-alt"></i></span>
+              {deletePostBtn}
           </div>
       </Fragment>
   )

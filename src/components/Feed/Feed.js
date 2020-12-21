@@ -8,6 +8,7 @@ import TextPost from '../Post/TextPost'
 import FeaturedVid from '../../images/video2.mp4'
 import './Feed.css'
 import { useParams } from 'react-router-dom'
+import { post } from 'jquery'
 
 const Feed = props => {
 
@@ -92,6 +93,11 @@ const Feed = props => {
     }
   }
 
+  const deletePostUpdate = (id) => {
+    const updatedFeedDelete = posts.filter(post => post.id === id)
+    setPosts(updatedFeedDelete)
+  }
+
   const setSearchedPosts = posts => {
     setPosts(posts)
   }
@@ -149,6 +155,7 @@ const Feed = props => {
                 uploadDate={post.date_created}
                 postId={post.id}
                 activeUser={props.activeUser}
+                deletePostUpdate={deletePostUpdate}
               />
             )
           })}

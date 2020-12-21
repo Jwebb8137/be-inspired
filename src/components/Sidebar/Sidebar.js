@@ -40,7 +40,7 @@ const Sidebar = (props) => {
         </div>
         <a href={`https://be-inspired-master.vercel.app/User/${userLink}`} onClick={closeNav}><img src={userImg} id="nav-profile"/></a>
         <p id="nav-support-text">{username}</p>
-        <a href={`https://be-inspired-master.vercel.app/User/${userLink}`} onClick={closeNav}><span className="side-link">Profile</span></a>
+        <a href={`https://be-inspired-master.vercel.app/User/${userLink}`} onClick={closeNav}><span className="side-link">My Profile</span></a>
         <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
         <Link to="/Login" onClick={closeNav}><span className="side-link">Login</span></Link>
         <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
@@ -56,7 +56,7 @@ const Sidebar = (props) => {
         <span className="closebtn" onClick={closeNav}><i class="far fa-window-close"></i></span>
       </div>
       <i id="nav-profile" className="fab fa-atlassian mb-icon"></i>
-      <Link to="/" onClick={closeNav} ><span className="side-link">Account</span></Link>
+      <Link to="/Login" onClick={closeNav} ><span className="side-link">My Profile</span></Link>
       <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
       <Link to="/Login" onClick={closeNav}><span className="side-link">Login</span></Link>
       <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
