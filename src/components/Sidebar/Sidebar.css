@@ -65,6 +65,10 @@ a {
   font-size: 4rem !important;
 }
 
+#mySidenav .flex-row {
+  flex-direction: row;
+}
+
 .mb-icon {
   margin-bottom: 2rem !important;
 }

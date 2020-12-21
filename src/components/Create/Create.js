@@ -3,6 +3,7 @@ import './Create.css';
 import CreateBg from '../../images/create-main.jpg';
 import SupportImg1 from '../../images/create-supporting1.jpg';
 import SupportImg2 from '../../images/create-supporting2.jpg';
+import SupportImg3 from '../../images/main.jpg';
 
 export default class Create extends React.Component {
   render() {
@@ -23,6 +24,7 @@ export default class Create extends React.Component {
               <p>Our approach to Be Inspired is and will always be to promote a positive and encouragin platform that promotes imagination and creativity through content!</p>
             </div>
           </div>
+          <img src={SupportImg3} class="mobile-support-img"></img>
           <div className="create-container align-right">
             <div className="text-half">
               <h3>Promoting Positivity</h3>

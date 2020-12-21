@@ -148,7 +148,7 @@ textarea {
 
 @media (min-width: 768px) {  
   .upload-container {
-    padding: 20px 0 5px;
+    padding: 20px 10px 5px;
   }
   .upload-container h3 {
     font-size: 1.75rem;
@@ -162,6 +162,7 @@ textarea {
   }
   #post-description-container input[typeof="text"] {
     font-size: 1.2rem;
+    width: 75vw;
   }
   .img-upload-preview {
     max-height: 150px;

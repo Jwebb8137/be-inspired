@@ -37,6 +37,7 @@
 
 #comment-description {
   display: block;
+  font-size: .8rem;
   margin: 0;
 }
 
@@ -98,7 +99,7 @@
 .comment-profile-img {
   border-radius: 50%;
   height: 50px;
-  margin-right: 1rem;
+  margin: .35rem .65rem 0.25rem 0;
   width: 50px;
 }
 
@@ -183,6 +184,7 @@
   background: #97c7e8;
   border-top: 15px solid #000000bf;
   border-bottom: 15px solid #000000bf;
+  border-radius: 10px;
   margin: 2rem auto;
   max-width: 600px;
   padding: 5px 0;
@@ -211,7 +213,7 @@
 
 @media (min-width: 768px) { 
   .comment {
-    padding: 10px;
+    padding: 2px 10px;
   } 
   #comment-date {
     font-size: .75rem;
@@ -221,13 +223,16 @@
     font-weight: 600;
     padding: 0 15px;
   }
-  .post-container {
-    border-radius: 5px;
-  }
   .post-description {
     font-size: 18px;
     font-weight: 600;
     padding: 0 15px;
     margin-bottom: 2rem;
+  }
+  .comment-profile-img {
+    margin: 1;
+  }
+  #comment-description {
+    font-size: 1rem;
   }
 }
