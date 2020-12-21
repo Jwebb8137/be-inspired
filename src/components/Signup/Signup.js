@@ -4,6 +4,8 @@ import config from '../../config'
 import Loading from '../Loading/Loading'
 import './Signup.css'
 import videoBg from '../../images/video7.mp4'
+import videoBgMobile from '../../images/signup-mobile.mp4'
+import videoBgTablet from '../../images/signup-tablet.mp4'
 import { contains } from 'jquery';
 
 export default class Signup extends Component {
@@ -81,7 +83,6 @@ export default class Signup extends Component {
 
   handleFileInputChange = (e) => {
     const file = e.target.files[0]
-    // previewFile(file)
     this.previewFile(file)
   }
 
@@ -118,6 +119,12 @@ export default class Signup extends Component {
       <Fragment>
         <video autoPlay muted loop id="mySignUpVideo">
           <source src={videoBg} type="video/mp4" />
+        </video>
+        <video autoPlay muted loop id="mySignUpVideoTablet">
+          <source src={videoBgTablet} type="video/mp4" />
+        </video>
+        <video autoPlay muted loop id="mySignUpVideoMobile">
+          <source src={videoBgMobile} type="video/mp4" />
         </video>
         <div className="signup fade-in-login">
           <form className="signup-container" onSubmit={e => this.onSubmitForm(e)}>

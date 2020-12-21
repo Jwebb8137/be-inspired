@@ -8,7 +8,7 @@
   border: 1px solid #000;
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
-  padding: 10px;
+  padding: 3px 0 0 5px;  
   position: relative;
   margin-top: 1rem;
   align-items: center;
@@ -92,7 +92,7 @@
   position: absolute;
   right: 10px;
   top: 5px;
-  font-size: .75rem;
+  font-size: .6rem;
 }
 
 .comment-profile-img {
@@ -183,7 +183,6 @@
   background: #97c7e8;
   border-top: 15px solid #000000bf;
   border-bottom: 15px solid #000000bf;
-  border-radius: 5px;
   margin: 2rem auto;
   max-width: 600px;
   padding: 5px 0;
@@ -195,18 +194,40 @@
 }
 
 .post-description {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
-  padding: 0 15px;
-  margin-bottom: 2rem;
+  padding: 0 10px;
 }
 
 .post-description-text {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 600;
-  padding: 0 15px;
+  padding: 0 10px;
 }
 
 .text-alt {
     font-family: 'Montserrat', sans-serif;
+}
+
+@media (min-width: 768px) { 
+  .comment {
+    padding: 10px;
+  } 
+  #comment-date {
+    font-size: .75rem;
+  }
+  .post-description-text {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0 15px;
+  }
+  .post-container {
+    border-radius: 5px;
+  }
+  .post-description {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 0 15px;
+    margin-bottom: 2rem;
+  }
 }

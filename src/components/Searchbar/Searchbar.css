@@ -8,7 +8,6 @@
   border-radius: 50px;
   display: flex;
   width: fit-content;
-  min-width: 375px;
   margin: auto;
   background: #8fc3e6;
   padding: 0.25rem 1rem;
@@ -41,4 +40,10 @@
   max-width: 400px;
   padding-left: 10px;
   width: 100%;
+}
+
+@media (min-width: 768px) {  
+  #searchbar-container form {
+    min-width: 375px;
+  }
 }

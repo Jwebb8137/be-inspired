@@ -10,7 +10,6 @@
 
 .mobile-container {
   background: #479cd4;
-  min-height: 110vh;
 }
 
 .fade-in-login {
@@ -65,6 +64,8 @@ a.link {
 }
 
 .signin {
+  display: flex;
+  justify-content: center;
   position: fixed;
   top: 15vh;
   background: rgba(0, 0, 0, 0.5);

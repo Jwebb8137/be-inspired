@@ -1,7 +1,7 @@
 #feed-container {
     background-image: linear-gradient( #fff 0%,#479cd6 10%, #479cd6 90%, #fff 100% );
     min-height: 100vh;
-    padding: 0 25px;
+    padding: 0;
     text-align: center;
 }
 
@@ -9,36 +9,37 @@
     background: #fff;
     border-radius: 5px;
     font-family: 'Architects Daughter', cursive;
-    padding: 75px 35px;
+    padding: 60px 0;
     margin: auto;
     max-width: 800px;
 }
 
 .featured-post {
-    margin: 50px auto;
+    margin: 0 auto;
 }
 
 .featured-video {
-    border-radius: 5px 5px 0 0;
+    border-radius: 0;
 }
 
 #feed-options {
     display: flex;
     font-family: 'Architects Daughter', cursive;
-    font-size: 22px;
+    font-size: 18px;
     flex-direction: row;
     list-style-type: none;
     margin: 2rem auto 0;
+    padding: 0 15px;
     justify-content: space-between;
 }
 
 #feed-options .input-field {
-    font-size: 22px;
+    font-size: 18px;
     margin: 0;
 }
 
 #feed-options select {
-  font-size: 18px;
+  font-size: 16px;
   padding: 1px 4px;
   font-family: 'Architects Daughter';
   border-radius: 5px;
@@ -91,3 +92,37 @@
   cursor: pointer;
   transition: .25s;
 }
+
+@media (max-width: 576px) { 
+  
+}
+
+@media (min-width: 768px) {  
+  #feed-container {
+    padding: 0 25px;
+  }
+  .feed-inner-container {
+    padding: 75px 35px;
+  }
+  .featured-post {
+    margin: 50px auto;
+  }
+  .featured-video {
+    border-radius: 5px 5px 0 0;
+  }
+  #feed-options {
+    font-size: 22px;
+    padding: 0;
+  }
+  #feed-options select {
+    font-size: 20px;
+  }
+  #feed-options .input-field {
+    font-size: 22px;
+    margin: 0;
+  }
+}
+
+@media (min-width: 992px) { 
+}
+

@@ -161,14 +161,12 @@ export default class UploadPost extends Component{
             <div className="signup-row">
               <div id="post-description-container" className="input-field">
                 <label htmlFor='post-description'></label>
-                <input typeof="text" value={this.state.value} onChange={e=> this.handleDescriptionChange(e)} name='post-description' placeholder="Send some inspiration or words of encouragement!" required/>
+                <input typeof="text" value={this.state.value} onChange={e=> this.handleDescriptionChange(e)} name='post-description' placeholder="Share some thoughts here ..." required/>
               </div>
             </div>
             <div className="flex-row">
-              <button typeof="submit" id="upload-submit" class="btn">Share Your Post <i class="fas fa-share"></i></button>
-              <div class="upload-btn-wrapper">
-                <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Upload Media <i class="fas fa-upload"></i></button>
-              </div>
+              <button typeof="submit" id="upload-submit" class="btn">Share Post <i class="fas fa-share"></i></button>
+              <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Upload Media <i class="fas fa-upload"></i></button>
             </div>
           </form>
         </Fragment>
@@ -191,10 +189,8 @@ export default class UploadPost extends Component{
             </div>
           </div>
           <div className="flex-row">
-            <button typeof="submit" id="upload-submit" class="btn bg-grey">Share Your Post</button>
-            <div class="upload-btn-wrapper">
-              <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Change Media</button>
-            </div>
+            <button typeof="submit" id="upload-submit" class="btn bg-grey">Share Post</button>
+            <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Change Media</button>
           </div>
         </form>
       </Fragment>

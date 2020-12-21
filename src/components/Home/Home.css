@@ -86,6 +86,9 @@
   .alt-heading {
     font-size: 2rem;
   }
+  body {
+    padding-bottom: 5vh;
+  }
   .card-title {
     margin-top: 0;
   }

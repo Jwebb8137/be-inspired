@@ -2,7 +2,6 @@
   background: rgba(0, 0, 0, 0.5);
   color: #393634;
   width: 100%;
-  padding: 30px 20px;
   margin: auto;
   text-align: center;
 }
@@ -14,16 +13,16 @@
 .signup h2 {
   color: #479cd6;
   font-family: 'Architects Daughter', cursive;
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin: 3rem auto 1rem;
 }
 
 .signup h3 {
   color: #393634;
   font-family: 'Architects Daughter', cursive;
-    font-size: 1.5rem;
-    text-decoration: underline;
-    margin: 2rem auto .75rem;
+  font-size: 1.35rem;
+  text-decoration: underline;
+  margin: 2rem auto .75rem;
 }
 
 .signup-container {
@@ -31,8 +30,9 @@
   border: 1px solid #808080;
   border-radius: 5px;
   font-family: 'Grandstander', cursive;
-  margin: 10vh auto 0;
-  padding: .5rem 0;
+  margin: 5vh auto 0;
+  opacity: .9;
+  padding: .5rem;
   position: relative;
   max-width: 650px;
   text-align: center;
@@ -131,6 +131,18 @@ input[type="file"] {
 }
 
 #mySignUpVideo {
+  display: none;
+  position: fixed;
+  min-width: 100%;
+}
+
+#mySignUpVideoMobile {
+  position: fixed;
+  min-width: 100%;
+}
+
+#mySignUpVideoTablet {
+  display: none;
   position: fixed;
   min-width: 100%;
 }
@@ -142,7 +154,7 @@ input[type="file"] {
 
 .signup-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -161,4 +173,47 @@ input[type="file"] {
 
 .signup-container .fa-atlassian {
   font-size: 1.5rem;
+}
+
+@media (min-width: 768px) { 
+  #mySignUpVideoMobile {
+    display: none;
+  }
+  #mySignUpVideoTablet {
+    display: block;
+    position: fixed;
+    min-width: 100%;
+  }
+  .signup {
+    background: rgba(0, 0, 0, 0.5);
+    color: #393634;
+    width: 100%;
+    padding: 30px 20px;
+    margin: auto;
+    text-align: center;
+  }
+  .signup-container {
+    margin-top: 10vh;
+  }
+  .signup-row {
+    flex-direction: row;
+  }
+  .signup h2 {
+    font-size: 2rem;
+  }
+  .signup h3 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1440px) { 
+  #mySignUpVideoTablet {
+    display: none;
+  }
+  #mySignUpVideo {
+    display: block;
+  }
+  #mySignUpVideoMobile {
+    display: none;
+  }
 }
