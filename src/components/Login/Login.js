@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import config from '../../config'
 import Loading from '../Loading/Loading'
 import videoBg from '../../images/video6.mp4'
+import videoBgMobile from '../../images/mobile-login.mp4'
 import './Login.css'
 
 const Login = ({ setAuth, setUserInfo, isAuth }) => {
@@ -54,6 +55,9 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
     <Fragment>
       <video autoPlay muted loop id="myVideo">
         <source src={videoBg} type="video/mp4" />
+      </video>
+      <video autoPlay muted loop id="myVideo-mobile">
+        <source src={videoBgMobile} type="video/mp4" />
       </video>
       <div className='signin fade-in-login'>
         <form id="sign-in" className="form-container" onSubmit={onSubmitForm}>

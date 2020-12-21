@@ -2,6 +2,30 @@
   color: #fff;
 }
 
+.card-title .main-btn {
+  color: #fff;
+  background: #56a3d7;
+  border: 1px solid #fff;
+  opacity: 1;
+  font-family: 'Montserrat';
+  font-size: 1.2rem;
+}
+
+.card-title .main-btn i {
+  font-size: 1.75rem;
+  margin-left: .5rem;
+}
+
+.card-title > i {
+  color: #56a3d7;
+}
+
+.card-title > i {
+  animation-name: loadingPulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
 .main {
   background-image: url('../../images/mobile-main.jpg');
   background-size: cover;
