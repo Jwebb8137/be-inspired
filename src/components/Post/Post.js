@@ -84,6 +84,18 @@ const Post = props => {
     document.getElementById(`comment-container-${props.postId}`).style.display = document.getElementById(`comment-container-${props.postId}`).style.display == 'none' ? 'block' : 'none';
   }
 
+  const deletePost = async (e) => {
+    const { API_ENDPOINT } = config;
+    try {
+      await fetch (`${API_ENDPOINT}/posts/${props.postId}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+      });
+      } catch (err) {
+        console.error(err);
+    }
+  }
+
   const userProfile = `/User/${props.postUploaderId}`
 
   if (!props.contentUrl) {
@@ -148,6 +160,7 @@ const Post = props => {
                 postUploaderId={props.postUploaderId}
               />
               </div>
+              <span id="post-delete" onClick={deletePost}>Delete Post <i class="fas fa-trash-alt"></i></span>
           </div>
       </Fragment>
   )
