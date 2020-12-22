@@ -158,6 +158,8 @@
 }
 
 .main-btn-ext {
+  color: #fff;
+  background: #56a3d7;
   display: flex;
   align-items: center;
   border-radius: 2px;

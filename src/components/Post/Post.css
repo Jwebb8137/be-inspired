@@ -8,10 +8,9 @@
   border: 1px solid #000;
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
-  padding: 3px 0 0 5px;  
+  padding: 5px 0 0 5px;
   position: relative;
   margin-top: 1rem;
-  align-items: center;
 }
 
 .comment p {
@@ -27,7 +26,7 @@
   display: block;
   font-family: 'Architects Daughter';
   font-size: .75rem;
-  margin: 0 0 .25rem;
+  margin: 5px 0 .25rem;
 }
 
 .column-flex {
@@ -95,8 +94,8 @@
 
 #comment-date {
   position: absolute;
-  right: 10px;
-  top: 5px;
+  right: 5px;
+  top: 10px;
   font-size: .6rem;
 }
 
@@ -185,7 +184,7 @@
 }
 
 #post-delete {
-  font-size: 1rem;
+  font-size: .9rem;
   position: absolute;
   top: 35px;
   right: 22px;
@@ -230,6 +229,10 @@
 
 .text-alt {
     font-family: 'Montserrat', sans-serif;
+}
+
+#video-description {
+  margin-top: 1.5rem;
 }
 
 @media (min-width: 768px) { 

@@ -50,9 +50,10 @@ const Home = (props) => {
       </div>
       <div className="video-full-container">
         <video autoPlay loop muted className="video-full">
+          <source src={Video5} type="video/webm" /> 
+          <source src={Video5} type="video/ogg" /> 
           <source src={Video5} type="video/mp4" />
-          <source src={Video5} type="video/ogg" />
-          Your browser does not support the video tag.
+          <source src={Video5} type="video/3gp" />
         </video>
       </div>
       <div className="container">

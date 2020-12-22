@@ -25,6 +25,18 @@ const Searchbar = props => {
     }
   }
 
+  const clearSearchPosts = async (e) => {
+    console.log('searching')
+    try {
+      const response = await fetch(`${API_ENDPOINT}/posts`);
+      const jsonData = await response.json();
+      console.log(jsonData)
+      setMatchingPosts(jsonData)  
+    } catch (error) {
+        console.error(err.message)
+    }
+  }
+
   const setMatchingPosts = posts => {
     props.setSearchedPosts(posts)
   }
@@ -32,6 +44,12 @@ const Searchbar = props => {
   const searchTermHandler = target => {
     setSearchTerm(target)
     console.log(target)
+  }
+
+  const resetSearch = () => {
+    setSearchTerm("")
+    clearSearchPosts()
+    setActiveSearch(false)
   }
 
   if (activeSearch) {
@@ -44,10 +62,13 @@ const Searchbar = props => {
               id="searchbar-input" 
               typeof='text'
               onChange={e => searchTermHandler(e.target.value)}
-              placeholder="Search Posts">  
+              placeholder="Search Posts"
+              value={searchTerm}
+            >  
             </input>
             <button id="search-btn" typeof='submit'><i class="fas fa-search"></i></button>
           </form>
+          <span id="search-clear" onClick={resetSearch}>Clear Search</span>
           <h3 id="search-results-heading">{`Posts found matching "${currentSearch.toUpperCase()}"`}</h3>
         </div>
       </Fragment>
@@ -63,7 +84,9 @@ const Searchbar = props => {
             id="searchbar-input" 
             typeof='text' 
             onChange={e => searchTermHandler(e.target.value)}
-            placeholder="Search Posts">  
+            placeholder="Search Posts"  
+            value={searchTerm} 
+          >
           </input>
           <button id="search-btn" typeof='submit'><i class="fas fa-search"></i></button>
         </form>

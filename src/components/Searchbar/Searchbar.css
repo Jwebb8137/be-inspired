@@ -42,6 +42,12 @@
   width: 100%;
 }
 
+#search-clear {
+  margin-top: .5rem;
+  display: block;
+  text-decoration: underline;
+}
+
 @media (min-width: 768px) {  
   #searchbar-container form {
     min-width: 375px;

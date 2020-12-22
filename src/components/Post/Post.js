@@ -106,14 +106,56 @@ const Post = props => {
     props.deletePostUpdate(props.postId)
   }
 
-  const deletePostBtn = (props.postUploaderId == userInfo.id) ? <span id="post-delete" onClick={deletePost}>Delete Post <i class="fas fa-trash-alt"></i></span> : null
+  const deletePostBtn = (props.postUploaderId == userInfo.id) ? <span id="post-delete" onClick={deletePost}>Delete <i class="fas fa-trash-alt"></i></span> : null
 
   const userProfile = `/User/${props.postUploaderId}`
+
+  if (props.contentUrl.includes("mp4")) {
+    return (
+      <Fragment>
+          <div className="post-container">
+            {deletePostBtn}
+            <div className="post-header">
+              <Link to={userProfile}><img src={avatar} id="post-avatar" /><span>{props.username}</span></Link>
+              <span id="post-date">
+                <Moment format='MMMM Do YYYY, h:mm a'>{props.uploadDate}</Moment>
+              </span>
+            </div>
+            <div className="post-img-container">
+            <video id="post-video" controls>
+              <source src={props.contentUrl} type="video/webm" /> 
+              <source src={props.contentUrl} type="video/ogg" /> 
+              <source src={props.contentUrl} type="video/mp4" />
+              <source src={props.contentUrl} type="video/3gp" />
+            </video>
+            </div>
+            <p id="video-description" className="post-description text-alt"> {props.postDescription} </p>
+            <div className="post-footer">
+              <div className="post-comments-container">
+                <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
+              </div>
+              <div id="post-likes">
+                {likes} likes 
+                <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+              </div>              
+            </div>
+            <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
+            <Comments 
+              getCommentsNum={getCommentsNum}
+              postId={props.postId}
+              postUploaderId={props.postUploaderId}
+            />
+            </div>
+          </div>
+      </Fragment>
+    )
+  }
 
   if (!props.contentUrl) {
     return (
       <Fragment>
         <div className="post-container">
+          {deletePostBtn}
           <div className="post-header">
             <Link to={userProfile}><img src={avatar} id="post-avatar" /><span>{props.username}</span></Link>
             <span id="post-date">
@@ -135,7 +177,6 @@ const Post = props => {
               postUploaderId={props.postUploaderId}
             />
           </div>
-          {deletePostBtn}
         </div>
       </Fragment>
     )
@@ -144,36 +185,36 @@ const Post = props => {
   return (
       <Fragment>
           <div className="post-container">
-              <div className="post-header">
-                <Link to={userProfile}><img src={avatar} id="post-avatar" /><span>{props.username}</span></Link>
-                <span id="post-date">
-                  <Moment format='MMMM Do YYYY, h:mm a'>{props.uploadDate}</Moment>
-                </span>
+            {deletePostBtn}
+            <div className="post-header">
+              <Link to={userProfile}><img src={avatar} id="post-avatar" /><span>{props.username}</span></Link>
+              <span id="post-date">
+                <Moment format='MMMM Do YYYY, h:mm a'>{props.uploadDate}</Moment>
+              </span>
+            </div>
+            {/* <video className="post-video" controls loop>
+                <source src={props.contentUrl} type="video/mp4" />
+            </video>  */}
+            <div className="post-img-container">
+              <img src={props.contentUrl} className="post-image" /> 
+            </div>
+            <p className="post-description text-alt"> {props.postDescription} </p>
+            <div className="post-footer">
+              <div className="post-comments-container">
+                <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
               </div>
-              {/* <video className="post-video" controls loop>
-                  <source src={props.contentUrl} type="video/mp4" />
-              </video>  */}
-              <div className="post-img-container">
-                <img src={props.contentUrl} className="post-image" /> 
-              </div>
-              <p className="post-description text-alt"> {props.postDescription} </p>
-              <div className="post-footer">
-                <div className="post-comments-container">
-                  <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
-                </div>
-                <div id="post-likes">
-                  {likes} likes 
-                  <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
-                </div>              
-              </div>
-              <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
-              <Comments 
-                getCommentsNum={getCommentsNum}
-                postId={props.postId}
-                postUploaderId={props.postUploaderId}
-              />
-              </div>
-              {deletePostBtn}
+              <div id="post-likes">
+                {likes} likes 
+                <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+              </div>              
+            </div>
+            <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
+            <Comments 
+              getCommentsNum={getCommentsNum}
+              postId={props.postId}
+              postUploaderId={props.postUploaderId}
+            />
+            </div>
           </div>
       </Fragment>
   )

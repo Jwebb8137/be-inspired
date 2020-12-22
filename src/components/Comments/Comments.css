@@ -1,3 +1,11 @@
 .comment-form-submit input[typeOf='text'] {
   padding-left: 10px !important;
 }
+
+#comment-delete {
+  font-size: 1rem;
+  position: absolute;
+  top: 35px;
+  right: 22px;
+  font-family: 'Montserrat';
+}

@@ -126,9 +126,10 @@ const Feed = props => {
           {/* <h1 id="feed-heading">Fuel Your Inspiration <i class="fas fa-mountain"></i></h1> */}
           <div className="featured-post">
             <video autoPlay loop muted className="featured-video">
+              <source src={FeaturedVid} type="video/webm" /> 
+              <source src={FeaturedVid} type="video/ogg" /> 
               <source src={FeaturedVid} type="video/mp4" />
-              <source src={FeaturedVid} type="video/ogg" />
-              Your browser does not support the video tag.
+              <source src={FeaturedVid} type="video/3gp" />
             </video>
           </div>
           <UploadPost resetPage={resetPage} getPosts={getPosts} activeUser={props.activeUserInfo}/>

@@ -38,10 +38,7 @@ const Comments = props => {
         const user_img_url = userInfo.profile_img_url
         const username = userInfo.username
         const body = { post_id, comment, user_id, user_img_url, username };
-        const newCommentList = [...commentList, body]
-        setCommentList(newCommentList)
         setCommentDescription("")
-        props.getCommentsNum(newCommentList.length)
     
         await fetch (`${API_ENDPOINT}/comments`, {
             method: 'POST',
@@ -52,6 +49,16 @@ const Comments = props => {
           console.error(err);
     }
 
+    try {   
+      const response = await fetch(`${API_ENDPOINT}/comments/${props.postId}`);
+      const jsonData = await response.json();
+      setCommentList(jsonData)
+      if (jsonData.length > 0) {
+        props.getCommentsNum(jsonData.length)
+      }
+    } catch (err) {
+        console.error(err.message)
+    }
   }
 
   const getComments = async () => {
@@ -91,6 +98,24 @@ const Comments = props => {
     setCommentDescription(e.target.value)
   }
 
+  const deleteCommentUpdate = (id) => {
+    const updateComments = commentList.filter(comment => comment.id !== id)
+    setCommentList(updateComments)
+  }
+
+  const deleteComment = async (comment) => {
+    console.log(comment)
+    const { API_ENDPOINT } = config;
+    try {
+      await fetch (`${API_ENDPOINT}/comments/delete/${comment}`, {
+        method: 'DELETE',
+      });
+      } catch (err) {
+        console.error(err);
+    }
+    deleteCommentUpdate(comment)
+  }
+
   return (
     <Fragment>
       <form className="comment-form-submit" onSubmit={e => addComment(e)}>
@@ -99,9 +124,13 @@ const Comments = props => {
       </form>
       {commentList
         .map(comment => {
+          const deleteCommentHandler = () => {
+            deleteComment(comment.id)
+          }
           const userProfile = `https://be-inspired-master.vercel.app/User/${comment.user_id}`
           return (
             <div className="comment">
+              {(comment.user_id == userInfo.id) ? <span id="comment-delete" onClick={deleteCommentHandler}><i class="fas fa-trash-alt"></i></span> : null}
               <span id="comment-date">
                 <Moment format='MMMM Do YYYY, h:mm a'>{comment.date_commented}</Moment>
               </span>
