@@ -2,6 +2,7 @@
   display: none;
   position: fixed;
   min-width: 100%;
+  margin-top: 10vh;
 }
 
 #myVideo-mobile {
@@ -9,7 +10,9 @@
 }
 
 .mobile-container {
+  height: 95vh;
   background: #479cd4;
+  overflow: hidden;
 }
 
 .fade-in-login {
@@ -163,12 +166,6 @@ input:not([type=submit]):optional {
   .signin-heading {
     font-size: 3.5rem;
   }
-  #myVideo-mobile {
-    display: none;
-  }
-  #myVideo {
-    display: block;
-  }
   #sign-in {
     background: #e2eaf3;
     max-width: 450px;
@@ -182,8 +179,26 @@ input:not([type=submit]):optional {
     background: rgba(0, 0, 0, 0.5);
     color: #000;
     width: 100%;
-    padding: 65px 20px;
+    padding: 65px 0;
     margin: auto;
     text-align: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  #myVideo-mobile {
+    display: none;
+  }
+  #myVideo {
+    display: block;
+  }
+  .signin {    
+    top: 14vh;
+  }
+}
+
+@media (min-width: 1440px) {
+  #myVideo {
+    margin-top: 8vh;
   }
 }

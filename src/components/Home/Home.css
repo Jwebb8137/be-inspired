@@ -9,7 +9,7 @@
   border: 1px solid #fff;
   opacity: 1;
   font-family: 'Montserrat';
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .card-title .main-btn i {
@@ -96,6 +96,7 @@
     font-size: 3rem;
     line-height: 1.2;
     margin-bottom: .5rem;
+    margin-top: -65px;
   }
   .main-heading, .sub-heading, .support-heading {
     color: #fff;
@@ -127,8 +128,19 @@
   .sub-heading {
     color: #509cd1;
   }
+  .heading-text {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: .5rem;
+    margin-top: 0;
+  }
+  .card-title .main-btn {
+    font-size: 1.2rem;
+  }
 }
 
-@media (min-width: 1200px) {  
-
+@media (min-width: 1440px) {  
+  .heading-text {
+    margin-top: 2rem;
+  }
 }
