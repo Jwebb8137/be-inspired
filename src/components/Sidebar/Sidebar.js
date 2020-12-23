@@ -16,11 +16,12 @@ const Sidebar = (props) => {
   }
 
   const logout = e => {
-    e.preventDefault();
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    props.setAuth(false);
+    e.preventDefault()
+    localStorage.removeItem("token")
+    localStorage.removeItem("user")
+    props.setAuth(false)
     closeNav()
+    window.location.reload()
   }
 
   useEffect(() => {
