@@ -18,7 +18,7 @@
 <p>Using JWT, bcrypt, & form data users are able to create profiles, log in & out, and are granted limited access within the application before being authenticated.</p>
 
 <p>
-  <img src="./src/images/Screenshot7.jpg" class="m-5 d-inline-block" width="300"/>
+  <img src="./src/images/Screenshot2.jpg" class="m-5 d-inline-block" width="300"/>
   <img src="./src/images/Screenshot8.jpg" class="m-5 d-inline-block" width="300"/>
 </p>
 
