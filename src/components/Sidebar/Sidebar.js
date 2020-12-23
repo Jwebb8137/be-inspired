@@ -21,7 +21,7 @@ const Sidebar = (props) => {
     localStorage.removeItem("user")
     props.setAuth(false)
     closeNav()
-    window.location.reload()
+    window.location.assign("https://be-inspired-master.vercel.app/Login")
   }
 
   useEffect(() => {
