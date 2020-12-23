@@ -18,17 +18,17 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [userInfo, setUserInfo]  = useState({})
+  
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   }
+
   const setUser = data => {
-    console.log("setting user info")
-    console.log(data)
     setUserInfo(data)
   }
 
   async function isAuth() {
-    // console.log = console.warn = console.error = () => {};
+    console.log = console.warn = console.error = () => {};
     try {
       const response = await fetch(`${API_ENDPOINT}/is-verified`, {
         method: "GET",
@@ -36,7 +36,6 @@ function App() {
       });
       const parseRes = await response.json();
       parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
-      console.log(parseRes)
     } catch (err) {
       console.error(err.message)
     }
@@ -98,7 +97,6 @@ function App() {
 
       <div className="App">
         <header className="App-header">
-
         </header>
       </div>
     </BrowserRouter>
