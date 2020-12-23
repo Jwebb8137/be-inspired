@@ -8,7 +8,7 @@
   border: 1px solid #000;
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
-  padding: 5px 0 0 5px;
+  padding: 8px 0 0 5px;
   position: relative;
   margin-top: 1rem;
 }
@@ -35,9 +35,11 @@
 }
 
 #comment-description {
+  word-break: break-word;
   display: block;
   font-size: .8rem;
   margin: 0;
+  padding-bottom: 25px;
 }
 
 #comment-container-1 {
@@ -94,8 +96,8 @@
 
 #comment-date {
   position: absolute;
-  right: 5px;
-  top: 10px;
+  right: 8px;
+  bottom: 5px;
   font-size: .6rem;
 }
 

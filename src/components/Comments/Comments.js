@@ -103,6 +103,7 @@ const Comments = props => {
     const updateComments = commentList.filter(comment => comment.id !== id)
     setCommentList(updateComments)
     setIsDeleting(false)
+    props.getCommentsNum(updateComments.length)
   }
 
   const deleteComment = async (comment) => {
@@ -142,14 +143,14 @@ const Comments = props => {
           return (
             <div className="comment">
               {(comment.user_id == userInfo.id) ? <span id="comment-delete" onClick={deleteCommentHandler}><i class="fas fa-trash-alt"></i></span> : null}
-              <span id="comment-date">
-                <Moment format='MMMM Do YYYY, h:mm a'>{comment.date_commented}</Moment>
-              </span>
               <a href={userProfile}><img src={comment.user_img_url} className="comment-profile-img"/></a>
               <div className="column-flex">
                 <p id="comment-username">{comment.username}</p>
                 <p id="comment-description">{comment.comment}</p>
-              </div>                
+              </div>   
+              <span id="comment-date">
+                <Moment format='MMMM Do YYYY, h:mm a'>{comment.date_commented}</Moment>
+              </span>             
             </div>
           )
         }
