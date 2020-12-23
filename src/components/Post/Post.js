@@ -18,6 +18,7 @@ const Post = props => {
   const [commentList, setCommentList] = useState([])
   const [fillLike, setFillLike] = useState("far")
   const [isLoading, setIsLoading] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
   const { API_ENDPOINT } = config;
 
   useEffect(() => {
@@ -94,7 +95,7 @@ const Post = props => {
   }
 
   const deletePost = async () => {
-    console.log(props)
+    setIsDeleting(true)
     const { API_ENDPOINT } = config;
     try {
       await fetch (`${API_ENDPOINT}/posts/delete/${props.postId}`, {
@@ -104,11 +105,22 @@ const Post = props => {
         console.error(err);
     }
     props.deletePostUpdate(props.postId)
+    setIsDeleting(false)
   }
 
   const deletePostBtn = (props.postUploaderId == userInfo.id) ? <span id="post-delete" onClick={deletePost}>Delete <i class="fas fa-trash-alt"></i></span> : null
 
   const userProfile = `/User/${props.postUploaderId}`
+
+  if (isDeleting) {
+    return (
+      <Fragment>
+        <div id="deleting-post-container" className="upload-container fa-3x">
+          <i class="fas fa-spinner fa-pulse"></i>
+        </div>
+      </Fragment>
+    )
+  }
 
   if (props.contentUrl.includes("mp4")) {
     return (

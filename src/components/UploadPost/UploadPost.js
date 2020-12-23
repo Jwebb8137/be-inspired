@@ -12,7 +12,8 @@ export default class UploadPost extends Component{
     postSubmitted: false,
     err: '',
     postDescription: '',
-    previewFile: ''
+    previewFile: '',
+    submitting: false
   }
 
   static defaultProps = {
@@ -69,7 +70,9 @@ export default class UploadPost extends Component{
 
   onSubmitForm = async (e) => {
     e.preventDefault();
-    console.log('Form submitted')
+    this.setState({
+      submitting: true
+    })
     const { API_ENDPOINT } = config;
     const content_url = this.state.previewFile
     const post_uploader_id = this.state.userInfo.id
@@ -94,7 +97,9 @@ export default class UploadPost extends Component{
     }
     this.resetPage()
     this.getPosts()
-    this.props.updatedFeedAdd()
+    this.setState({
+      submitting: false
+    })
   }
 
   handleDescriptionChange = (e) => {
@@ -131,6 +136,16 @@ export default class UploadPost extends Component{
         <Fragment>
           <div className="upload-container">
             <h3>Oops! Looks like something went wrong. Let's try again!</h3>
+          </div>
+        </Fragment>
+      )
+    }
+
+    if (this.state.submitting) {
+      return (
+        <Fragment>
+          <div id="loading-container-upload" className="upload-container fa-3x">
+            <i class="fas fa-spinner fa-pulse"></i>
           </div>
         </Fragment>
       )

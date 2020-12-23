@@ -11,6 +11,7 @@ const Profile = props => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [profileInfo, setProfileInfo] = useState("")
+  const [loggedUserInfo, setLoggedUserInfo] = useState("")
   const [posts, setPosts] = useState([])
   const [userPosts, setUserPosts] = useState([])
   const [page, setPage] = useState(1)
@@ -23,7 +24,7 @@ const Profile = props => {
   const setUserData = () => {
     const userData = JSON.parse(localStorage.getItem('user'));
     console.log(userData.id)
-    setProfileInfo(userData)
+    setLoggedUserInfo(userData)
   }
 
   useEffect(() => {
@@ -88,7 +89,7 @@ const Profile = props => {
     setPage(1)
   }
 
-  if(userPosts.length === 0 && profileInfo.id == profileId) {
+  if(userPosts.length === 0 && loggedUserInfo.id == profileId) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
     return (
       <Fragment>
@@ -111,8 +112,9 @@ const Profile = props => {
     )
   }
 
-  if(!isLoading && profileInfo.id == profileId) {
+  if(!isLoading && loggedUserInfo.id == profileId) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
+    console.log(`logged in id is ${profileInfo.id} & page user id is ${profileId}`)
     return (
       <Fragment>
         <div id="feed-container" className="fade-in-login">

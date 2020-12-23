@@ -94,7 +94,7 @@ const Feed = props => {
   }
 
   const deletePostUpdate = (id) => {
-    const updatedFeedDelete = posts.filter(post => post.id === id)
+    const updatedFeedDelete = posts.filter(post => post.id !== id)
     setPosts(updatedFeedDelete)
   }
 

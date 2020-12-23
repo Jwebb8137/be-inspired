@@ -188,7 +188,7 @@
   position: absolute;
   top: 35px;
   right: 22px;
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
 }
 
 #post-delete:hover {
@@ -233,6 +233,12 @@
 
 #video-description {
   margin-top: 1.5rem;
+}
+
+#deleting-post-container {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
 }
 
 @media (min-width: 768px) { 

@@ -28,7 +28,7 @@
 }
 
 #search-results-heading {
-  font-family: 'Montserrat';
+  font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   margin-top: 2rem;
 }
@@ -46,6 +46,26 @@
   margin-top: .5rem;
   display: block;
   text-decoration: underline;
+}
+
+#search-clear:hover {
+  color: #479cd6;
+  cursor: pointer;
+}
+
+#searchbar-input:hover {
+  background:#d1edff;
+}
+
+#search-btn:hover {
+  background: #479cd6;
+  border: 1px solid #479cd6;
+  color: #fff;
+  cursor: pointer;
+}
+
+.fa-3x {
+  font-family: 'Montserrat', sans-serif;
 }
 
 @media (min-width: 768px) {  

@@ -8,10 +8,11 @@ const Searchbar = props => {
   const [currentSearch, setCurrentSearch] = useState("")
   const [err, setError] = useState("")
   const [activeSearch, setActiveSearch] = useState(false)
+  const [isSearching, setIsSearching] = useState(false)
   const { API_ENDPOINT } = config;
 
   const searchPostsSubmit = async (e) => {
-    console.log('searching')
+    setIsSearching(true)
     setCurrentSearch(searchTerm)
     e.preventDefault()
     try {
@@ -23,6 +24,7 @@ const Searchbar = props => {
     } catch (error) {
         console.error(err.message)
     }
+    setIsSearching(false)
   }
 
   const clearSearchPosts = async (e) => {
@@ -50,6 +52,17 @@ const Searchbar = props => {
     setSearchTerm("")
     clearSearchPosts()
     setActiveSearch(false)
+  }
+
+  if (isSearching) {
+    return (
+      <Fragment>
+        <div id="deleting-post-container" className="upload-container fa-3x">
+          <i class="fas fa-spinner fa-pulse"></i>
+          <p>Searching Posts ...</p>
+        </div>
+      </Fragment>
+    )
   }
 
   if (activeSearch) {

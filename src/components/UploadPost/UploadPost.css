@@ -145,6 +145,16 @@ textarea {
     margin: 40px auto 0;
 }
 
+#loading-container-upload {
+  background: none;
+  border: none;
+}
+
+.fa-spinner {
+  color: #479cd6;
+  font-size: 4.5rem;
+}
+
 @media (max-width: 576px) { 
   
 }

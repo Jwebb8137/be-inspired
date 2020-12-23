@@ -9,3 +9,9 @@
   right: 22px;
   font-family: 'Montserrat';
 }
+
+#comment-delete:hover {
+  color: #a32f2f;
+  cursor: pointer;
+  transform: scale(1.05);
+}

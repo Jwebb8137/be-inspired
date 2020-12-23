@@ -7,6 +7,7 @@ import config from '../../config'
 const Comments = props => {
   const [userInfo, setUserInfo] = useState({})
   const [isLoading, setIsLoading] = useState(false)
+  const [isDeleting, setIsDeleting] = useState(false)
   const [postComment, setPostComment] = useState("")
   const [likes, setLikes] = useState("0")
   const [fillLike, setFillLike] = useState("far")
@@ -48,7 +49,6 @@ const Comments = props => {
       } catch (err) {
           console.error(err);
     }
-
     try {   
       const response = await fetch(`${API_ENDPOINT}/comments/${props.postId}`);
       const jsonData = await response.json();
@@ -99,12 +99,13 @@ const Comments = props => {
   }
 
   const deleteCommentUpdate = (id) => {
+    setIsDeleting(true)
     const updateComments = commentList.filter(comment => comment.id !== id)
     setCommentList(updateComments)
+    setIsDeleting(false)
   }
 
   const deleteComment = async (comment) => {
-    console.log(comment)
     const { API_ENDPOINT } = config;
     try {
       await fetch (`${API_ENDPOINT}/comments/delete/${comment}`, {
@@ -114,6 +115,16 @@ const Comments = props => {
         console.error(err);
     }
     deleteCommentUpdate(comment)
+  }
+
+  if (isDeleting) {
+    return (
+      <Fragment>
+        <div id="deleting-post-container" className="upload-container fa-3x">
+          <i class="fas fa-spinner fa-pulse"></i>
+        </div>
+      </Fragment>
+    )
   }
 
   return (
