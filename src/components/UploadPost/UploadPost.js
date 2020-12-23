@@ -32,7 +32,6 @@ export default class UploadPost extends Component{
 
   componentDidMount() {
     const userData = JSON.parse(localStorage.getItem('user'));
-    console.log(userData.id)
     this.setState({
       userInfo: userData
     })
@@ -46,7 +45,6 @@ export default class UploadPost extends Component{
 
   handleFileInputChange = (e) => {
     const file = e.target.files[0]
-    // previewFile(file)
     this.previewFile(file)
   }
 
@@ -80,20 +78,17 @@ export default class UploadPost extends Component{
     const body = { content_url, post_uploader_id, post_description }
 
     try {
-        console.log(body)
-        console.log(this.state)
-    
-        await fetch (`${API_ENDPOINT}/posts`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-        });
-        this.setState({
-          postSubmitted: true,
-          previewFile: ""
-        })
-      } catch (err) {
-          console.error(err);
+      await fetch (`${API_ENDPOINT}/posts`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+      });
+      this.setState({
+        postSubmitted: true,
+        previewFile: ""
+      })
+    } catch (err) {
+        console.error(err);
     }
     this.resetPage()
     this.getPosts()
@@ -115,7 +110,6 @@ export default class UploadPost extends Component{
   openWidget = (e) => {
     e.preventDefault()
     const onUpload = async (url) => {
-      console.log('Form submitted')
       this.setState({
         previewFile: url
       })
