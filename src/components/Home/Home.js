@@ -57,7 +57,7 @@ const Home = (props) => {
         </video>
       </div>
       <div className="container">
-        <h2 className="heading-text">The time to LAUNCH is here & now</h2>
+        <h2 id="launch-heading" className="heading-text">The time to LAUNCH is here & now</h2>
         <p className="heading-text-support">Be the change that seeks to inspire and join a community that seeks to uplift, promote, and support their users through their content!</p>
       </div>
       <Link to="/Login">

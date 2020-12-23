@@ -1,8 +1,8 @@
-import "../../../setupTests.test"
-import Comments from "./Comments"
+import "../setupTests.test"
+import App from "./App"
 import React from 'react'
 import { shallow } from 'enzyme'
 
 it("renders without crashing", () => {
-  shallow(<Comments />);
+  shallow(<App />);
 });

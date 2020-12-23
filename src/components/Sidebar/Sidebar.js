@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import './Sidebar.css';
-import {Link} from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import './Sidebar.css'
+import {Link} from 'react-router-dom'
 
 const Sidebar = (props) => {
 
@@ -45,7 +45,7 @@ const Sidebar = (props) => {
         <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
         <Link to="/Login" onClick={closeNav}><span className="side-link">Login</span></Link>
         <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
-        <div id="responsive-nav-logo" className="navigation-logo"><i class="fab fa-atlassian"></i></div>
+        <div id="responsive-nav-logo" className="navigation-logo">{<i class="fab fa-atlassian"></i>}</div>
       </div>
     )
   }

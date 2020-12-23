@@ -1,8 +1,8 @@
 import "../../../setupTests.test"
-import Comments from "./Comments"
+import Navbar from "./Navbar"
 import React from 'react'
 import { shallow } from 'enzyme'
 
 it("renders without crashing", () => {
-  shallow(<Comments />);
+  shallow(<Navbar />);
 });

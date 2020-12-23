@@ -1,5 +1,6 @@
-import React from 'react';
-import './Footer.css';
+import React from 'react'
+import './Footer.css'
+import Logo from '../../images/icon.png'
 
 const Footer = () => {
   return (
@@ -11,6 +12,7 @@ const Footer = () => {
       </div>
       <div class="footer-copyright">© 2020 Copyright:
         <a href="/"> BeInspired.com</a>
+        <img id="footer-logo" src={Logo} />
       </div>
     </footer>
   )

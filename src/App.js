@@ -94,7 +94,7 @@ function App() {
         }
       />
       <Route exact path={"/home"} component={Home}/>
-      <Route exact path={["/Home", "/About", "/Feed"]} component={Footer}/>
+      <Route exact path={["/", "/Home", "/About", "/Feed"]} component={Footer}/>
 
       <div className="App">
         <header className="App-header">

@@ -98,6 +98,9 @@
     margin-bottom: .5rem;
     margin-top: -65px;
   }
+  #launch-heading {
+    margin-top: 0;
+  }
   .main-heading, .sub-heading, .support-heading {
     color: #fff;
     text-decoration: underline;

@@ -10,15 +10,14 @@
     "bootstrap": "^4.5.3",
     "cloudinary-react": "^1.6.8",
     "dotenv": "^8.2.0",
-    "enzyme": "^3.11.0",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.32",
     "nodemon": "^2.0.6",
     "pure-react-carousel": "^1.27.6",
-    "react": "^17.0.1",
+    "react": "^16.14.0",
     "react-bootstrap": "^1.4.0",
-    "react-dom": "^17.0.1",
+    "react-dom": "^16.14.0",
     "react-dropzone-uploader": "^2.11.0",
     "react-moment": "^1.0.0",
     "react-router-dom": "^5.2.0",
@@ -48,5 +47,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.5"
   }
 }
