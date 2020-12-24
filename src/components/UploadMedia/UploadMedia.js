@@ -34,7 +34,6 @@ export default class UploadMedia extends React.Component {
 
   handleFileInputChange = (e) => {
     const file = e.target.files[0]
-    // previewFile(file)
     this.previewFile(file)
   }
 
