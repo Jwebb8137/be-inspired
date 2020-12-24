@@ -155,10 +155,6 @@ textarea {
   font-size: 4.5rem;
 }
 
-@media (max-width: 576px) { 
-  
-}
-
 @media (min-width: 768px) {  
   .upload-container {
     padding: 20px 10px 5px;
@@ -186,7 +182,4 @@ textarea {
   #post-success-heading {
     font-size: 1.5rem;
   }
-}
-
-@media (min-width: 992px) { 
 }

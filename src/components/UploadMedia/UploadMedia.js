@@ -2,7 +2,7 @@ import React, { Fragment } from "react"
 import ApiContext from '../../ApiContext'
 import config from '../../config'
 import "./UploadMedia.css"
-import ModalImg from '../../images/modal-img.jpg';
+import ModalImg from '../../images/modal-img.jpg'
 
 export default class UploadMedia extends React.Component {
 
@@ -51,26 +51,17 @@ export default class UploadMedia extends React.Component {
   onSubmitForm = async (e) => {
     e.preventDefault();
     const { API_ENDPOINT } = config;
-
     try {
-        // const newPost = {
-        //   post_uploader_id: this.state.uploaderId,
-        //   post_description: e.target['post-description'].value,
-        //   content_url: this.state.previewSource
-        // } 
-        const previewSource = this.state.previewSource
-        const body = { previewSource };
-
-        console.log(body)
-    
-        await fetch (`${API_ENDPOINT}/media`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-        });
-      } catch (err) {
-          console.error(err);
-      }
+      const previewSource = this.state.previewSource
+      const body = { previewSource };
+      await fetch (`${API_ENDPOINT}/media`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(body),
+      });
+    } catch (err) {
+        console.error(err);
+    }
   }
   
   render() {

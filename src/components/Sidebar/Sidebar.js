@@ -7,12 +7,12 @@ const Sidebar = (props) => {
   const [userInfo, setUserInfo] = useState("")
 
   const setUserData = () => {
-    const userData = JSON.parse(localStorage.getItem('user'));
+    const userData = JSON.parse(localStorage.getItem('user'))
     setUserInfo(userData)
   }
 
   const closeNav = () => {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.width = "0"
   }
 
   const logout = e => {
@@ -27,7 +27,7 @@ const Sidebar = (props) => {
   useEffect(() => {
     setUserData()
     console.log(props.isAuth)
-  }, []);
+  }, [])
 
   if (props.isAuth) {
     const userLink = userInfo ? userInfo.id : ""
@@ -37,13 +37,13 @@ const Sidebar = (props) => {
       <div id="mySidenav" className="sidenav">
         <div id="sidebar-menu-head" className="flex-row">
           <button className="logout-btn" onClick={logout}>Logout</button>
-          <span className="closebtn" onClick={closeNav}><i class="far fa-window-close"></i></span>
+          <span className="closebtn" onClick={closeNav}><i className="far fa-window-close"></i></span>
         </div>
         <a href={`https://be-inspired.vercel.app/User/${userLink}`} onClick={closeNav}><img src={userImg} id="nav-profile"/></a>
         <p id="nav-support-text">{username}</p>
         <a href={`https://be-inspired.vercel.app/User/${userLink}`} onClick={closeNav}><span className="side-link">My Profile</span></a>
         <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
-        <Link to="/Login" onClick={closeNav}><span className="side-link">Login</span></Link>
+        <Link to="/" onClick={closeNav}><span className="side-link">Home</span></Link>
         <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
         <div id="responsive-nav-logo" className="navigation-logo">{<i class="fab fa-atlassian"></i>}</div>
       </div>
@@ -57,13 +57,12 @@ const Sidebar = (props) => {
         <span className="closebtn" onClick={closeNav}><i class="far fa-window-close"></i></span>
       </div>
       <i id="nav-profile" className="fab fa-atlassian mb-icon"></i>
-      <Link to="/Login" onClick={closeNav} ><span className="side-link">My Profile</span></Link>
       <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
-      <Link to="/Login" onClick={closeNav}><span className="side-link">Login</span></Link>
+      <Link to="/" onClick={closeNav}><span className="side-link">Home</span></Link>
       <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
       <div id="responsive-nav-logo" className="navigation-logo">- Be Inspirational -</div>
     </div>
   )
 }
 
-export default Sidebar;
+export default Sidebar

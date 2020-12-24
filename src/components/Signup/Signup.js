@@ -6,7 +6,6 @@ import './Signup.css'
 import videoBg from '../../images/video7.mp4'
 import videoBgMobile from '../../images/signup-mobile.mp4'
 import videoBgTablet from '../../images/signup-tablet.mp4'
-import { contains } from 'jquery';
 
 export default class Signup extends Component {
 
@@ -17,7 +16,8 @@ export default class Signup extends Component {
     lastName: '',
     userPassword: '',
     profileImgUrl: '',
-    isLoading: true
+    isLoading: true,
+    imgError: ''
   }
 
   static defaultProps = {
@@ -31,18 +31,16 @@ export default class Signup extends Component {
   openWidget = (e) => {
     e.preventDefault()
     const onUpload = async (url) => {
-      console.log('Form submitted')
       this.setState({
         profileImgUrl: url
       })
     }
     window.cloudinary.openUploadWidget({
       cloudName: "dvkqz0fed", singleUploadAutoClose: true, croppingCoordinatesMode: "custom", multiple: false, uploadPreset: "inspired", croppingAspectRatio: 1, showSkipCropButton: false, cropping: true }, (error, result) => { 
-        if (!error && result && result.event === "success") { 
-          console.log('Done! Here is the image info: ', result.info);
-          onUpload(result.info.secure_url)
-        }
-      });
+      if (!error && result && result.event === "success") { 
+        onUpload(result.info.secure_url)
+      }
+    });
   }
 
   componentDidMount() {
@@ -59,26 +57,30 @@ export default class Signup extends Component {
     const last_name = this.state.lastName
     const user_password = this.state.userPassword
     const profile_img_url = this.state.profileImgUrl
-
-    try {
-      this.setState({
-        isLoading: true
-      })
-      const body = { username, user_password, first_name, last_name, profile_img_url}
-      const response = await fetch(`${API_ENDPOINT}/users`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body)
-      })
-      const parseRes = await response.json();
-      localStorage.setItem("token", parseRes.token)
-      localStorage.setItem('user', JSON.stringify(parseRes.userInfo))
-      this.props.setUserInfo(parseRes.userInfo)
-      this.props.setAuth(true)
-    } catch (err) {
-      console.error(err.message)
+    if (this.state.profileImgUrl) {
+      try {
+        this.setState({
+          isLoading: true
+        })
+        const body = { username, user_password, first_name, last_name, profile_img_url}
+        const response = await fetch(`${API_ENDPOINT}/users`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body)
+        })
+        const parseRes = await response.json();
+        localStorage.setItem("token", parseRes.token)
+        localStorage.setItem('user', JSON.stringify(parseRes.userInfo))
+        this.props.setUserInfo(parseRes.userInfo)
+        this.props.setAuth(true)
+      } catch (err) {
+        console.error(err.message)
+      }
+      window.location.reload()
     }
-    window.location.reload()
+    this.setState({
+      imgError: '* Please Upload A Photo! *'
+    })
   }
 
   handleFileInputChange = (e) => {
@@ -144,7 +146,7 @@ export default class Signup extends Component {
               <div class="upload-btn-wrapper">
                 <span id="signup-upload-btn" class="btn" onClick={e => this.openWidget(e)}>Upload Picture <i class="fas fa-upload"></i></span>
               </div>
-              <div className="err-msg">{this.state.err}</div>
+              <div className="err-msg img-err">{this.state.imgError}</div>
             </div>
             <h3>Create A Username & Password</h3>
             <div className="signup-row">

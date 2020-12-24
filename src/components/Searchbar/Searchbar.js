@@ -9,16 +9,15 @@ const Searchbar = props => {
   const [err, setError] = useState("")
   const [activeSearch, setActiveSearch] = useState(false)
   const [isSearching, setIsSearching] = useState(false)
-  const { API_ENDPOINT } = config;
+  const { API_ENDPOINT } = config
 
   const searchPostsSubmit = async (e) => {
     setIsSearching(true)
     setCurrentSearch(searchTerm)
     e.preventDefault()
     try {
-      const response = await fetch(`${API_ENDPOINT}/posts/search?q=${searchTerm}`);
-      const jsonData = await response.json();
-      console.log(jsonData)
+      const response = await fetch(`${API_ENDPOINT}/posts/search?q=${searchTerm}`)
+      const jsonData = await response.json()
       setMatchingPosts(jsonData)  
       setActiveSearch(true)
     } catch (error) {
@@ -28,11 +27,9 @@ const Searchbar = props => {
   }
 
   const clearSearchPosts = async (e) => {
-    console.log('searching')
     try {
-      const response = await fetch(`${API_ENDPOINT}/posts`);
-      const jsonData = await response.json();
-      console.log(jsonData)
+      const response = await fetch(`${API_ENDPOINT}/posts`)
+      const jsonData = await response.json()
       setMatchingPosts(jsonData)  
     } catch (error) {
         console.error(err.message)
@@ -45,7 +42,6 @@ const Searchbar = props => {
 
   const searchTermHandler = target => {
     setSearchTerm(target)
-    console.log(target)
   }
 
   const resetSearch = () => {
@@ -79,7 +75,7 @@ const Searchbar = props => {
               value={searchTerm}
             >  
             </input>
-            <button id="search-btn" typeof='submit'><i class="fas fa-search"></i></button>
+            <button id="search-btn" typeof='submit'><i className="fas fa-search"></i></button>
           </form>
           <span id="search-clear" onClick={resetSearch}>Clear Search</span>
           <h3 id="search-results-heading">{`Posts found matching "${currentSearch.toUpperCase()}"`}</h3>
@@ -101,7 +97,7 @@ const Searchbar = props => {
             value={searchTerm} 
           >
           </input>
-          <button id="search-btn" typeof='submit'><i class="fas fa-search"></i></button>
+          <button id="search-btn" typeof='submit'><i className="fas fa-search"></i></button>
         </form>
       </div>
     </Fragment>

@@ -1,6 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import './Comments.css'
-import {Link} from 'react-router-dom'
 import Moment from 'react-moment'
 import config from '../../config'
 
@@ -25,7 +24,7 @@ const Comments = props => {
   }, []);
 
   const setUserData = () => {
-    const userData = JSON.parse(localStorage.getItem('user'));
+    const userData = JSON.parse(localStorage.getItem('user'))
     setUserInfo(userData)
   }
 
@@ -33,25 +32,25 @@ const Comments = props => {
     e.preventDefault()
     const { API_ENDPOINT } = config;
     try {
-        const post_id = props.postId
-        const comment = commentDescription
-        const user_id = userInfo.id
-        const user_img_url = userInfo.profile_img_url
-        const username = userInfo.username
-        const body = { post_id, comment, user_id, user_img_url, username };
-        setCommentDescription("")
-    
-        await fetch (`${API_ENDPOINT}/comments`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(body),
-        });
-      } catch (err) {
-          console.error(err);
+      const post_id = props.postId
+      const comment = commentDescription
+      const user_id = userInfo.id
+      const user_img_url = userInfo.profile_img_url
+      const username = userInfo.username
+      const body = { post_id, comment, user_id, user_img_url, username };
+      setCommentDescription("")
+  
+      await fetch (`${API_ENDPOINT}/comments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
+      });
+    } catch (err) {
+      console.error(err);
     }
     try {   
-      const response = await fetch(`${API_ENDPOINT}/comments/${props.postId}`);
-      const jsonData = await response.json();
+      const response = await fetch(`${API_ENDPOINT}/comments/${props.postId}`)
+      const jsonData = await response.json()
       setCommentList(jsonData)
       if (jsonData.length > 0) {
         props.getCommentsNum(jsonData.length)
@@ -63,8 +62,8 @@ const Comments = props => {
 
   const getComments = async () => {
     try {   
-      const response = await fetch(`${API_ENDPOINT}/comments/${props.postId}`);
-      const jsonData = await response.json();
+      const response = await fetch(`${API_ENDPOINT}/comments/${props.postId}`)
+      const jsonData = await response.json()
       setCommentList(jsonData)
       if (jsonData.length > 0) {
         props.getCommentsNum(jsonData.length)
@@ -76,8 +75,8 @@ const Comments = props => {
 
   const getCommentUser = async (userId) => {
     try {   
-      const response = await fetch(`${API_ENDPOINT}/users/${userId}`);
-      const jsonData = await response.json();
+      const response = await fetch(`${API_ENDPOINT}/users/${userId}`)
+      const jsonData = await response.json()
       setCommentUser(jsonData)
     } catch (err) {
         console.error(err.message)
@@ -86,8 +85,8 @@ const Comments = props => {
 
   const getAvatar = async () => {
     try {   
-      const response = await fetch(`${API_ENDPOINT}/users/${props.postUploaderId}`);
-      const jsonData = await response.json();
+      const response = await fetch(`${API_ENDPOINT}/users/${props.postUploaderId}`)
+      const jsonData = await response.json()
       setAvatar(jsonData.profile_img_url)
     } catch (err) {
         console.error(err.message)
@@ -131,7 +130,7 @@ const Comments = props => {
   return (
     <Fragment>
       <form className="comment-form-submit" onSubmit={e => addComment(e)}>
-        <input typeof="text" value={commentDescription} onChange={e => postCommentDescription(e)} placeholder="Type a comment"/>
+        <input typeof="text" value={commentDescription} onChange={e => postCommentDescription(e)} placeholder="Type a comment" required/>
         <button typeof="submit" className="comment-submit-btn">Submit</button>
       </form>
       {commentList

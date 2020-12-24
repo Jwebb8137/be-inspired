@@ -1,11 +1,11 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import config from '../../config';
-import UploadPost from '../UploadPost/UploadPost';
-import Post from '../Post/Post';
-import TextPost from '../Post/TextPost';
-import FeaturedVid from '../../images/video2.mp4';
+import React, { Fragment, useState, useEffect } from 'react'
+import config from '../../config'
+import UploadPost from '../UploadPost/UploadPost'
+import Post from '../Post/Post'
+import TextPost from '../Post/TextPost'
+import FeaturedVid from '../../images/video2.mp4'
 import './Profile.css';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom'
 
 const Profile = props => {
 
@@ -19,11 +19,10 @@ const Profile = props => {
   const [originalPosts, setOriginalPosts] = useState([])
   const [err, setError] = useState("")
   const [listFilter, setListFilter] = useState("")
-  const { API_ENDPOINT } = config;
+  const { API_ENDPOINT } = config
 
   const setUserData = () => {
-    const userData = JSON.parse(localStorage.getItem('user'));
-    console.log(userData.id)
+    const userData = JSON.parse(localStorage.getItem('user'))
     setLoggedUserInfo(userData)
   }
 
@@ -35,15 +34,12 @@ const Profile = props => {
   }, []);
 
   const getUserPosts = async () => {
-    console.log(props.match.params.UserId)
     setProfileId(props.match.params.UserId)
     const user = props.match.params.UserId
     try {   
-      const response = await fetch(`${API_ENDPOINT}/posts/${user}`);
-      const jsonData = await response.json();
-
-      setUserPosts(jsonData);
-      console.log(jsonData)
+      const response = await fetch(`${API_ENDPOINT}/posts/${user}`)
+      const jsonData = await response.json()
+      setUserPosts(jsonData)
       setOriginalPosts(jsonData)
       setIsLoading(false)
     } catch (err) {
@@ -52,11 +48,9 @@ const Profile = props => {
   }
 
   const getUserInfo = async () => {
-    console.log(props.match.params)
     try {   
-      const response = await fetch(`${API_ENDPOINT}/users/${props.match.params.UserId}`);
-      const jsonData = await response.json();
-
+      const response = await fetch(`${API_ENDPOINT}/users/${props.match.params.UserId}`)
+      const jsonData = await response.json()
       setProfileInfo(jsonData);
     } catch (err) {
         console.error(err.message)
@@ -74,8 +68,6 @@ const Profile = props => {
   }
 
   const getPosts = async () => {
-    console.log('working ... getting posts')
-    console.log(page)
     try {   
       const response = await fetch(`${API_ENDPOINT}/posts?page=${page}`)
       const jsonData = await response.json();
@@ -114,7 +106,6 @@ const Profile = props => {
 
   if(!isLoading && loggedUserInfo.id == profileId) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
-    console.log(`logged in id is ${profileInfo.id} & page user id is ${profileId}`)
     return (
       <Fragment>
         <div id="feed-container" className="fade-in-login">
@@ -184,7 +175,6 @@ const Profile = props => {
     )
   }
 
-
   return (
     <div id="loading-container">
       <h2>Loading Page</h2>
@@ -192,4 +182,4 @@ const Profile = props => {
   )
 }
 
-export default Profile;
+export default Profile

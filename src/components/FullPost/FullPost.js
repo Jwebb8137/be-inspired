@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
-import "./FullPost.css";
-import ModalImg from '../../images/modal-img.jpg';
+import React, { Fragment } from "react"
+import "./FullPost.css"
+import ModalImg from '../../images/modal-img.jpg'
 
 export default class FullPost extends React.Component {
   onClose = e => {
@@ -13,7 +13,7 @@ export default class FullPost extends React.Component {
   
   render() {
     if (!this.props.show) {
-      return null;
+      return null
     }
     return (
       <Fragment> 

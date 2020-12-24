@@ -1,17 +1,16 @@
-import React, { Fragment } from 'react';
-import {Link} from 'react-router-dom';
-import './Navbar.css';
+import React, { Fragment } from 'react'
+import {Link} from 'react-router-dom'
+import './Navbar.css'
 
 const Navbar = (props) => {
-
   const openNav = () => {
-    document.getElementById("mySidenav").style.width = "100vw";
+    document.getElementById("mySidenav").style.width = "100vw"
   }
 
   const closeNav = e => {    
     document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('active'))
     e.target.classList.add('active')
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.width = "0"
   }
 
   return (

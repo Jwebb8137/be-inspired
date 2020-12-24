@@ -1,12 +1,12 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState, useEffect } from 'react'
 import {Link} from 'react-router-dom'
-import Moment from 'react-moment';
+import Moment from 'react-moment'
 import Comments from '../Comments/Comments'
-import 'moment-timezone';
-import config from '../../config';
-import Profile from '../../images/profile.jpg';
-import './Post.css';
-import { render } from '@testing-library/react';
+import 'moment-timezone'
+import config from '../../config'
+import Profile from '../../images/profile.jpg'
+import './Post.css'
+import { render } from '@testing-library/react'
 
 const Post = props => {
 
@@ -19,7 +19,7 @@ const Post = props => {
   const [fillLike, setFillLike] = useState("far")
   const [isLoading, setIsLoading] = useState(false)
   const [isDeleting, setIsDeleting] = useState(false)
-  const { API_ENDPOINT } = config;
+  const { API_ENDPOINT } = config
 
   useEffect(() => {
     getAvatar()
@@ -29,7 +29,7 @@ const Post = props => {
   }, []);
 
   const setUserData = () => {
-    const userData = JSON.parse(localStorage.getItem('user'));
+    const userData = JSON.parse(localStorage.getItem('user'))
     setUserInfo(userData)
   }
 
@@ -38,9 +38,7 @@ const Post = props => {
   }
 
   const addLike = async (e) => {
-    console.log(disabledButton)
-
-    const { API_ENDPOINT } = config;
+    const { API_ENDPOINT } = config
     try {
       if (disabledButton) {
         setDisabledButton(false)
@@ -53,7 +51,7 @@ const Post = props => {
       setLikes(likes+1)
       const post_id = props.postId
       const post_user_like_id = userInfo.id
-      const body = { post_id, post_user_like_id };
+      const body = { post_id, post_user_like_id }
   
       await fetch (`${API_ENDPOINT}/likes`, {
           method: 'POST',
@@ -67,9 +65,9 @@ const Post = props => {
 
   const getLikes = async () => {
     try {   
-      const response = await fetch(`${API_ENDPOINT}/likes/${props.postId}`);
-      const jsonData = await response.json();
-      setLikes(jsonData.length);
+      const response = await fetch(`${API_ENDPOINT}/likes/${props.postId}`)
+      const jsonData = await response.json()
+      setLikes(jsonData.length)
       setIsLoading(false)
     } catch (err) {
         console.error(err.message)
@@ -78,8 +76,8 @@ const Post = props => {
 
   const getAvatar = async () => {
     try {   
-      const response = await fetch(`${API_ENDPOINT}/users/${props.postUploaderId}`);
-      const jsonData = await response.json();
+      const response = await fetch(`${API_ENDPOINT}/users/${props.postUploaderId}`)
+      const jsonData = await response.json()
       setAvatar(jsonData.profile_img_url)
     } catch (err) {
         console.error(err.message)
@@ -87,7 +85,7 @@ const Post = props => {
   }
 
   const showComments = () => {
-    document.getElementById(`comment-container-${props.postId}`).style.display = document.getElementById(`comment-container-${props.postId}`).style.display == 'none' ? 'block' : 'none';
+    document.getElementById(`comment-container-${props.postId}`).style.display = document.getElementById(`comment-container-${props.postId}`).style.display == 'none' ? 'block' : 'none'
   }
 
   const updateFeed = (props, id) => {
@@ -96,13 +94,13 @@ const Post = props => {
 
   const deletePost = async () => {
     setIsDeleting(true)
-    const { API_ENDPOINT } = config;
+    const { API_ENDPOINT } = config
     try {
       await fetch (`${API_ENDPOINT}/posts/delete/${props.postId}`, {
         method: 'DELETE',
       });
       } catch (err) {
-        console.error(err);
+        console.error(err)
     }
     props.deletePostUpdate(props.postId)
     setIsDeleting(false)
@@ -125,40 +123,40 @@ const Post = props => {
   if (props.contentUrl.includes("mp4")) {
     return (
       <Fragment>
-          <div className="post-container">
-            {deletePostBtn}
-            <div className="post-header">
-              <Link to={userProfile}><img src={avatar} id="post-avatar" /><span>{props.username}</span></Link>
-              <span id="post-date">
-                <Moment format='MMMM Do YYYY, h:mm a'>{props.uploadDate}</Moment>
-              </span>
-            </div>
-            <div className="post-img-container">
-            <video id="post-video" controls>
-              <source src={props.contentUrl} type="video/webm" /> 
-              <source src={props.contentUrl} type="video/ogg" /> 
-              <source src={props.contentUrl} type="video/mp4" />
-              <source src={props.contentUrl} type="video/3gp" />
-            </video>
-            </div>
-            <p id="video-description" className="post-description text-alt"> {props.postDescription} </p>
-            <div className="post-footer">
-              <div className="post-comments-container">
-                <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
-              </div>
-              <div id="post-likes">
-                {likes} likes 
-                <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
-              </div>              
-            </div>
-            <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
-            <Comments 
-              getCommentsNum={getCommentsNum}
-              postId={props.postId}
-              postUploaderId={props.postUploaderId}
-            />
-            </div>
+        <div className="post-container">
+          {deletePostBtn}
+          <div className="post-header">
+            <Link to={userProfile}><img src={avatar} id="post-avatar" /><span>{props.username}</span></Link>
+            <span id="post-date">
+              <Moment format='MMMM Do YYYY, h:mm a'>{props.uploadDate}</Moment>
+            </span>
           </div>
+          <div className="post-img-container">
+          <video id="post-video" controls>
+            <source src={props.contentUrl} type="video/webm" /> 
+            <source src={props.contentUrl} type="video/ogg" /> 
+            <source src={props.contentUrl} type="video/mp4" />
+            <source src={props.contentUrl} type="video/3gp" />
+          </video>
+          </div>
+          <p id="video-description" className="post-description text-alt"> {props.postDescription} </p>
+          <div className="post-footer">
+            <div className="post-comments-container">
+              <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
+            </div>
+            <div id="post-likes">
+              {likes} likes 
+              <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+            </div>              
+          </div>
+          <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
+          <Comments 
+            getCommentsNum={getCommentsNum}
+            postId={props.postId}
+            postUploaderId={props.postUploaderId}
+          />
+          </div>
+        </div>
       </Fragment>
     )
   }
@@ -195,41 +193,38 @@ const Post = props => {
   }
 
   return (
-      <Fragment>
-          <div className="post-container">
-            {deletePostBtn}
-            <div className="post-header">
-              <Link to={userProfile}><img src={avatar} id="post-avatar" /><span>{props.username}</span></Link>
-              <span id="post-date">
-                <Moment format='MMMM Do YYYY, h:mm a'>{props.uploadDate}</Moment>
-              </span>
-            </div>
-            {/* <video className="post-video" controls loop>
-                <source src={props.contentUrl} type="video/mp4" />
-            </video>  */}
-            <div className="post-img-container">
-              <img src={props.contentUrl} className="post-image" /> 
-            </div>
-            <p className="post-description text-alt"> {props.postDescription} </p>
-            <div className="post-footer">
-              <div className="post-comments-container">
-                <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
-              </div>
-              <div id="post-likes">
-                {likes} likes 
-                <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
-              </div>              
-            </div>
-            <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
-            <Comments 
-              getCommentsNum={getCommentsNum}
-              postId={props.postId}
-              postUploaderId={props.postUploaderId}
-            />
-            </div>
+    <Fragment>
+      <div className="post-container">
+        {deletePostBtn}
+        <div className="post-header">
+          <Link to={userProfile}><img src={avatar} id="post-avatar" /><span>{props.username}</span></Link>
+          <span id="post-date">
+            <Moment format='MMMM Do YYYY, h:mm a'>{props.uploadDate}</Moment>
+          </span>
+        </div>
+        <div className="post-img-container">
+          <img src={props.contentUrl} className="post-image" /> 
+        </div>
+        <p className="post-description text-alt"> {props.postDescription} </p>
+        <div className="post-footer">
+          <div className="post-comments-container">
+            <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
           </div>
-      </Fragment>
+          <div id="post-likes">
+            {likes} likes 
+            <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+          </div>              
+        </div>
+        <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
+        <Comments 
+          getCommentsNum={getCommentsNum}
+          postId={props.postId}
+          postUploaderId={props.postUploaderId}
+        />
+        </div>
+      </div>
+    </Fragment>
   )
 }
 
-export default Post;
+export default Post

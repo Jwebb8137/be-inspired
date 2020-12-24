@@ -1,7 +1,7 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, Component } from 'react'
 import ApiContext from '../../ApiContext'
-import config from '../../config';
-import './UploadPost.css';
+import config from '../../config'
+import './UploadPost.css'
 
 export default class UploadPost extends Component{
 
@@ -31,7 +31,7 @@ export default class UploadPost extends Component{
   }
 
   componentDidMount() {
-    const userData = JSON.parse(localStorage.getItem('user'));
+    const userData = JSON.parse(localStorage.getItem('user'))
     this.setState({
       userInfo: userData
     })
@@ -49,8 +49,8 @@ export default class UploadPost extends Component{
   }
 
   previewFile = (file) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
     reader.onloadend = () => {
       this.setState({
         previewSource: reader.result
@@ -79,26 +79,27 @@ export default class UploadPost extends Component{
 
     try {
       await fetch (`${API_ENDPOINT}/posts`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(body),
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(body),
       });
       this.setState({
         postSubmitted: true,
         previewFile: ""
       })
     } catch (err) {
-        console.error(err);
+        console.error(err)
     }
     this.resetPage()
     this.getPosts()
+    this.props.updatedFeedAdd()
     this.setState({
       submitting: false
     })
   }
 
   handleDescriptionChange = (e) => {
-    this.setState({postDescription: e.target.value});
+    this.setState({postDescription: e.target.value})
   }
 
   deletePreview = () => {
@@ -117,14 +118,14 @@ export default class UploadPost extends Component{
     window.cloudinary.openUploadWidget({
       cloudName: "dvkqz0fed", uploadPreset: "inspired-uploads", singleUploadAutoClose: false, showUploadMoreButton: false }, (error, result) => { 
         if (!error && result && result.event === "success") { 
-          console.log('Done! Here is the image info: ', result.info.secure_url);
+          console.log('Done! Here is the image info: ', result.info.secure_url)
           onUpload(result.info.secure_url)
         }
-      });
+      })
   }
 
   render() {
-    window.cloudinary.setCloudName("dvkqz0fed");
+    window.cloudinary.setCloudName("dvkqz0fed")
     if (this.state.err) {
       return (
         <Fragment>

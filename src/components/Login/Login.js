@@ -12,19 +12,19 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
     username: "",
     passwordInput: ""
   });
-  const [err, setError] = useState("");
+  const [err, setError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const { API_ENDPOINT } = config;
-  const { username, passwordInput } = inputs;
+  const { API_ENDPOINT } = config
+  const { username, passwordInput } = inputs
 
   const onChange = (e) => {
-    setInputs({ ...inputs, [e.target.name]: e.target.value });
+    setInputs({ ...inputs, [e.target.name]: e.target.value })
   };
 
   const onSubmitForm = async e => {
-    e.preventDefault();
+    e.preventDefault()
     try {
-      const body = { username, passwordInput };
+      const body = { username, passwordInput }
       const response = await fetch(`${API_ENDPOINT}/login`, {
         method: "POST",
         headers: {"Content-type" : "application/json"},
@@ -32,9 +32,9 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
       });
       const parseRes = await response.json()
       localStorage.setItem("token", parseRes.token)
-      localStorage.setItem('user', JSON.stringify(parseRes.userInfo));
+      localStorage.setItem('user', JSON.stringify(parseRes.userInfo))
       setUserInfo(parseRes.userInfo)
-      setAuth(true);
+      setAuth(true)
       window.location.reload()
     } catch (err) {
       console.error(err.message)
@@ -43,7 +43,7 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
   };
 
   const closeNav = () => {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.width = "0"
   }
 
   if (isLoading) {
@@ -69,9 +69,11 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
                 <div className='input-field'>
                   <input typeof='text' value={username} onChange={e => onChange(e)} name="username" placeholder="Username" required/>
                 </div>
+                <span className="login-helper">(Username: TestUser1)</span>
                 <div className='input-field'>
                   <input type='password' value={passwordInput} onChange={e => onChange(e)} name="passwordInput" placeholder="Password" required/>
                 </div>
+                <span className="login-helper">(Password: Testing123!)</span>
               </div>
             </div>
             <div className="err-msg">

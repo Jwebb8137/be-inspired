@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
-import './Create.css';
-import CreateBg from '../../images/create-main.jpg';
-import SupportImg1 from '../../images/create-supporting1.jpg';
-import SupportImg2 from '../../images/create-supporting2.jpg';
-import SupportImg3 from '../../images/main.jpg';
+import React, { Fragment } from 'react'
+import './Create.css'
+import CreateBg from '../../images/create-main.jpg'
+import SupportImg1 from '../../images/create-supporting1.jpg'
+import SupportImg2 from '../../images/create-supporting2.jpg'
+import SupportImg3 from '../../images/main.jpg'
 
 export default class Create extends React.Component {
   render() {

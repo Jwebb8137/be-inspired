@@ -14,13 +14,13 @@ import Footer from './components/Footer/Footer'
 import config from './config'
 
 function App() {
-  const { API_ENDPOINT } = config;
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const { API_ENDPOINT } = config
+  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
   const [userInfo, setUserInfo]  = useState({})
   
   const setAuth = (boolean) => {
-    setIsAuthenticated(boolean);
+    setIsAuthenticated(boolean)
   }
 
   const setUser = data => {
@@ -28,7 +28,7 @@ function App() {
   }
 
   async function isAuth() {
-    console.log = console.warn = console.error = () => {};
+    console.log = console.warn = console.error = () => {}
     try {
       const response = await fetch(`${API_ENDPOINT}/is-verified`, {
         method: "GET",

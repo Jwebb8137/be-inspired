@@ -91,10 +91,6 @@ a:hover:before {
   width: 250px;
 }
 
-@media (min-width: 576px) { 
-
-}
-
 @media (max-width: 768px) {
   .navigation {
     justify-content: space-between;
@@ -120,12 +116,4 @@ a:hover:before {
   .nav-link-container ul a {
     margin: 0;
   }
-}
-
-@media (min-width: 992px) {  
-
-}
-
-@media (min-width: 1200px) {  
-
 }

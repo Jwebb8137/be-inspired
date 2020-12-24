@@ -5,6 +5,13 @@
   margin-top: 10vh;
 }
 
+.login-helper {
+  display: block;
+  font-size: .8rem;
+  margin-top: -5px;
+  width: 100%;
+}
+
 #myVideo-mobile {
   min-height: 90vh;
 }
@@ -17,7 +24,8 @@
 
 .fade-in-login {
   animation: fadeInEffect linear 2s;
-  }
+}
+
 @keyframes fadeInEffect {
   0% {opacity:0;}
   50% {opacity: .5;}

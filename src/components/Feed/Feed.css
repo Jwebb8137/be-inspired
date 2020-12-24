@@ -93,10 +93,6 @@
   transition: .25s;
 }
 
-@media (max-width: 576px) { 
-  
-}
-
 @media (min-width: 768px) {  
   #feed-container {
     padding: 0 25px;
@@ -121,8 +117,5 @@
     font-size: 22px;
     margin: 0;
   }
-}
-
-@media (min-width: 992px) { 
 }
 
