@@ -130,7 +130,6 @@ input[type="file"] {
 #signup-upload-btn, #signup-submit {
   color: #fff !important;
   display: block;
-  font-weight: 600;
 }
 
 #mySignUpVideo {
@@ -234,7 +233,7 @@ input[type="file"] {
   #mySignUpVideo {
     display: block;
   }
-  
+
   #mySignUpVideoMobile {
     display: none;
   }
