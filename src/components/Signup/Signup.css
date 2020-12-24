@@ -31,7 +31,7 @@
   border-radius: 5px;
   font-family: 'Montserrat', sans-serif;
   margin: 5vh auto 0;
-  opacity: .9;
+  opacity: .95;
   padding: .5rem;
   position: relative;
   max-width: 650px;
@@ -42,6 +42,7 @@
   text-align: left;
   display: block;
   margin-left: 15px;
+  margin-top: 10px;
 }
 
 #profile-placeholder {
@@ -76,7 +77,7 @@ input[type="file"] {
   border: 1px solid white;
   box-shadow: 0px 1px 6px 1px #4f9dd4; 
   color: #fff;
-  background-color: #479cd6;
+  background-color: #1a1b1b;
   font-family: 'Montserrat';
   padding: 8px 20px;
   border-radius: 8px;
@@ -126,8 +127,10 @@ input[type="file"] {
   width: 250px;
 }
 
-#signup-upload-btn {
+#signup-upload-btn, #signup-submit {
+  color: #fff !important;
   display: block;
+  font-weight: 600;
 }
 
 #mySignUpVideo {
@@ -183,14 +186,20 @@ input[type="file"] {
 }
 
 @media (min-width: 768px) { 
+  .signup-container label {
+    margin-top: 0;
+  }
+
   #mySignUpVideoMobile {
     display: none;
   }
+
   #mySignUpVideoTablet {
     display: block;
     position: fixed;
     min-width: 100%;
   }
+
   .signup {
     background: rgba(0, 0, 0, 0.5);
     color: #393634;
@@ -199,15 +208,19 @@ input[type="file"] {
     margin: auto;
     text-align: center;
   }
+
   .signup-container {
     margin-top: 10vh;
   }
+
   .signup-row {
     flex-direction: row;
   }
+
   .signup h2 {
     font-size: 2rem;
   }
+
   .signup h3 {
     font-size: 1.5rem;
   }
@@ -217,9 +230,11 @@ input[type="file"] {
   #mySignUpVideoTablet {
     display: none;
   }
+
   #mySignUpVideo {
     display: block;
   }
+  
   #mySignUpVideoMobile {
     display: none;
   }
