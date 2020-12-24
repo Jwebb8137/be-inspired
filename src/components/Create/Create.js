@@ -21,14 +21,14 @@ export default class Create extends React.Component {
             </div>
             <div className="text-half">
               <h3>Inspiring Content</h3>
-              <p>Our approach to Be Inspired is and will always be to promote a positive and encouragin platform that promotes imagination and creativity through content!</p>
+              <p>Our approach to Be Inspired is and will always be to promote a positive and encouraging platform that promotes imagination and creativity through content!</p>
             </div>
           </div>
           <img src={SupportImg3} class="mobile-support-img"></img>
           <div className="create-container align-right">
             <div className="text-half">
               <h3>Promoting Positivity</h3>
-              <p>Our community of creators prides themselves on bringing individuals together, sharing their stories, and opening their lives up to those seeking to be inspired!</p>
+              <p>Our community of creators pride themselves on bringing individuals together, sharing their stories, and opening their lives up to those seeking to be inspired!</p>
             </div>
             <div className="img-half-container img-right">
               <img className="img-half" src={SupportImg1} />
