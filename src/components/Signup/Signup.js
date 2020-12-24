@@ -152,11 +152,11 @@ export default class Signup extends Component {
             <div className="signup-row">
               <div className="input-field">
                 <label htmlFor='username-input'>Username </label>
-                <input typeof="text" value={this.state.username} onChange={e=> this.handleUsernameChange(e)} name='username' required />
+                <input id="username-input" typeof="text" value={this.state.username} onChange={e=> this.handleUsernameChange(e)} name='username' required />
               </div>
               <div className='input-field'>
                 <label htmlFor='user-password'>Password </label>
-                <input type='password' value={this.state.userPassword} onChange={e=> this.handlePasswordChange(e)}  name='user-password' required 
+                <input id="user-password" type='password' value={this.state.userPassword} onChange={e=> this.handlePasswordChange(e)}  name='user-password' required 
                   pattern="^.*(?=.{6,})(?=.*[a-z])(?=.*[A-Z]).*$"
                 />
               </div>
@@ -169,7 +169,7 @@ export default class Signup extends Component {
               </div>
               <div className="input-field">
                 <label htmlFor='user-last-name'>Last Name</label>
-                <input typeof="text" value={this.state.lastName} onChange={e=> this.handleLastNameChange(e)}  name='user-last-name' required />
+                <input id="user-last-name" typeof="text" value={this.state.lastName} onChange={e=> this.handleLastNameChange(e)}  name='user-last-name' required />
               </div>
             </div>
             <button typeof="submit" id="signup-submit" class="btn">Sign Up <i class="fas fa-sign-in-alt"></i></button>
