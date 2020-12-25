@@ -49,6 +49,7 @@ const Feed = props => {
     }
   }
 
+  // Retrieve additional posts from database
   const getMorePosts = async () => {
     setPage(page => page + 1)
     const newPage = page + 1

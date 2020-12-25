@@ -44,6 +44,7 @@ const Searchbar = props => {
     setSearchTerm(target)
   }
 
+  // Reset any active search
   const resetSearch = () => {
     setSearchTerm("")
     clearSearchPosts()

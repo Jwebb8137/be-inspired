@@ -62,6 +62,10 @@
   width: 42px;
 }
 
+.fa-user-astronaut:hover {
+  cursor: pointer;
+}
+
 a:before {
   content: "";
   position: absolute;
