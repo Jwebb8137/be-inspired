@@ -121,7 +121,7 @@ const Comments = props => {
     return (
       <Fragment>
         <div id="deleting-post-container" className="upload-container fa-3x">
-          <i class="fas fa-spinner fa-pulse"></i>
+          <i Name="fas fa-spinner fa-pulse"></i>
         </div>
       </Fragment>
     )
@@ -140,8 +140,8 @@ const Comments = props => {
           }
           const userProfile = `https://be-inspired-master.vercel.app/User/${comment.user_id}`
           return (
-            <div className="comment">
-              {(comment.user_id == userInfo.id) ? <span id="comment-delete" onClick={deleteCommentHandler}><i class="fas fa-trash-alt"></i></span> : null}
+            <div className="comment" key={comment.id}>
+              {(comment.user_id == userInfo.id) ? <span id="comment-delete" onClick={deleteCommentHandler}><i className="fas fa-trash-alt"></i></span> : null}
               <a href={userProfile}><img src={comment.user_img_url} className="comment-profile-img"/></a>
               <div className="column-flex">
                 <p id="comment-username">{comment.username}</p>

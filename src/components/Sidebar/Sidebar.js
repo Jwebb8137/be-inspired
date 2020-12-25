@@ -26,7 +26,6 @@ const Sidebar = (props) => {
 
   useEffect(() => {
     setUserData()
-    console.log(props.isAuth)
   }, [])
 
   if (props.isAuth) {
@@ -45,7 +44,7 @@ const Sidebar = (props) => {
         <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
         <Link to="/" onClick={closeNav}><span className="side-link">Home</span></Link>
         <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
-        <div id="responsive-nav-logo" className="navigation-logo">{<i class="fab fa-atlassian"></i>}</div>
+        <div id="responsive-nav-logo" className="navigation-logo">{<i className="fab fa-atlassian"></i>}</div>
       </div>
     )
   }
@@ -54,7 +53,7 @@ const Sidebar = (props) => {
     <div id="mySidenav" className="sidenav">
       <div id="sidebar-menu-head" className="flex-row">
         <Link to="/Login" onClick={closeNav} className="logout-btn">Login</Link>
-        <span className="closebtn" onClick={closeNav}><i class="far fa-window-close"></i></span>
+        <span className="closebtn" onClick={closeNav}><i className="far fa-window-close"></i></span>
       </div>
       <i id="nav-profile" className="fab fa-atlassian mb-icon"></i>
       <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>

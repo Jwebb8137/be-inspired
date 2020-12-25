@@ -47,6 +47,7 @@ const Profile = props => {
     }
   }
 
+  // Retrieve and store target user data
   const getUserInfo = async () => {
     try {   
       const response = await fetch(`${API_ENDPOINT}/users/${props.match.params.UserId}`)
@@ -77,10 +78,12 @@ const Profile = props => {
     }
   }
 
+  // Reset current page back to default
   const resetPage = () => {
     setPage(1)
   }
 
+  // View for a user with no posted content that is viewing their own profile
   if(userPosts.length === 0 && loggedUserInfo.id == profileId) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
     return (
@@ -104,6 +107,7 @@ const Profile = props => {
     )
   }
 
+  // View for a user viewing their own profile
   if(!isLoading && loggedUserInfo.id == profileId) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
     return (
@@ -140,6 +144,7 @@ const Profile = props => {
     )
   }
 
+  // Default view
   if(!isLoading) {
     const { profile_img_url, username, first_name, last_name } = profileInfo
     return (

@@ -31,6 +31,7 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
         body: JSON.stringify(body)
       });
       const parseRes = await response.json()
+      // Store user information in local storage
       localStorage.setItem("token", parseRes.token)
       localStorage.setItem('user', JSON.stringify(parseRes.userInfo))
       setUserInfo(parseRes.userInfo)
@@ -63,7 +64,7 @@ const Login = ({ setAuth, setUserInfo, isAuth }) => {
         <div className='signin fade-in-login'>
           <form id="sign-in" className="form-container" onSubmit={onSubmitForm}>
             <div className="container">
-              <i id="login-icon" class="fab fa-atlassian"></i>
+              <i id="login-icon" className="fab fa-atlassian"></i>
               <h3 className="signup-sub-heading"><span className="green">Welcome</span> Back!</h3>
               <div id="login-row" className="row flex-col">
                 <div className='input-field'>

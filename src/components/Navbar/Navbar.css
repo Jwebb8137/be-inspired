@@ -22,20 +22,20 @@
 
 .nav-link-container {
   flex: 2;
-  padding: 0 25px;
+  padding: 17px 25px;
   text-align: right;
 }
 
-.nav-link-container ul {
+.nav-link-container div {
   display: inline-flex;
   list-style-type: none;
 }
 
-li:hover {
+.nav-link:hover {
   cursor: pointer;
 }
 
-.nav-link-container ul a {
+.nav-link-container div a {
   border-bottom: 3px solid transparent;
   color: #fff;
   margin: 0 25px;
@@ -62,10 +62,6 @@ li:hover {
   width: 42px;
 }
 
-#account-bubble li i{
-  margin-bottom: -10px;
-}
-
 a:before {
   content: "";
   position: absolute;
@@ -80,7 +76,7 @@ a:before {
   transition: all 0.3s ease-in-out 0s;
 }
 
-li.active a:before,
+.nav-link.active a:before,
 a:hover:before {
   visibility: visible;
   -webkit-transform: scaleX(1);
@@ -102,7 +98,7 @@ a:hover:before {
     flex: none;
     padding: 10px 0 0;
   }
-  .nav-link-container ul {
+  .nav-link-container div {
     padding: 0;
     list-style-type: none;
     margin: 0; 
@@ -113,7 +109,7 @@ a:hover:before {
   .nav-link {
     display: none;
   }
-  .nav-link-container ul a {
+  .nav-link-container div a {
     margin: 0;
   }
 }

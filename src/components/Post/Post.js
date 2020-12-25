@@ -28,6 +28,8 @@ const Post = props => {
     // eslint-disable-next-line
   }, []);
 
+
+  // Retrieve and store current user data from local storage
   const setUserData = () => {
     const userData = JSON.parse(localStorage.getItem('user'))
     setUserInfo(userData)
@@ -40,12 +42,14 @@ const Post = props => {
   const addLike = async (e) => {
     const { API_ENDPOINT } = config
     try {
+      // clear an active post like
       if (disabledButton) {
         setDisabledButton(false)
         setFillLike("far")
         setLikes(likes-1)
         return
       }
+      // set an active post like
       setDisabledButton(true)
       setFillLike("fas")
       setLikes(likes+1)
@@ -106,7 +110,7 @@ const Post = props => {
     setIsDeleting(false)
   }
 
-  const deletePostBtn = (props.postUploaderId == userInfo.id) ? <span id="post-delete" onClick={deletePost}>Delete <i class="fas fa-trash-alt"></i></span> : null
+  const deletePostBtn = (props.postUploaderId == userInfo.id) ? <span id="post-delete" onClick={deletePost}>Delete <i Name="fas fa-trash-alt"></i></span> : null
 
   const userProfile = `/User/${props.postUploaderId}`
 
@@ -114,12 +118,13 @@ const Post = props => {
     return (
       <Fragment>
         <div id="deleting-post-container" className="upload-container fa-3x">
-          <i class="fas fa-spinner fa-pulse"></i>
+          <i className="fas fa-spinner fa-pulse"></i>
         </div>
       </Fragment>
     )
   }
 
+  // Post view for video content
   if (props.contentUrl.includes("mp4")) {
     return (
       <Fragment>
@@ -142,11 +147,11 @@ const Post = props => {
           <p id="video-description" className="post-description text-alt"> {props.postDescription} </p>
           <div className="post-footer">
             <div className="post-comments-container">
-              <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
+              <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i className="fas fa-sort-down"></i></span>
             </div>
             <div id="post-likes">
               {likes} likes 
-              <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+              <button className="like-button" onClick={addLike}><i className={`${fillLike} fa-heart`}></i></button>
             </div>              
           </div>
           <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
@@ -161,6 +166,7 @@ const Post = props => {
     )
   }
 
+  // Post view for text only content
   if (!props.contentUrl) {
     return (
       <Fragment>
@@ -174,10 +180,10 @@ const Post = props => {
           </div>
           <p className="post-description-text text-alt"> {props.postDescription} </p>
           <div className="post-footer">
-            <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
+            <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i className="fas fa-sort-down"></i></span>
             <div id="post-likes">
               {likes} likes 
-              <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+              <button className="like-button" onClick={addLike}><i className={`${fillLike} fa-heart`}></i></button>
             </div>
           </div>
           <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>
@@ -192,6 +198,7 @@ const Post = props => {
     )
   }
 
+  // Post view for image content
   return (
     <Fragment>
       <div className="post-container">
@@ -208,11 +215,11 @@ const Post = props => {
         <p className="post-description text-alt"> {props.postDescription} </p>
         <div className="post-footer">
           <div className="post-comments-container">
-            <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i class="fas fa-sort-down"></i></span>
+            <span id="post-comments" onClick={showComments}>{commentsNum} Comments <i className="fas fa-sort-down"></i></span>
           </div>
           <div id="post-likes">
             {likes} likes 
-            <button className="like-button" onClick={addLike}><i class={`${fillLike} fa-heart`}></i></button>
+            <button className="like-button" onClick={addLike}><i className={`${fillLike} fa-heart`}></i></button>
           </div>              
         </div>
         <div id={`comment-container-${props.postId}`} className="comment-container" style={{display: 'none'}}>

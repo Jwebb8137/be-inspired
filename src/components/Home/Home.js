@@ -25,26 +25,26 @@ const Home = (props) => {
       <div className="row row-main">
         <Link to="/Feed">
           <div className="card-title bd-right-w">
-            <i class="far fa-lightbulb"></i>
+            <i className="far fa-lightbulb"></i>
             <h3>Inspire Others</h3>
             <p>Bring the fire you have in you and show it off to the world!</p>
-            <button className="main-btn">Start Inspiring <i class="fas fa-caret-right"></i></button>
+            <button className="main-btn">Start Inspiring <i className="fas fa-caret-right"></i></button>
           </div>
         </Link>
         <Link to="/Feed">
           <div className="card-title bd-right-w">
-            <i class="fas fa-heartbeat"></i>
+            <i className="fas fa-heartbeat"></i>
             <h3>Be Inspired</h3>
             <p>With neverending content made to inspire we have all you could want!</p>
-            <button className="main-btn">Get Inspiration <i class="fas fa-caret-right"></i></button>
+            <button className="main-btn">Get Inspiration <i className="fas fa-caret-right"></i></button>
           </div>
         </Link>
         <Link to="/Feed">
           <div className="card-title">
-            <i class="fas fa-hiking"></i>
+            <i className="fas fa-hiking"></i>
             <h3>Discovery Awaits</h3>
             <p>It all starts with a click & we will be your tour guide!</p>
-            <button className="main-btn">Explore Now <i class="fas fa-caret-right"></i></button>
+            <button className="main-btn">Explore Now <i className="fas fa-caret-right"></i></button>
           </div>
         </Link>
       </div>
@@ -61,7 +61,7 @@ const Home = (props) => {
         <p className="heading-text-support">Be the change that seeks to inspire and join a community that seeks to uplift, promote, and support their users through their content!</p>
       </div>
       <Link to="/Login">
-        <button className="main-btn-ext">Get Started <i class="fas fa-caret-right"></i></button>
+        <button className="main-btn-ext">Get Started <i className="fas fa-caret-right"></i></button>
       </Link>
     </Fragment>
   )

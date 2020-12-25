@@ -19,6 +19,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true)
   const [userInfo, setUserInfo]  = useState({})
   
+  // Autenticate current user
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean)
   }
@@ -27,6 +28,7 @@ function App() {
     setUserInfo(data)
   }
 
+  // Verify if user has been issued an active token
   async function isAuth() {
     console.log = console.warn = console.error = () => {}
     try {

@@ -28,6 +28,7 @@ export default class Signup extends Component {
 
   static contextType = ApiContext;
 
+  // Cloudinary upload widget
   openWidget = (e) => {
     e.preventDefault()
     const onUpload = async (url) => {
@@ -82,6 +83,8 @@ export default class Signup extends Component {
       imgError: '* Please Upload A Photo! *'
     })
   }
+
+  // Form value handlers
 
   handleFileInputChange = (e) => {
     const file = e.target.files[0]
@@ -143,8 +146,8 @@ export default class Signup extends Component {
               {!this.state.profileImgUrl && (
                 <i id="profile-placeholder" className="fas fa-user-circle"></i>
               )}
-              <div class="upload-btn-wrapper">
-                <span id="signup-upload-btn" class="btn" onClick={e => this.openWidget(e)}>Upload Picture <i class="fas fa-upload"></i></span>
+              <div className="upload-btn-wrapper">
+                <span id="signup-upload-btn" className="btn" onClick={e => this.openWidget(e)}>Upload Picture <i className="fas fa-upload"></i></span>
               </div>
               <div className="err-msg img-err">{this.state.imgError}</div>
             </div>
@@ -172,7 +175,7 @@ export default class Signup extends Component {
                 <input id="user-last-name" typeof="text" value={this.state.lastName} onChange={e=> this.handleLastNameChange(e)}  name='user-last-name' required />
               </div>
             </div>
-            <button typeof="submit" id="signup-submit" class="btn">Sign Up <i class="fas fa-sign-in-alt"></i></button>
+            <button typeof="submit" id="signup-submit" className="btn">Sign Up <i className="fas fa-sign-in-alt"></i></button>
           </form>
         </div>
       </Fragment>

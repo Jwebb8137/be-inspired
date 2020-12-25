@@ -108,6 +108,7 @@ export default class UploadPost extends Component{
     })
   }
  
+  // Cloudinary upload widget
   openWidget = (e) => {
     e.preventDefault()
     const onUpload = async (url) => {
@@ -125,6 +126,7 @@ export default class UploadPost extends Component{
   }
 
   render() {
+    // Set cloud name for cloudinary widget
     window.cloudinary.setCloudName("dvkqz0fed")
     if (this.state.err) {
       return (
@@ -140,7 +142,7 @@ export default class UploadPost extends Component{
       return (
         <Fragment>
           <div id="loading-container-upload" className="upload-container fa-3x">
-            <i class="fas fa-spinner fa-pulse"></i>
+            <i className="fas fa-spinner fa-pulse"></i>
           </div>
         </Fragment>
       )
@@ -156,7 +158,7 @@ export default class UploadPost extends Component{
               id="centered-toggle-button"
               onClick={this.setPostSubmit}
             >
-              Post Again <i class="fas fa-caret-right"></i>
+              Post Again <i className="fas fa-caret-right"></i>
             </button>
           </div>
         </Fragment>
@@ -175,8 +177,8 @@ export default class UploadPost extends Component{
               </div>
             </div>
             <div className="flex-row">
-              <button typeof="submit" id="upload-submit" class="btn">Share Post <i class="fas fa-share"></i></button>
-              <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Upload Media <i class="fas fa-upload"></i></button>
+              <button typeof="submit" id="upload-submit" className="btn">Share Post <i className="fas fa-share"></i></button>
+              <button id="upload-feed-btn" className="btn" onClick={e => this.openWidget(e)}>Upload Media <i className="fas fa-upload"></i></button>
             </div>
           </form>
         </Fragment>
@@ -188,7 +190,7 @@ export default class UploadPost extends Component{
         <Fragment>
           <form className="upload-container" onSubmit={e => this.onSubmitForm(e)}>
             <div id="img-preview-container-feed" className="input-field block">
-              <i id="img-preview-delete" onClick={this.deletePreview} class="fas fa-window-close"></i>
+              <i id="img-preview-delete" onClick={this.deletePreview} className="fas fa-window-close"></i>
               <video autoPlay loop muted className="img-upload-preview">
                 <source src={this.state.previewFile ? this.state.previewFile : false} type="video/webm" /> 
                 <source src={this.state.previewFile ? this.state.previewFile : false} type="video/ogg" /> 
@@ -206,8 +208,8 @@ export default class UploadPost extends Component{
               </div>
             </div>
             <div className="flex-row">
-              <button typeof="submit" id="upload-submit" class="btn bg-grey">Share Post</button>
-              <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Change Media</button>
+              <button typeof="submit" id="upload-submit" className="btn bg-grey">Share Post</button>
+              <button id="upload-feed-btn" className="btn" onClick={e => this.openWidget(e)}>Change Media</button>
             </div>
           </form>
         </Fragment>
@@ -218,7 +220,7 @@ export default class UploadPost extends Component{
       <Fragment>
         <form className="upload-container" onSubmit={e => this.onSubmitForm(e)}>
           <div id="img-preview-container-feed" className="input-field block">
-            <i id="img-preview-delete" onClick={this.deletePreview} class="fas fa-window-close"></i>
+            <i id="img-preview-delete" onClick={this.deletePreview} className="fas fa-window-close"></i>
             <img src={this.state.previewFile ? this.state.previewFile : false} className="img-upload-preview"/>
             <span className="img-helper">(Image Preview)</span>
           </div>
@@ -230,8 +232,8 @@ export default class UploadPost extends Component{
             </div>
           </div>
           <div className="flex-row">
-            <button typeof="submit" id="upload-submit" class="btn bg-grey">Share Post</button>
-            <button id="upload-feed-btn" class="btn" onClick={e => this.openWidget(e)}>Change Media</button>
+            <button typeof="submit" id="upload-submit" className="btn bg-grey">Share Post</button>
+            <button id="upload-feed-btn" className="btn" onClick={e => this.openWidget(e)}>Change Media</button>
           </div>
         </form>
       </Fragment>

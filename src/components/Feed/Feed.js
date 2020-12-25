@@ -63,6 +63,7 @@ const Feed = props => {
     }
   }
 
+  // Filter results for post viewing
   const setFilteredList = target => {
     if (target === 'my-posts') {
       getUserPosts()
@@ -89,6 +90,7 @@ const Feed = props => {
     setPosts(posts)
   }
 
+  // Reset current page to default value
   const resetPage = () => {
     setPage(1)
   }
@@ -104,7 +106,7 @@ const Feed = props => {
     getPosts()
   }, [])
 
-  const button = <button id="more-posts-btn" onClick={getMorePosts}>More Posts <i class="fas fa-caret-down"></i></button>
+  const button = <button id="more-posts-btn" onClick={getMorePosts}>More Posts <i className="fas fa-caret-down"></i></button>
 
   if (isLoading) {
     return (

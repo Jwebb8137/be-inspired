@@ -16,14 +16,14 @@ const Navbar = (props) => {
   return (
     <Fragment>
       <div className='navigation fade-in'>
-        <Link to="/" onClick={e => closeNav(e)}><div className="navigation-logo">BeInspired <i class="fab fa-atlassian"></i></div></Link>
+        <Link to="/" onClick={e => closeNav(e)}><div className="navigation-logo">BeInspired <i className="fab fa-atlassian"></i></div></Link>
         <div className='nav-link-container'>
-          <ul>
-            <Link to='/' onClick={e => closeNav(e)}><li className='nav-link'>Home</li></Link>
-            <Link to='/Feed' onClick={e => closeNav(e)}><li className='nav-link'>Discover</li></Link>
-            <Link to='/Create' onClick={e => closeNav(e)}><li className='nav-link'>About</li></Link>
-            <li id="account-bubble" onClick={openNav}><i class="fas fa-user-astronaut"></i></li>
-          </ul>
+          <div>
+            <Link to='/' onClick={e => closeNav(e)}><span className='nav-link'>Home</span></Link>
+            <Link to='/Feed' onClick={e => closeNav(e)}><span className='nav-link'>Discover</span></Link>
+            <Link to='/Create' onClick={e => closeNav(e)}><span className='nav-link'>About</span></Link>
+            <span id="account-bubble" onClick={openNav}><i className="fas fa-user-astronaut"></i></span>
+          </div>
         </div>
       </div>
     </Fragment>
