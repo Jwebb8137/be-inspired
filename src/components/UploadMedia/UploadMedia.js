@@ -49,23 +49,23 @@ export default class UploadMedia extends React.Component {
 
   onSubmitForm = async (e) => {
     e.preventDefault();
-    const { API_ENDPOINT } = config;
+    const { API_ENDPOINT } = config
     try {
       const previewSource = this.state.previewSource
-      const body = { previewSource };
+      const body = { previewSource }
       await fetch (`${API_ENDPOINT}/media`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(body),
       });
     } catch (err) {
-        console.error(err);
+        console.error(err)
     }
   }
   
   render() {
     if (!this.props.show) {
-      return null;
+      return null
     }
     return (
       <Fragment> 

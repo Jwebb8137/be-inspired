@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 
 const Profile = props => {
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
   const [profileInfo, setProfileInfo] = useState("")
   const [loggedUserInfo, setLoggedUserInfo] = useState("")
   const [posts, setPosts] = useState([])
