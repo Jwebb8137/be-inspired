@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 const Sidebar = (props) => {
 
   const [userInfo, setUserInfo] = useState("")
+  const [confirmDelete, setConfirmDelete] = useState(false)
 
   const setUserData = () => {
     const userData = JSON.parse(localStorage.getItem('user'))
@@ -40,6 +41,13 @@ const Sidebar = (props) => {
     }
   }
 
+  const confirmAccountDelete = () => {
+    setConfirmDelete(true)
+  }
+
+  const deleteAccountButton = !confirmDelete ? <span id="delete-account-btn" onClick={confirmAccountDelete}>Delete Account</span> : <span id="delete-account-btn" onClick={deleteAccount}>Click Here To Confirm</span>
+  const deleteAccountWarning = confirmDelete ? <p id="delete-account-warning">Warning: You will not be able to recover your account once deleted!</p> : null
+
   useEffect(() => {
     setUserData()
   }, [])
@@ -60,7 +68,10 @@ const Sidebar = (props) => {
         <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
         <Link to="/" onClick={closeNav}><span className="side-link">Home</span></Link>
         <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
-        <button id="delete-account-btn" onClick={deleteAccount}>Delete Account</button>
+        <div className="delete-account-container">
+          {deleteAccountButton}
+          {deleteAccountWarning}
+        </div>
         <div id="responsive-nav-logo" className="navigation-logo">{<i className="fab fa-atlassian"></i>}</div>
       </div>
     )

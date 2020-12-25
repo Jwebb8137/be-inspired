@@ -123,6 +123,18 @@ a {
   opacity: .8;
 }
 
+.delete-account-container {
+  margin-top: 1.75rem;
+  text-align: center;
+}
+
+#delete-account-warning {
+  color: #fff;
+  font-family: 'Montserrat';
+  font-size: .9rem;
+  padding: 0 1rem;
+}
+
 #delete-account-btn {
   background: none;
   border: none;
@@ -133,6 +145,12 @@ a {
   margin: 1rem auto 0;
   text-decoration: underline;
   width: 100%;
+}
+
+#delete-account-btn:hover {
+  color: rgb(172, 37, 37);
+  cursor: pointer;
+  transform: scale(1.05);
 }
 
 @media screen and (max-height: 450px) {
