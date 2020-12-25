@@ -123,6 +123,18 @@ a {
   opacity: .8;
 }
 
+#delete-account-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-family: 'Architects Daughter';
+  font-size: 1.2rem;
+  text-underline-offset: .15rem;
+  margin: 1rem auto 0;
+  text-decoration: underline;
+  width: 100%;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav .side-link {font-size: 18px;}

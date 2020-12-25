@@ -62,8 +62,9 @@
   width: 42px;
 }
 
-.fa-user-astronaut:hover {
+#account-bubble:hover {
   cursor: pointer;
+  opacity: .7;
 }
 
 a:before {

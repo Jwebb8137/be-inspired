@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './Sidebar.css'
+import config from '../../config'
 import {Link} from 'react-router-dom'
 
 const Sidebar = (props) => {
@@ -21,7 +22,22 @@ const Sidebar = (props) => {
     localStorage.removeItem("user")
     props.setAuth(false)
     closeNav()
-    window.location.assign("https://be-inspired.vercel.app/Login")
+    window.location.assign("/#")
+  }
+
+  const deleteAccount = async () => {
+    const { API_ENDPOINT } = config;
+    try {
+      await fetch (`${API_ENDPOINT}/users/${userInfo.id}`, {
+        method: 'DELETE'
+      });
+      localStorage.removeItem("token")
+      localStorage.removeItem("user")
+      props.setAuth(false)  
+      window.location.assign("/#")
+    } catch (err) {
+        console.error(err)
+    }
   }
 
   useEffect(() => {
@@ -44,6 +60,7 @@ const Sidebar = (props) => {
         <Link to="/Feed" onClick={closeNav}><span className="side-link">Browse</span></Link>
         <Link to="/" onClick={closeNav}><span className="side-link">Home</span></Link>
         <Link to="/Create" onClick={closeNav}><span className="side-link">About</span></Link>
+        <button id="delete-account-btn" onClick={deleteAccount}>Delete Account</button>
         <div id="responsive-nav-logo" className="navigation-logo">{<i className="fab fa-atlassian"></i>}</div>
       </div>
     )
