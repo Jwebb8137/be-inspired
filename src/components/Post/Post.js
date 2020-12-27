@@ -110,7 +110,7 @@ const Post = props => {
     setIsDeleting(false)
   }
 
-  const deletePostBtn = (props.postUploaderId == userInfo.id) ? <span id="post-delete" onClick={deletePost}>Delete <i Name="fas fa-trash-alt"></i></span> : null
+  const deletePostBtn = (props.postUploaderId == userInfo.id) ? <span id="post-delete" onClick={deletePost}>Delete <i class="fas fa-times"></i></span> : null
 
   const userProfile = `/User/${props.postUploaderId}`
 
