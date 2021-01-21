@@ -9,7 +9,7 @@
 
 #post-success-heading {
   font-size: 1.25rem;
-  margin: 1rem 0 .5rem;
+  margin: 1rem 0 0.5rem;
 }
 
 #img-preview-delete {
@@ -21,14 +21,20 @@
 }
 
 #img-preview-delete:hover {
-  opacity: .8;
+  opacity: 0.8;
   transform: scale(1.05);
 }
 
 .flex-row #upload-submit {
   max-width: 375px;
   width: 100%;
-} 
+}
+
+#upload-submit:hover,
+#upload-feed-btn:hover {
+  border: 1px solid #000;
+  color: #000;
+}
 
 .upload-container {
   border-radius: 5px;
@@ -37,11 +43,17 @@
   padding: 20px 10px 5px;
   max-width: 800px;
   text-align: center;
-  background-image: linear-gradient( #fff 0%,#8fc3e6 5%, #8fc3e6 95%, #fff 100% );
+  background-image: linear-gradient(
+    #fff 0%,
+    #8fc3e6 5%,
+    #8fc3e6 95%,
+    #fff 100%
+  );
   margin: 1rem auto;
 }
 
-.fa-upload, .fa-share {
+.fa-upload,
+.fa-share {
   margin-left: 3px;
 }
 
@@ -51,7 +63,7 @@
 }
 
 .img-helper {
-  margin-top: .75rem;
+  margin-top: 0.75rem;
   display: block;
 }
 
@@ -62,17 +74,17 @@
 
 .upload-container ::placeholder {
   color: #479cd6 !important;
-  font-family: 'Montserrat';
-  padding-left: .25rem;
+  font-family: "Montserrat";
+  padding-left: 0.25rem;
 }
 
 .flex-row {
   align-items: center;
   display: flex;
-  grid-row-gap: 0.75rem;  
+  grid-row-gap: 0.75rem;
   flex-direction: column;
   justify-content: center;
-  margin: .5rem auto 0;
+  margin: 0.5rem auto 0;
   padding: 0 0 1rem;
 }
 
@@ -84,20 +96,20 @@
 }
 
 #upload-submit:hover {
-  transition: .25s;
+  transition: 0.25s;
   background: #479cd6;
   border: 1px solid #000;
-  box-shadow: 0px 1px 6px 1px #000;  
+  box-shadow: 0px 1px 6px 1px #000;
   color: #fff;
   cursor: pointer;
-  opacity: .8;
+  opacity: 0.8;
 }
 
 #img-preview-container-feed {
   background: #fff;
   border: 1px solid #000;
   border-radius: 5px 5px 0 0;
-  padding: .75rem .5rem 2rem;
+  padding: 0.75rem 0.5rem 2rem;
   position: relative;
   margin-bottom: 1.5rem;
   width: -moz-fit-content;
@@ -114,7 +126,7 @@
   background: #479cd6;
   border: 1px solid #000;
   border-radius: 5px 5px 0 0;
-  padding: .75rem .75rem 2rem;
+  padding: 0.75rem 0.75rem 2rem;
   position: relative;
   margin-bottom: 1.5rem;
   width: fit-content;
@@ -129,20 +141,20 @@
 }
 
 .feed {
-    width: 90vw;
+  width: 90vw;
 }
 
 textarea {
-    border-radius: 5px;
-    font-size: 16px;
-    height: 20px;
-    padding: 10px;
-    width: 650px;
-    margin-bottom: -15px;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 20px;
+  padding: 10px;
+  width: 650px;
+  margin-bottom: -15px;
 }
 
 .upload-btn {
-    margin: 40px auto 0;
+  margin: 40px auto 0;
 }
 
 #loading-container-upload {
@@ -155,7 +167,7 @@ textarea {
   font-size: 4.5rem;
 }
 
-@media (min-width: 768px) {  
+@media (min-width: 768px) {
   .upload-container {
     padding: 20px 10px 5px;
   }
@@ -177,7 +189,7 @@ textarea {
     max-height: 150px;
   }
   #img-preview-container-feed {
-    padding: .75rem .75rem 2rem;
+    padding: 0.75rem 0.75rem 2rem;
   }
   #post-success-heading {
     font-size: 1.5rem;
