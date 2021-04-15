@@ -1,6 +1,7 @@
 <h1>Be-Inspired App</h1>
 
 <img src="./src/images/icon.jpg" width="200"/>
+[Live application](https://be-inspired.vercel.app/)
 
   <p>Aiming to create a social media platform geared towards promoting a positive and motivating experience Be-Inspired allows users to post and explore inspiring content uploaded by other users!</p>
   
