@@ -1,4 +1,4 @@
-<img src="https://media-exp1.licdn.com/dms/image/C4E16AQHDkkeclBCOig/profile-displaybackgroundimage-shrink_350_1400/0/1617483852259?e=1623888000&v=beta&t=nlM7a4RZU2sFTenoyQEsUkEZPZQaYsTPWbiB1NhIQmM" width="800"/>
+<img src="https://media-exp1.licdn.com/dms/image/C4E16AQHDkkeclBCOig/profile-displaybackgroundimage-shrink_350_1400/0/1617483852259?e=1623888000&v=beta&t=nlM7a4RZU2sFTenoyQEsUkEZPZQaYsTPWbiB1NhIQmM" width="1000"/>
 
 <h1>Full Stack Developer</h1>
 
