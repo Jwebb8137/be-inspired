@@ -1,6 +1,6 @@
-<h1>Be-Inspired App</h1>
+<h1>Full Stack Developer</h1>
 
-<img src="./src/images/icon.jpg" width="200"/>
+<img src="https://res.cloudinary.com/dvkqz0fed/image/upload/v1618461862/app/f3wl64z2jhh3sbchscom.jpg" width="200"/>
 
   <p>Aiming to create a social media platform geared towards promoting a positive and motivating experience Be-Inspired allows users to post and explore inspiring content uploaded by other users!</p>
   
@@ -21,29 +21,5 @@
   <img src="./src/images/Screenshot2.jpg" class="m-5 d-inline-block" width="300"/>
   <img src="./src/images/Screenshot8.jpg" class="m-5 d-inline-block" width="300"/>
 </p>
-
-### Image & Video Uploads
-<p>Users have the ability to upload and view images and videos. Using Cloudinary's upload widget users are able to crop, previews, and store their uploaded media.</p>
-
-<p>
-  <img src="./src/images/Screenshot4.jpg" class="m-5 d-inline-block" width="300"/>
-  <img src="./src/images/Screenshot5.jpg" class="m-5 d-inline-block" width="300"/>
-</p>
- 
-### User Profiles
-<p>Users are able to create profiles that show off who they are, their interests, and photos of themselves and their activities. Users are able to filter, view, and delete uploaded posts for full control of the content they deliver.</p>
-
-<p>
-  <img src="./src/images/Screenshot6.jpg" class="m-5 d-inline-block" width="300"/>
-  <img src="./src/images/Screenshot7.jpg" class="m-5 d-inline-block" width="300"/>
-</p>
-
-### Test it out!
-<p>Below is a test account that will allow you to view and experience the app in action!
-<p>Username: TestUser1 / Password: Testing123!<p>
-<p>( Please do not delete the test accounts )</p>
-
-## Additional Information
-<p>This application was designed and developed as part of a full-stack project that required developing an application using the PERN stack. As my second full-stack project I decided to construct a social media platform that would allow me to gain valuable experience in the overall design and implementation of a more complex database / backend. Accomplishing just that I really enjoyed creating this application, giving me the opportunity to create something I am passionate about!</p>  
 
 
