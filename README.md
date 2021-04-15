@@ -1,7 +1,7 @@
 <h1>Be-Inspired App</h1>
 
 <img src="./src/images/icon.jpg" width="200"/>
-[Live application](https://be-inspired.vercel.app/)
+https://be-inspired.vercel.app
 
   <p>Aiming to create a social media platform geared towards promoting a positive and motivating experience Be-Inspired allows users to post and explore inspiring content uploaded by other users!</p>
   
@@ -39,7 +39,7 @@
   <img src="./src/images/Screenshot7.jpg" class="m-5 d-inline-block" width="300"/>
 </p>
 
-### Test it out!
+### Test it out
 <p>Below is a test account that will allow you to view and experience the app in action!
 <p>Username: TestUser1 / Password: Testing123!<p>
 <p>( Please do not delete the test accounts )</p>
