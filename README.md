@@ -1,38 +1,47 @@
-<img src="https://media-exp1.licdn.com/dms/image/C4E16AQHDkkeclBCOig/profile-displaybackgroundimage-shrink_350_1400/0/1617483852259?e=1623888000&v=beta&t=nlM7a4RZU2sFTenoyQEsUkEZPZQaYsTPWbiB1NhIQmM" width="1000"/>
+<h1>Be-Inspired App</h1>
 
-<p>I am a Full Stack Web Developer specializing in front and back-end technologies such as React, JS, Node, PostgreSQL, MongoDB, & more!</p>
+<img src="./src/images/icon.jpg" width="200"/>
 
-<p>Describing the true passion I feel for coding and developing I feel like words alone don't do it much justice. Throughout life we all experience struggle and hardship, and usually tend to resort to a place where we can escape from it all and mentally find peace. Coding has, and continues to be, this utopia my mind can escape to and become enveloped in leaving the world as a whole behind. All that is left is just me and my code editor!</p>
-
-<p>Mixing this deep desire to code with other passions (30 seconds looking at my portfolio one passion stands above the rest) I am constantly looking for opportunities or scenarios where technology could be used to solve a problem or improve a situation. This is one of many reasons I find such satisfaction and meaning in what I code and how it helps others.</p>
-
-<p>Taking an enormous amount of pride and dedication in what I develop I am looking for the same passion and purpose in any future roles or opportunities I take.</p>
-
-<p>Taking an enormous amount of pride and dedication in what I develop I am looking for the same passion and purpose in any future roles or opportunities I take.
-</p>
-
+  <p>Aiming to create a social media platform geared towards promoting a positive and motivating experience Be-Inspired allows users to post and explore inspiring content uploaded by other users!</p>
   
-## Gallery
-<p>
-  Below I've included some screenshots of some of my work. I've also included live links to each project! Please take the time to check them out and hopefully we connect soon.</p>
-
-### Furever Friends Pet Adoption App
+## PERN Stack
+<p>Be-Inspired was built using the PERN stack as the foundation of the application. The application includes JWT authentication for login and access, PostGres for storing and retrieving user uploads and posts, and all media is handled using Cloudinary's Upload Widget and Cloud storage. Designed with a desktop first approach the application includes a responsive design that looks great across all media platforms.</p>
 
 <p>
   <img src="./src/images/Screenshot1.jpg" class="m-5 d-inline-block" width="300"/>
+  <img src="./src/images/Screenshot3.jpg" class="m-5 d-inline-block" width="300"/>
 </p>
 
-### PuppyLove Dating App
+## Features
+
+### Login Authentication
+<p>Using JWT, bcrypt, & form data users are able to create profiles, log in & out, and are granted limited access within the application before being authenticated.</p>
 
 <p>
-  <img src="./src/images/Screenshot1.jpg" class="m-5 d-inline-block" width="300"/>
+  <img src="./src/images/Screenshot2.jpg" class="m-5 d-inline-block" width="300"/>
+  <img src="./src/images/Screenshot8.jpg" class="m-5 d-inline-block" width="300"/>
 </p>
 
-### Be Inspired Social Media App
+### Image & Video Uploads
+<p>Users have the ability to upload and view images and videos. Using Cloudinary's upload widget users are able to crop, previews, and store their uploaded media.</p>
 
 <p>
-  <img src="./src/images/Screenshot1.jpg" class="m-5 d-inline-block" width="300"/>
+  <img src="./src/images/Screenshot4.jpg" class="m-5 d-inline-block" width="300"/>
+  <img src="./src/images/Screenshot5.jpg" class="m-5 d-inline-block" width="300"/>
+</p>
+ 
+### User Profiles
+<p>Users are able to create profiles that show off who they are, their interests, and photos of themselves and their activities. Users are able to filter, view, and delete uploaded posts for full control of the content they deliver.</p>
+
+<p>
+  <img src="./src/images/Screenshot6.jpg" class="m-5 d-inline-block" width="300"/>
+  <img src="./src/images/Screenshot7.jpg" class="m-5 d-inline-block" width="300"/>
 </p>
 
+### Test it out!
+<p>Below is a test account that will allow you to view and experience the app in action!
+<p>Username: TestUser1 / Password: Testing123!<p>
+<p>( Please do not delete the test accounts )</p>
 
-
+## Additional Information
+<p>This application was designed and developed as part of a full-stack project that required developing an application using the PERN stack. As my second full-stack project I decided to construct a social media platform that would allow me to gain valuable experience in the overall design and implementation of a more complex database / backend. Accomplishing just that I really enjoyed creating this application, giving me the opportunity to create something I am passionate about!</p>  
