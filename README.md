@@ -1,6 +1,6 @@
 <h1>Full Stack Developer</h1>
 
-<img src="https://res.cloudinary.com/dvkqz0fed/image/upload/v1618461862/app/f3wl64z2jhh3sbchscom.jpg" width="200"/>
+<img src="https://res.cloudinary.com/dvkqz0fed/image/upload/r_30/v1618462095/app/f3wl64z2jhh3sbchscom.jpg" width="200"/>
 
   <p>Aiming to create a social media platform geared towards promoting a positive and motivating experience Be-Inspired allows users to post and explore inspiring content uploaded by other users!</p>
   
