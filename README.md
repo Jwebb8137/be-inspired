@@ -1,3 +1,5 @@
+<img src="https://media-exp1.licdn.com/dms/image/C4E16AQHDkkeclBCOig/profile-displaybackgroundimage-shrink_350_1400/0/1617483852259?e=1623888000&v=beta&t=nlM7a4RZU2sFTenoyQEsUkEZPZQaYsTPWbiB1NhIQmM" width="800"/>
+
 <h1>Full Stack Developer</h1>
 
 <img src="https://res.cloudinary.com/dvkqz0fed/image/upload/r_30/v1618462095/app/f3wl64z2jhh3sbchscom.jpg" width="200"/>
