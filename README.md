@@ -13,7 +13,8 @@
 
   
 ## Gallery
-<pBelow I've included some screenshots of some of my work. I've also included live links to each project! Please take the time to check them out and hopefully we connect soon.</p>
+<p>
+  Below I've included some screenshots of some of my work. I've also included live links to each project! Please take the time to check them out and hopefully we connect soon.</p>
 
 ### Furever Friends Pet Adoption App
 
